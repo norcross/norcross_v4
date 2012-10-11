@@ -390,6 +390,8 @@ div.plugin-detail-nav a span {
 	font-weight: 700;
 }
 
+div.plugin-detail-block {}
+
 div.description-data p.plugin-tags {
 	word-break:break-all;
 }
@@ -434,6 +436,18 @@ div.screenshots-data li.screen-clear {
 	margin-left: 0;
 }
 */
+
+div.changelog-data h4 {
+
+}
+
+div.changelog-data ul {
+	margin: 0 0 20px 25px;
+}
+
+div.changelog-data ul li {
+	margin: 0 0 7px;
+}
 
 /* Snippets Archives */
 
