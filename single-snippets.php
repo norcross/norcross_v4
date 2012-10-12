@@ -10,7 +10,7 @@
     
         <section <?php post_class() ?> id="post-<?php the_ID(); ?>">
     
-            <div class="post-title-area">
+            <div class="post-title-area single-snippet-title">
                 <h1>
                     <?php the_title(); ?>
                     <a class="ex-link" href="<?php echo esc_url($gist_url); ?>" target="_blank" title="View this on GitHub"><i class="icon icon-external-link"></i></a>
@@ -19,11 +19,12 @@
             
             <div class="post-content-area">
                 <div class="entry-content">
-               
-                <?php 
+                <?php the_content(); ?>
+                <?php /*
                 echo '<div class="github-gist-block">';
                 echo '<script src="https://gist.github.com/'.$gist_id.'.js"></script>';
                 echo '</div>';
+                */
                 ?>
                
                 </div>

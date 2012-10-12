@@ -152,7 +152,7 @@ function _init_rkv_post_type() {
 			'query_var'				=> true,
 			'rewrite'				=> array( 'slug' => 'snippets', 'with_front' => false ),
 			'has_archive'			=> 'snippets',
-			'supports'				=> array('title'),
+			'supports'				=> array('title', 'editor'),
 		)
 	);
 	register_post_type( 'downloads',

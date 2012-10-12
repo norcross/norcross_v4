@@ -148,6 +148,11 @@ li.search-nav :-moz-placeholder {
 	margin: 0 0 15px;
 }
 
+/* General content stuff */
+#content .well {
+	overflow: hidden;
+}
+
 /* Blog archive */
 
 .post-list .post {
@@ -268,8 +273,12 @@ li.search-nav :-moz-placeholder {
 .social-button-container {
 	overflow: hidden;
 	padding: 4px 10px;
+/*	
 	border-top:1px dotted #1D2736;
 	border-bottom:1px dotted #1D2736;
+*/	
+	border-top:1px dotted #cccccc;
+	border-bottom:1px dotted #cccccc;
 	margin: 0 0 20px;
 }
 
@@ -282,6 +291,21 @@ li.search-nav :-moz-placeholder {
 .social-button-container a {
 	outline: none;
 	text-decoration: none;
+}
+
+/* Snippet Archives */
+
+
+/* Snippet Singles */
+
+.single-snippet-title {
+	padding: 10px 0;
+}
+
+.single-snippet-title h1 {
+	margin: 0 0 3px;
+	font-size: 32px;
+	line-height: 38px;
 }
 
 /* Speaking Archives */
@@ -480,6 +504,18 @@ div.changelog-data ul li {
 .snippets-list .pagination {
 	clear: both;
 }
+
+/* Pagination setup */
+/*
+#content .pagination li.active a {
+    background-color: #1D2436;
+    background-image: linear-gradient(to bottom, #1D2736, #1D1F36);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    color: #FFFFFF;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+} 
+*/
 
 /* Sidebar */
 

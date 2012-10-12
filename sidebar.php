@@ -28,6 +28,13 @@ echo '<div class="nav nav-list">';
 		dynamic_sidebar( 'blog-sidebar' );
 	endif;
 
+	if (is_post_type_archive('snippets') ):
+		echo '<div class="widget widget-snippet-search">';
+		echo '<h4 class="nav-header"><i class="icon icon-search pull-right"></i>Search Snippets</h4>';
+		echo rkv_snippet_search();
+		echo '</div>';
+	endif;
+
 	if (is_post_type_archive(array ('snippets', 'tutorials') ) || is_singular('tutorials')) :
 		echo rkv_github_repos();
 	endif;

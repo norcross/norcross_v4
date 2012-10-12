@@ -180,7 +180,7 @@ function rkv_post_details() {
 	$auth_url	= get_author_posts_url($auth_id);
 
 	echo '<p class="post-details">';
-	echo '<span class="detail-item author vcard"><i class="icon icon-user"></i> <span class="fn"><a href="'.$auth_url.'" rel="author" title="View all posts by '.$auth_name.'">'.$auth_name.'</a></span></span>';
+	echo '<span class="detail-item author vcard hidden-phone"><i class="icon icon-user"></i> <span class="fn"><a href="'.$auth_url.'" rel="author" title="View all posts by '.$auth_name.'">'.$auth_name.'</a></span></span>';
 	echo '<span title="'.$schm_date.'" class="detail-item date published updated time"><i class="icon icon-calendar"></i> '.$post_date.'</span>';
 	echo '<span class="detail-item detail-last detail-comment"><i class="icon icon-comments"></i> ';
 	echo comments_popup_link( 'Leave a Comment', '1 Comment', '% Comments', '', '' );
@@ -450,4 +450,15 @@ function rkv_github_repos() {
 	echo '</div>';
 
 	echo '</div>';
+}
+
+
+function rkv_snippet_search() {
+		echo '<div class="input-append">';
+		echo '<form class="searchform" role="search" method="get" id="snippet-search" action="' . home_url( '/' ) . '" >';
+		echo '<input type="text" value="' . get_search_query() . '" name="s" id="s" class="s" />';
+		echo '<input type="submit" class="btn btn-primary" value="Search" id="snippetsubmit">';
+		echo '<input type="hidden" name="post_type" value="snippets" />';
+		echo '</form>';
+		echo '</div>';
 }

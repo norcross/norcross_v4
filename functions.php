@@ -26,6 +26,7 @@ class NorcrossVersionFour {
         add_action ( 'template_redirect',               array( $this, 'redirects'               ),      1       );
         add_action ( 'gists_cron',                      array( $this, 'run_gists_cron'          )               );
         
+        add_filter ( 'the_content',                     array( $this, 'snippet_display'         ),      25      );
         add_filter ( 'wp_nav_menu_items',               array( $this, 'nav_search'              ),      10, 2   );
         add_filter ( 'post_thumbnail_html',             array( $this, 'fix_thumbs'              ),      10      );
         add_filter ( 'image_send_to_editor',            array( $this, 'fix_thumbs'              ),      10      );
@@ -225,6 +226,35 @@ class NorcrossVersionFour {
             $query->query_vars['posts_per_page']    = 4;
             return;
         }
+
+    }
+
+    /**
+     * filter in GitHub Gist after post content
+     *
+     * @return Norcrossv4
+     */
+
+
+    function snippet_display( $content ) {
+
+        // bail on non-snippets
+        if ( !is_singular('snippets') )
+            return $content;
+            
+        global $post;
+        $gist_id    = get_post_meta($post->ID, '_rkv_gist_id', true);
+
+        // bail if we don't have a Gist ID
+        if(empty($gist_id))
+            return $content;
+                
+        $gist = '<div class="github-gist-block">';
+        $gist .= '<script src="https://gist.github.com/'.$gist_id.'.js"></script>';
+        $gist .= '</div>';
+
+        // Returns the content with the gist.
+        return $content.$gist;
 
     }
 

@@ -1,5 +1,4 @@
 <?php
-
 		
 // Comment Layout
 function rkv_comment_callback($comment, $args, $depth) {
