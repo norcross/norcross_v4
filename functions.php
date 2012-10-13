@@ -542,8 +542,9 @@ class NorcrossVersionFour {
             $photo_check = $this->insta_check();
 
             if (!in_array($photo_id, $photo_check)) {
-                    
-                $pubdt  = date('Y-m-d H:i:s', $photo_id);
+                
+                $stamp  = $photo_id - 18000;    
+                $pubdt  = date('Y-m-d H:i:s', $stamp);
                 // make caption with fallback
                 $caption_base   = $photo->caption;
                 $image_caption  = empty($caption_base->text) ? '' : $caption_base->text;
