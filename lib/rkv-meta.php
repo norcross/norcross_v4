@@ -52,10 +52,11 @@ function cmb_sample_metaboxes( array $meta_boxes ) {
 		'show_names' => true, // Show field names on the left
 		'fields' => array(
 			array(
-				'name' => 'File URL',
-				'desc' => 'Enter the entire URL',
-				'id'   => $prefix . 'download_url',
-				'type' => 'text',
+				'name'	=> 'File URL',
+				'desc'	=> 'Enter the entire URL',
+				'id'	=> $prefix . 'download_url',
+				'type'	=> 'text',
+				'std'	=> 'http://andrewnorcross.com/files/music/'
 			)
 		)
 	);

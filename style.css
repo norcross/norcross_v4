@@ -78,6 +78,22 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: 'UniversBold',"Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
+/* some randoms */
+
+.centered-text {
+	text-align: center;
+}
+
+.clear-well {
+    background-color: #ffffff;
+    border: 1px solid #E3E3E3;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+    margin-bottom: 20px;
+    min-height: 20px;
+    padding: 19px;
+}
+
 /* Nav bar stuff */
 
 div.navbar-inverse .social-header a {
@@ -502,6 +518,12 @@ div.changelog-data ul li {
 }
 
 .snippets-list .pagination {
+	clear: both;
+}
+
+/* Music Signup page */
+
+.music-clear {
 	clear: both;
 }
 

@@ -3,6 +3,8 @@
 include('lib/rkv-admin.php');
 include('lib/rkv-structure.php');
 include('lib/rkv-builds.php');
+include('lib/rkv-api-calls.php');
+include('lib/rkv-ajax.php');
 include('lib/rkv-types.php');
 include('lib/rkv-meta.php');
 include('lib/rkv-widgets.php');
@@ -266,7 +268,7 @@ class NorcrossVersionFour {
 
 
     public function social_scripts() {
-        if (is_singular(array('post', 'tutorials', 'plugins') ) ) {
+        if (is_singular(array('post', 'tutorials', 'plugins', 'snippets') ) ) {
     ?>
 
         <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>

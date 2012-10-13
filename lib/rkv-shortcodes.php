@@ -2,17 +2,16 @@
 // music signup form
 function music_shortcode($content = NULL) {
 
-    $form = '<div class="span8">';
-    $form .= '<div id="mc_embed_signup" class="well span3 offset1">';
+    $form = '<div id="music-signup-form" class="clear-well span3 offset1">';
     $form .= '<legend>Get On Board</legend>';
-	$form .= '<form action="http://andrewnorcross.us1.list-manage1.com/subscribe/post?u=53df8c1710c035ea67f6511cc&amp;id=e6f975acba" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>';    
-	
-	$form .= '<input class="span3 required email" type="email" placeholder="email address" value="" name="EMAIL" id="mce-EMAIL">';
-    $form .= '<button class="btn btn-inverse" name="subscribe" id="mc-embedded-subscribe" type="submit">Subscribe</button>';
+	$form .= '<form>';    
+	$form .= '<input class="span3 required email" type="email" placeholder="email address" value="" name="music-email" id="music-email">';
+    $form .= '<input type="button" class="btn btn-inverse" name="music-subscribe" id="music-subscribe" value="Subscribe">';
     $form .= '</form>';
 	$form .= '</div>';
-	$form .= '</div>';
-
+    // placeholders for AJAX response
+    $form .= '<span id="music-msg"></span>';
+    $form .= '<span id="music-list"></span>';
 
     // now send it all back
     return $form;

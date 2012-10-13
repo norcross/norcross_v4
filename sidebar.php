@@ -20,10 +20,6 @@ echo '<div id="sidebar" class="span4 slide-sidebar">';
 echo '<div class="well well-small sidebar-nav">';
 echo '<div class="nav nav-list">';
 
-	if (is_page('music') ) :
-		echo rkv_music_list();
-	endif;
-
 	if (is_home() || is_category() || is_tag() || is_singular('post')) :
 		dynamic_sidebar( 'blog-sidebar' );
 	endif;

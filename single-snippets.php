@@ -18,6 +18,7 @@
             </div>
             
             <div class="post-content-area">
+                <?php echo rkv_social(); ?>
                 <div class="entry-content">
                 <?php the_content(); ?>
                 <?php /*

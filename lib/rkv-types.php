@@ -292,6 +292,7 @@ add_action('admin_menu' , 'create_sort_pages');
 
 function create_sort_pages() {
     add_submenu_page('edit.php?post_type=speaking', 'Sort Items', 'Sort Items', 'edit_posts', 'sort-speaking', 'speaking_sort_order');
+    add_submenu_page('edit.php?post_type=downloads', 'Sort Items', 'Sort Items', 'edit_posts', 'sort-downloads', 'downloads_sort_order');
 }
 
 function sortable_print_scripts() {
@@ -322,7 +323,7 @@ add_action('wp_ajax_sortable_sort', 'save_sortable_order');
 function speaking_sort_order() {
     $svcs = new WP_Query('post_type=speaking&post_status=publish&posts_per_page=-1&orderby=menu_order&order=ASC');
 ?>
-    <div class="wrap">
+    <div class="wrap custom-sort-wrap">
     <h3>Sort Items <img src="<?php bloginfo('stylesheet_directory'); ?>/lib/img/loading.gif" id="loading-animation" /></h3>
     <ul id="custom-type-list">
     <?php
@@ -335,4 +336,18 @@ function speaking_sort_order() {
 
 <?php }
 
+function downloads_sort_order() {
+    $svcs = new WP_Query('post_type=downloads&post_status=publish&posts_per_page=-1&orderby=menu_order&order=ASC');
+?>
+    <div class="wrap custom-sort-wrap">
+    <h3>Sort Items <img src="<?php bloginfo('stylesheet_directory'); ?>/lib/img/loading.gif" id="loading-animation" /></h3>
+    <ul id="custom-type-list">
+    <?php
+    while ( $svcs->have_posts() ) : $svcs->the_post();
+    ?>
+        <li id="<?php the_id(); ?>"><?php the_title(); ?></li>          
+    <?php endwhile; ?>
+    </ul>
+    </div>
 
+<?php }

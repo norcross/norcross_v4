@@ -23,7 +23,7 @@ add_filter('menu_order', 'rkv_custom_menu_order');
 // pull stuff into admin
 function rkv_admin_scripts() {
 	wp_enqueue_style( 'rkv-admin', get_bloginfo('stylesheet_directory').'/lib/css/admin.css', array(), null, 'all' );
-//	wp_enqueue_script( 'rkv-admin', get_bloginfo('stylesheet_directory').'/lib/js/rkv.admin.js', array('jquery'), null, true );
+	wp_enqueue_script( 'rkv-admin', get_bloginfo('stylesheet_directory').'/lib/js/rkv.admin.js', array('jquery'), null, true );
 }
 
 add_action ( 'admin_enqueue_scripts',  'rkv_admin_scripts', 10 );
