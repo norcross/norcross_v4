@@ -13,6 +13,7 @@ function rkv_custom_menu_order($menu_ord) {
 		'edit.php?post_type=snippets',		// custom post type
 		'edit.php?post_type=tools',			// custom post type
 		'edit.php?post_type=downloads',		// custom post type
+		'edit.php?post_type=photos',		// custom post type
 		'upload.php',
 	);
 }

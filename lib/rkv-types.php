@@ -185,6 +185,36 @@ function _init_rkv_post_type() {
 			'supports'				=> array('title'),
 		)
 	);
+	register_post_type( 'photos',
+		array(
+			'labels' => array(
+				'menu_name'				=> __( 'Photos' ),
+				'name'					=> __( 'Photos' ),
+				'singular_name'			=> __( 'Photo' ),
+				'add_new'				=> __( 'Add New' ),
+				'add_new_item'			=> __( 'Add New Photo' ),
+				'edit'					=> __( 'Edit' ),
+				'edit_item'				=> __( 'Edit Photo' ),
+				'new_item'				=> __( 'New Photo' ),
+				'view'					=> __( 'View Photo' ),
+				'view_item'				=> __( 'View Photo' ),
+				'search_items'			=> __( 'Search Photos' ),
+				'not_found'				=> __( 'No Photos found' ),
+				'not_found_in_trash'	=> __( 'No Photos found in Trash' ),
+			),
+			'public'				=> true,
+			'show_ui'				=> true,
+			'publicly_queryable'	=> true,
+			'exclude_from_search'	=> true,
+			'menu_position'			=> null,
+			'capability_type'		=> 'post',
+			'menu_icon'				=> get_stylesheet_directory_uri() . '/lib/img/menu_photos.png',
+			'query_var'				=> true,
+			'rewrite'				=> false,
+			'has_archive'			=> false,
+			'supports'				=> array('title', 'editor'),
+		)
+	);
 	register_taxonomy(
 		'tutorial-type',
 		array( 'tutorials' ),

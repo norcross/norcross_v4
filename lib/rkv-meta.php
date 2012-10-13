@@ -82,7 +82,42 @@ function cmb_sample_metaboxes( array $meta_boxes ) {
 				'type' => 'text',
 			)
 		)
-	);	
+	);
+	// instagram data
+	$meta_boxes[] = array(
+		'id'         => 'photo_detail',
+		'title'      => 'Photo Details',
+		'pages'      => array( 'photos', ), // Post type
+		'context'    => 'normal',
+		'priority'   => 'high',
+		'show_names' => true, // Show field names on the left
+		'fields' => array(
+			array(
+				'name' => 'Thumbnail URL',
+				'desc' => '',
+				'id'   => $prefix . 'photo_thumb',
+				'type' => 'file',
+			),
+			array(
+				'name' => 'Standard URL',
+				'desc' => '',
+				'id'   => $prefix . 'photo_stand',
+				'type' => 'file',
+			),			
+			array(
+				'name' => 'Full Size URL',
+				'desc' => '',
+				'id'   => $prefix . 'photo_full',
+				'type' => 'file',
+			),
+			array(
+				'name' => 'Plugin ID',
+				'desc' => 'Enter the instagram timestamp',
+				'id'   => $prefix . 'photo_id',
+				'type' => 'text_medium',
+			),
+		)
+	);
 //http://www.slideshare.net/norcross
 	$meta_boxes[] = array(
 		'id'         => 'speaking_details',

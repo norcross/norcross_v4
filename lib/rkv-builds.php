@@ -176,3 +176,31 @@ function rkv_snippet_search() {
 		echo '</form>';
 		echo '</div>';
 }
+
+// instagram feed
+
+function rkv_instagram_feed() {
+
+	$args = array (
+		'fields'        => 'ids',
+		'post_type'     => 'photos',
+		'numberposts'   => -1,
+		'meta_key'      => '_rkv_photo_id',
+	);
+
+	$photos = get_posts( $args );
+
+	foreach ( $photos as $photo ) :
+
+		$caption	= get_post_field('post_content', $photo);
+		$standard	= get_post_meta($photo, '_rkv_photo_stand', true);
+		$fullsize	= get_post_meta($photo, '_rkv_photo_full', true);
+
+		echo '<div class="instagram-photo">';
+		echo '<a class="instagram-link" href="'.$fullsize.'" title="'.$caption.'" rel="instagram-gallery">';
+		echo '<img class="instagram-pic" src="'.$standard.'" alt="'.$caption.'" title="'.$caption.'">';
+		echo '</a>';
+		echo '</div>';
+
+	endforeach;
+}

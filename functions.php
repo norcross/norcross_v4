@@ -27,6 +27,7 @@ class NorcrossVersionFour {
         add_action ( 'wp_footer',                       array( $this, 'social_scripts'          )               );
         add_action ( 'template_redirect',               array( $this, 'redirects'               ),      1       );
         add_action ( 'gists_cron',                      array( $this, 'run_gists_cron'          )               );
+        add_action ( 'insta_cron',                      array( $this, 'run_insta_cron'          )               );
         
         add_filter ( 'the_content',                     array( $this, 'snippet_display'         ),      25      );
         add_filter ( 'wp_nav_menu_items',               array( $this, 'nav_search'              ),      10, 2   );
@@ -87,9 +88,12 @@ class NorcrossVersionFour {
         add_image_size      ( 'speaking', 250, 250, true );
 
         // add cron job for gists
-        if ( !wp_next_scheduled( 'gists_cron' ) ) {
+        if ( !wp_next_scheduled( 'gists_cron' ) )
             wp_schedule_event(time(), 'twicedaily', 'gists_cron');
-        }
+
+        if ( !wp_next_scheduled( 'insta_cron' ) )
+            wp_schedule_event(time(), 'twicedaily', 'insta_cron');
+
         /*
         $timestamp = wp_next_scheduled( 'gists_cron' );
         wp_unschedule_event($timestamp, 'gists_cron' );
@@ -463,6 +467,131 @@ class NorcrossVersionFour {
 
     } // end the function
 
+    /**
+     * helper function for Instagram
+     *
+     * @return Norcrossv4
+     */
+
+    public function insta_check() {
+
+        $args = array (
+            'fields'        => 'ids',
+            'post_type'     => 'photos',
+            'numberposts'   => -1,
+            'meta_key'      => '_rkv_photo_id',
+        );
+
+        $photo_query = get_posts( $args );
+
+        $photo_count = (count($photo_query) > 0 ) ? true : false;
+
+        if($photo_count == false)
+            $photo_ids[] = 0;
+
+        if($photo_count == true) {
+            foreach ($photo_query as $photo):
+                $photo_ids[] = get_post_meta($photo, '_rkv_photo_id', true);
+            endforeach;
+        }
+
+        return $photo_ids;
+
+    }
+
+    /**
+     * run cron for instagram
+     *
+     * @return Norcrossv4
+     */
+
+    public function run_insta_cron() {
+
+    /*
+    Client ID       7ff72e53f4af49d890df3ef3731e8234
+    Client Secret   c80efc2b883748a09e13e5a8465caae0
+    Website URL     http://andrewnorcross.com
+    Redirect URI    http://andrewnorcross.com
+    http://andrewnorcross.com/#access_token=30588932.7ff72e5.47a653791d604efd8c8cb7eaec695ed2
+    https://api.instagram.com/oauth/authorize/?client_id=7ff72e53f4af49d890df3ef3731e8234&redirect_uri=http://andrewnorcross.com&response_type=token
+    */
+
+        $args   = array (
+            'sslverify'     => false,
+        );
+
+        // grab username and total photos to grab
+        $user   = '30588932';
+        $token  = '30588932.7ff72e5.47a653791d604efd8c8cb7eaec695ed2';
+        $count  = 60;
+
+        // set number of items to return
+        if (!empty ($number) ) { $max = $number; } else { $max = 60; } // 60 is the max return in the Instagram API
+    
+        $request    = new WP_Http;
+        $url        = 'https://api.instagram.com/v1/users/self/media/recent?access_token='.$token.'&count='.$count.'';
+        $response   = wp_remote_get ( $url, $args );
+
+        $data_array = json_decode( $response['body'] );
+        $photos     = $data_array->data;
+        
+        // loop through each gist and create a post
+        foreach ($photos as $photo) {
+
+            $photo_id    = $photo->created_time;
+            $photo_check = $this->insta_check();
+
+            if (!in_array($photo_id, $photo_check)) {
+                    
+                $pubdt  = date('Y-m-d H:i:s', $photo_id);
+                // make caption with fallback
+                $caption_base   = $photo->caption;
+                $image_caption  = empty($caption_base->text) ? '' : $caption_base->text;
+                $image_caption  = str_replace('@', '', $image_caption);
+                
+                // build new photo array
+                $snapshot = array(
+                    'post_type'     => 'photos',
+                    'post_title'    => $photo_id,
+                    'post_name'     => $photo_id,
+                    'post_content'  => $image_caption,
+                    'post_excerpt'  => '',
+                    'post_status'   => 'publish',
+                    'post_author'   => 1,
+                    'post_date'     => $pubdt,
+                );
+
+                // add the post to the database
+                $new_photo = wp_insert_post($snapshot, true);
+
+                // add some postmeta
+                if (!is_wp_error($new_photo) ) {
+
+                    // build thumbnail  150px
+                    $thumb_base     = $photo->images->thumbnail;
+                    $thumb_url      = $thumb_base->url;
+            
+                    // build standard  306px
+                    $standard_base  = $photo->images->low_resolution;
+                    $standard_url   = $standard_base->url;
+
+                    // build fullsize  612px
+                    $fullsize_base  = $photo->images->standard_resolution;
+                    $fullsize_url   = $fullsize_base->url;
+
+                    // now make some meta
+                    add_post_meta($new_photo, '_rkv_photo_id', $photo_id);
+                    add_post_meta($new_photo, '_rkv_photo_thumb', $thumb_url);
+                    add_post_meta($new_photo, '_rkv_photo_stand', $standard_url);
+                    add_post_meta($new_photo, '_rkv_photo_full', $fullsize_url);
+
+                }
+
+            } // end the array comparison
+
+        } // end the foreach
+
+    } // end the function
 
 /// end class
 }
