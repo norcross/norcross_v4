@@ -212,7 +212,7 @@ class NorcrossVersionFour {
 
         if ( is_post_type_archive('plugins') && $query->is_main_query() ) {
             $query->query_vars['order']             = 'ASC';
-            $query->query_vars['orderby']           = 'name';
+            $query->query_vars['orderby']           = 'menu_order';
             $query->query_vars['posts_per_page']    = -1;
             return;
         }

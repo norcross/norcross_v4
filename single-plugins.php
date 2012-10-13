@@ -2,7 +2,7 @@
 <div id="content-wrap" class="row-fluid">
   
   <div id="content" class="span8 plugin-post" itemtype="http://schema.org/Product" itemscope="">
-
+  	<div class="well">
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
     
     <section <?php post_class() ?> id="post-<?php the_ID(); ?>">
@@ -88,7 +88,7 @@
 
 
     <?php endwhile; endif; ?>
-  
+  </div><!--/well-->
   </div><!--/span-->
         
 	<?php get_sidebar(); ?>

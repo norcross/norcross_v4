@@ -4,7 +4,7 @@
 	
 
 	<section id="plugin-archives" class="span12">
-  	<div class="row-fluid">
+  	<div class="row-fluid well">
   		
     <?php
     if (have_posts()) : while (have_posts()) : the_post();

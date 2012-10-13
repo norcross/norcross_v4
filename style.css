@@ -930,11 +930,14 @@ body.instagram {
 }
 
 body.instagram #wrapper {
-	padding-left: 5px;
-	padding-right: 5px;
+	width: 100%;
+	padding-left: 0;
+	padding-right: 0;	
 }
 
 #instagram-wrap {
+	padding-left: 5px;
+	padding-right: 5px;
 	text-align: center;
 	overflow: hidden;
 }
