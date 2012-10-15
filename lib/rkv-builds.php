@@ -159,7 +159,7 @@ function rkv_social() {
 	 
 	    <!-- Google Plus -->
 	    <div class="social-gplus">
-	    	<div class="g-plusone" data-size="medium" data-annotation="inline" data-width="200" data-href="<?php echo $link; ?>"></div>
+	    	<div class="g-plusone" data-size="medium" data-annotation="bubble" data-width="200" data-href="<?php echo $link; ?>"></div>
 	    </div>
 	 
  

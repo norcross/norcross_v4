@@ -350,17 +350,19 @@ class NorcrossVersionFour {
 
     public function redirects() {
         global $wp_query;
-        global $post_id;
-        
-        $dl_file    = get_post_meta($post_id, '_rkv_download_url', true);
 
-        if(empty( $dl_file ))
-            return;
-
-        // partners redirect
+        // downloads redirect
         if ( is_singular('downloads') ) :
+        
+            global $post;
+            $dl_file    = get_post_meta($post->ID, '_rkv_download_url', true);
+
+            if(empty( $dl_file ))
+                return;
+
             wp_redirect( esc_url_raw( $dl_file ), 301 );
             exit();
+
         endif;
 
     }
