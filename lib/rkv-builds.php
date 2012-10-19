@@ -32,7 +32,7 @@ function rkv_plugin_sidebar() {
 		$total_rate	= $data->num_ratings;
 		$ratings	= $data->rating;
 		$star_calc	= ( $ratings / 100 ) * 92;
-		$star_rate	= '<div class="star-holder"><div class="star-rating" style="width:'.$star_calc.'px">'.$ratings.'</div></div>';
+		$star_rate	= '<div class="star-holder star-block"><div class="star-rating star-block" style="width:'.$star_calc.'px">'.$ratings.'</div></div>';
 
 		$r_ratings	= ceil($ratings);
 		$w_ratings	= ($r_ratings / 100) * 5;		
@@ -72,14 +72,14 @@ function rkv_post_details() {
 	$category	= get_the_category($post->ID);
 	$cat_name	= $category[0]->cat_name;
 	$cat_link	= get_category_link( $category[0]->cat_ID );
-	$post_date	= get_the_date('F jS, Y');
+	$post_date	= get_the_date('M jS, Y');
 	$schm_date	= get_the_date('c');
 	$auth_id	= get_the_author_meta( 'ID' );
 	$auth_name	= get_the_author_meta( 'display_name' );
 	$auth_url	= get_author_posts_url($auth_id);
 
 	echo '<p class="post-details">';
-	echo '<span class="detail-item author vcard hidden-phone"><i class="icon icon-user"></i> <span class="fn"><a href="'.$auth_url.'" rel="author" title="View all posts by '.$auth_name.'">'.$auth_name.'</a></span></span>';
+	echo '<span class="detail-item author vcard"><i class="icon icon-user"></i> <span class="fn"><a href="'.$auth_url.'" rel="author" title="View all posts by '.$auth_name.'">'.$auth_name.'</a></span></span>';
 	echo '<span title="'.$schm_date.'" class="detail-item date published updated time"><i class="icon icon-calendar"></i> '.$post_date.'</span>';
 	echo '<span class="detail-item detail-last detail-comment"><i class="icon icon-comments"></i> ';
 	echo comments_popup_link( 'Leave a Comment', '1 Comment', '% Comments', '', '' );
@@ -101,7 +101,7 @@ function rkv_tutorial_details() {
 	$term_slug	= $term_root[0]->slug;
 	$term_id	= $term_root[0]->term_id;
 	$term_link	= get_term_link( $term_slug, 'tutorial-type' );
-	$post_date	= get_the_date('F jS, Y');
+	$post_date	= get_the_date('M jS, Y');
 	$auth_id	= get_the_author_meta( 'ID' );
 	$auth_name	= get_the_author_meta( 'display_name' );
 	$auth_url	= get_author_posts_url($auth_id);
@@ -171,7 +171,7 @@ function rkv_snippet_search() {
 		echo '<div class="input-append">';
 		echo '<form class="searchform" role="search" method="get" id="snippet-search" action="' . home_url( '/' ) . '" >';
 		echo '<input type="text" value="' . get_search_query() . '" name="s" id="s" class="s" />';
-		echo '<input type="submit" class="btn btn-primary" value="Search" id="snippetsubmit">';
+		echo '<input type="submit" class="btn btn-primary" value="Go" id="snippetsubmit">';
 		echo '<input type="hidden" name="post_type" value="snippets" />';
 		echo '</form>';
 		echo '</div>';

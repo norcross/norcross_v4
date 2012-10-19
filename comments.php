@@ -21,7 +21,7 @@
 	<h3 id="comments"><?php comments_number('<span>' . __("No") . '</span> ' . __("Responses") . '', '<span>' . __("One") . '</span> ' . __("Response") . '', '<span>%</span> ' . __("Responses") );?> <?php _e("to"); ?> &#8220;<?php the_title(); ?>&#8221;</h3>
 
 	
-	<ol class="commentlist">
+	<ol class="commentlist well">
 		<?php wp_list_comments('type=comment&callback=rkv_comment_callback'); ?>
 	</ol>
 	
@@ -79,7 +79,7 @@
 		<li>
 			<div class="control-group">
 			  <div class="input-prepend">
-			  	<span class="add-on"><i class="icon-user"></i></span><input class="input-xxlarge field-required" type="text" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" placeholder="<?php _e("Your Name"); ?>" tabindex="601" <?php if ($req) echo "aria-required='true'"; ?> />
+			  	<span class="add-on"><i class="icon-user"></i></span><input class="comment-field field-required" type="text" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" placeholder="<?php _e("Your Name"); ?>" tabindex="601" <?php if ($req) echo "aria-required='true'"; ?> />
 			  </div>
 		  	</div>
 		</li>
@@ -87,7 +87,7 @@
 		<li>
 			<div class="control-group">
 			  <div class="input-prepend">
-			  	<span class="add-on"><i class="icon-envelope"></i></span><input class="input-xxlarge field-required" type="email" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" placeholder="<?php _e("Email"); ?>" tabindex="602" <?php if ($req) echo "aria-required='true'"; ?> />
+			  	<span class="add-on"><i class="icon-envelope"></i></span><input class="comment-field field-required" type="email" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" placeholder="<?php _e("Email"); ?>" tabindex="602" <?php if ($req) echo "aria-required='true'"; ?> />
 			  	<span class="help-inline">(<?php _e("will not be published"); ?>)</span>
 			  </div>
 		  	</div>
@@ -96,7 +96,7 @@
 		<li>
 			<div class="control-group">
 			  <div class="input-prepend">
-			  <span class="add-on"><i class="icon-globe"></i></span><input class="input-xxlarge" type="url" name="url" id="url" value="<?php echo esc_attr($comment_author_url); ?>" placeholder="<?php _e("Your Website"); ?>" tabindex="603" />
+			  <span class="add-on"><i class="icon-globe"></i></span><input class="comment-field" type="url" name="url" id="url" value="<?php echo esc_attr($comment_author_url); ?>" placeholder="<?php _e("Your Website"); ?>" tabindex="603" />
 			  </div>
 		  	</div>
 		</li>
@@ -107,7 +107,7 @@
 	
 	<div class="clearfix">
 		<div class="input">
-			<textarea name="comment" class="input-xxlarge" id="comment" placeholder="<?php _e("Your Comment Here…"); ?>" tabindex="604" cols="79" rows="8"></textarea>
+			<textarea name="comment" class="reply-text" id="comment" placeholder="<?php _e("Your Comment Here…"); ?>" tabindex="604" cols="79" rows="8"></textarea>
 		</div>
 	</div>
 	

@@ -193,8 +193,9 @@ class NorcrossVersionFour {
     
     endif;    
 
-    if (is_singular('post')) :
+    if (is_singular(array( 'post', 'tutorials' ) ) ) :
         wp_enqueue_script( 'expander', get_bloginfo('stylesheet_directory').'/lib/js/expander.js', array('jquery'), null, true );
+        wp_enqueue_script( 'comment-reply');
     
     endif; 
 

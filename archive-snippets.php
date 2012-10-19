@@ -2,7 +2,7 @@
 <div id="content-wrap" class="row-fluid">
   
     <div id="content" class="span8 snippets-list post-list">
-        <div class="well">
+    <div id="content-block" class="well">
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
         
         <section <?php post_class('snippet-block span4') ?> id="post-<?php the_ID(); ?>">
@@ -14,26 +14,15 @@
         </section>
 
     
-    <?php endwhile; ?>
-        </div>
-        <?php
-        if (function_exists('rkv_page_navi')) {
-                        
-            rkv_page_navi(); // use the page navi function
-                        
-        } else { // if it is disabled, display regular wp prev & next links ?>
-            
-            <nav class="wp-prev-next">
-                <ul class="clearfix">
-                    <li class="prev-link"><?php next_posts_link(_e('&laquo; Older Entries', "bonestheme")) ?></li>
-                    <li class="next-link"><?php previous_posts_link(_e('Newer Entries &raquo;', "bonestheme")) ?></li>
-                </ul>
-            </nav>
-        <?php } ?> 
-
-    <?php endif; ?>
+    <?php
+    endwhile;
+    rkv_page_navi();
+    endif;
+    ?>
     
+    </div><!--/well-->
     </div><!--/span-->
+
         
 	<?php get_sidebar(); ?>
 

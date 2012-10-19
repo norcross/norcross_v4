@@ -11,10 +11,10 @@ function rkv_comment_callback($comment, $args, $depth) {
 	<li <?php comment_class(); ?>>
 		<article id="comment-<?php comment_ID(); ?>" class="clearfix">
 			<div class="comment-author vcard row-fluid clearfix">
-				<div class="avatar span2">
-					<?php echo get_avatar($comment, $size = '66', $default = '404', $alt = ''); ?>
+				<div class="comment-avatar span3">
+					<?php echo get_avatar($comment, $size = '88', $default = '404', $alt = ''); ?>
 				</div>
-				<div class="span10 comment-text">
+				<div class="comment-text span9">
 					<?php printf(__('<h4>%s</h4>'), get_comment_author_link()) ?>
 					<?php // edit_comment_link(__('Edit'),'<span class="edit-comment btn btn-small btn-info"><i class="icon-white icon-pencil"></i>','</span>') ?>
                     
@@ -25,8 +25,9 @@ function rkv_comment_callback($comment, $args, $depth) {
 					<?php endif; ?>
                     
                     <?php comment_text() ?>
-                    
-                    <time datetime="<?php echo comment_time('Y-m-j'); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time('F jS, Y'); ?> </a></time>
+                </div>
+                <div class="comment-extra span12">
+                    <time datetime="<?php echo comment_time('Y-m-j'); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time('M jS, Y'); ?> </a></time>
                     
 					<?php comment_reply_link(array_merge( $comm_args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
                 </div>

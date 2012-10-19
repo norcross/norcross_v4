@@ -1,7 +1,6 @@
 </div>
 
-	<footer class="site-footer">
-	<div class="navbar-fixed-bottom">
+	<div id="site-footer" class="navbar-fixed-bottom">
 		<div class="navbar-inner navbar-bottom-inner">
 
 			<div class="container-fluid social-footer hidden-desktop hidden-tablet">
@@ -15,17 +14,16 @@
 
 			<div class="container-fluid">
 			<p class="footer-text">
-			<span class="pull-left">&copy;<?php echo date('Y'); ?> <?php bloginfo('name'); ?></span>
-			<span class="pull-right">Built on <a href="http://wordpress.org" target="_blank" title="WordPress">WordPress</a> and coffee</span>
-			<span class="pull-center jump-top hidden-phone"><i class="icon icon-hand-up"></i></span>
+			<span class="foot-left">&copy;<?php echo date('Y'); ?> <?php bloginfo('name'); ?></span>
+			<span class="foot-right">Built on <a href="http://wordpress.org" target="_blank" title="WordPress">WordPress</a> and coffee</span>
+			<span class="foot-center jump-top hidden-phone"><i class="icon icon-hand-up"></i></span>
 			</p>
 			</div>
 
 		</div>
-	
-	</div>
 	<?php wp_footer(); ?>
-	</footer>
-	
-  </body>
+	</div>
+
+
+	</body>
 </html>

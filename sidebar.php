@@ -2,7 +2,7 @@
 
 if (is_singular('plugins')) :
 
-echo '<div id="sidebar" class="span4">';
+echo '<div id="sidebar" class="span4 slide-sidebar">';
 echo '<div class="well well-small sidebar-nav">';
 echo '<div class="nav nav-list">';
 

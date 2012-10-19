@@ -27,6 +27,7 @@
 </head>
 
 <body <?php body_class('norcross'); ?> itemtype="http://schema.org/Blog" itemscope="">
+
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner navbar-top-inner">
 			<div class="container-fluid">

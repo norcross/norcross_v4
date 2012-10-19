@@ -56,7 +56,7 @@
 		echo '<div class="plugin-detail-data description-data container-fluid" rel="description">';
 		echo $description;
 		if (!empty($tags)) {
-			echo '<p class="plugin-tags"><strong>Tagged:</strong> ';
+			echo '<p class="plugin-tags">';
 			foreach ($tags as $tag) {
 				echo '<span class="badge">'.$tag.'</span>';
 			}
