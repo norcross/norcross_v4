@@ -1,0 +1,2637 @@
+/******************************************************************
+Stylesheet: Main Stylesheet
+
+Here's where the magic happens. 
+******************************************************************/
+/*
+font declarations
+******************************************************************/
+@font-face {
+  font-family: 'FontAwesome';
+  src: url("../fonts/fontawesome-webfont.eot");
+  src: url("../fonts/fontawesome-webfont.eot?#iefix") format("eot"), url("../fonts/fontawesome-webfont.woff") format("woff"), url("../fonts/fontawesome-webfont.ttf") format("truetype"), url("../fonts/fontawesome-webfont.svg#FontAwesome") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'UniversBold';
+  src: url("../fonts/universltstd-bold-webfont.eot");
+  src: url("../fonts/universltstd-bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/universltstd-bold-webfont.woff") format("woff"), url("../fonts/universltstd-bold-webfont.ttf") format("truetype"), url("../fonts/universltstd-bold-webfont.svg#UniversBold") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'UniversLight';
+  src: url("../fonts/universltstd-light-webfont.eot");
+  src: url("../fonts/universltstd-light-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/universltstd-light-webfont.woff") format("woff"), url("../fonts/universltstd-light-webfont.ttf") format("truetype"), url("../fonts/universltstd-light-webfont.svg#UniversLight") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*
+imports and extras
+******************************************************************/
+/******************************************************************
+Stylesheet: Normalize Stylesheet
+
+Normalize works a lot like a classic CSS Reset only instead of 
+reseting EVERYTHING, it only changes what's inconsistent across
+the different browsers. It's much slimmer and compact than resets.
+
+For more info, view the github repo:
+http://necolas.github.com/normalize.css/
+
+Last Updated: March 20, 2012
+
+******************************************************************/
+/* line 14, ../sass/_normalize.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
+  display: block;
+}
+
+/* line 15, ../sass/_normalize.scss */
+audio, canvas, video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+/* line 16, ../sass/_normalize.scss */
+audio:not([controls]) {
+  display: none;
+}
+
+/* line 17, ../sass/_normalize.scss */
+[hidden] {
+  display: none;
+}
+
+/* base styles */
+/* line 19, ../sass/_normalize.scss */
+html {
+  font-size: 100%;
+  overflow-y: scroll;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/* line 20, ../sass/_normalize.scss */
+body, button, input, select, textarea {
+  font-family: sans-serif;
+  color: #333;
+}
+
+/* margins, padding, & borders */
+/* line 22, ../sass/_normalize.scss */
+body, figure, form, blockquote, button, input, select, textarea, dd, h1, h2, h3, h4, h5, h6, ol, ul, fieldset {
+  margin: 0;
+}
+
+/* line 23, ../sass/_normalize.scss */
+ul, ol, button::-moz-focus-inner, input::-moz-focus-inner, fieldset, input[type="checkbox"], input[type="radio"] {
+  padding: 0;
+}
+
+/* line 24, ../sass/_normalize.scss */
+img, legend, button::-moz-focus-inner, input::-moz-focus-inner, fieldset {
+  border: 0;
+}
+
+/* images */
+/* line 26, ../sass/_normalize.scss */
+img {
+  -ms-interpolation-mode: bicubic;
+}
+
+/* line 27, ../sass/_normalize.scss */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* links & typography */
+/* line 29, ../sass/_normalize.scss */
+a:focus {
+  outline: thin dotted;
+}
+
+/* line 30, ../sass/_normalize.scss */
+a:hover, a:active {
+  outline: 0;
+}
+
+/* line 31, ../sass/_normalize.scss */
+h1 {
+  font-size: 2em;
+}
+
+/* p { -webkit-hyphens: auto; -moz-hyphens: auto; -epub-hyphens: auto; hyphens: auto; margin: 0; } */
+/* line 33, ../sass/_normalize.scss */
+p {
+  margin: 0;
+}
+
+/* line 34, ../sass/_normalize.scss */
+ol, ul {
+  list-style-type: none;
+}
+
+/* line 35, ../sass/_normalize.scss */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/* line 36, ../sass/_normalize.scss */
+b, strong {
+  font-weight: bold;
+}
+
+/* line 37, ../sass/_normalize.scss */
+dfn, em {
+  font-style: italic;
+}
+
+/* line 38, ../sass/_normalize.scss */
+small, sub, sup {
+  font-size: 75%;
+}
+
+/* line 39, ../sass/_normalize.scss */
+sub, sup {
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+/* line 40, ../sass/_normalize.scss */
+q {
+  quotes: none;
+}
+
+/* line 41, ../sass/_normalize.scss */
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* line 42, ../sass/_normalize.scss */
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/* line 43, ../sass/_normalize.scss */
+pre, code, kbd, samp {
+  font-family: monospace, serif;
+  _font-family: 'courier new', monospace;
+  font-size: 1em;
+}
+
+/* line 44, ../sass/_normalize.scss */
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* line 45, ../sass/_normalize.scss */
+sup {
+  top: -0.5em;
+}
+
+/* line 46, ../sass/_normalize.scss */
+sub {
+  bottom: -0.25em;
+}
+
+/* line 47, ../sass/_normalize.scss */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/* line 48, ../sass/_normalize.scss */
+nav ul, nav ol, .widget ol, .widget ul, .comment-list {
+  list-style: none;
+  list-style-image: none;
+}
+
+/* forms */
+/* line 50, ../sass/_normalize.scss */
+legend {
+  *margin-left: -7px;
+}
+
+/* line 51, ../sass/_normalize.scss */
+button, input, select, textarea {
+  font-size: 100%;
+  vertical-align: baseline;
+  *vertical-align: middle;
+}
+
+/* line 52, ../sass/_normalize.scss */
+button, input {
+  line-height: normal;
+}
+
+/* line 53, ../sass/_normalize.scss */
+button, input[type="button"], input[type="reset"], input[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: button;
+  *overflow: visible;
+}
+
+/* line 54, ../sass/_normalize.scss */
+input[type="checkbox"], input[type="radio"] {
+  box-sizing: border-box;
+}
+
+/* line 55, ../sass/_normalize.scss */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+/* line 56, ../sass/_normalize.scss */
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/* line 57, ../sass/_normalize.scss */
+tarea, textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+
+/* tables */
+/* line 59, ../sass/_normalize.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* wordpress junk */
+/* line 62, ../sass/_normalize.scss */
+.wp-smiley, .wp-wink {
+  margin: 0 !important;
+  max-height: 1em;
+}
+
+/* custom reset styles */
+/* line 65, ../sass/_normalize.scss */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/******************************************************************
+Stylesheet: Mixins
+
+this is for fancy shit. a lot of stuff borrowed from Boostrap
+
+******************************************************************/
+/* Clears and floats
+******************************************************************/
+/* line 11, ../sass/_mixins.scss */
+.inner {
+  padding: 10px;
+}
+
+/* line 15, ../sass/_mixins.scss */
+.inner-thin {
+  padding: 5px;
+}
+
+/* line 19, ../sass/_mixins.scss */
+.inner-thick {
+  padding: 15px;
+}
+
+/* line 23, ../sass/_mixins.scss */
+.set-left {
+  float: left;
+}
+
+/* line 27, ../sass/_mixins.scss */
+.set-right {
+  float: right;
+}
+
+/* line 31, ../sass/_mixins.scss */
+.clear {
+  clear: both;
+}
+
+/* Color swatch
+******************************************************************/
+/* Some gradient setups
+******************************************************************/
+/* FontAwesome styling
+******************************************************************/
+/* line 60, ../sass/_mixins.scss */
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  text-decoration: inherit;
+}
+
+/* line 67, ../sass/_mixins.scss */
+a [class^="icon-"], a [class*=" icon-"] {
+  display: inline-block;
+  text-decoration: inherit;
+}
+
+/* makes the font 33% larger relative to the icon container */
+/* line 72, ../sass/_mixins.scss */
+.icon-large:before {
+  vertical-align: top;
+  font-size: 1.3333333333333333em;
+}
+
+/* line 76, ../sass/_mixins.scss */
+.btn [class^="icon-"], .btn [class*=" icon-"] {
+  /* keeps button heights with and without icons the same */
+  line-height: .9em;
+}
+
+/* line 81, ../sass/_mixins.scss */
+li [class^="icon-"], li [class*=" icon-"] {
+  display: inline-block;
+  width: 1.25em;
+  text-align: center;
+}
+
+/* line 86, ../sass/_mixins.scss */
+li .icon-large[class^="icon-"], li .icon-large[class*=" icon-"] {
+  /* 1.5 increased font size for icon-large * 1.25 width */
+  width: 1.875em;
+}
+
+/* line 91, ../sass/_mixins.scss */
+li[class^="icon-"], li[class*=" icon-"] {
+  margin-left: 0;
+  list-style-type: none;
+}
+
+/* line 95, ../sass/_mixins.scss */
+li[class^="icon-"]:before, li[class*=" icon-"]:before {
+  text-indent: -2em;
+  text-align: center;
+}
+
+/* line 99, ../sass/_mixins.scss */
+li[class^="icon-"].icon-large:before, li[class*=" icon-"].icon-large:before {
+  text-indent: -1.33333em;
+}
+
+/*  Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
+    readers do not read off random characters that represent icons */
+/* line 104, ../sass/_mixins.scss */
+.icon-glass:before {
+  content: "\f000";
+}
+
+/* line 105, ../sass/_mixins.scss */
+.icon-music:before {
+  content: "\f001";
+}
+
+/* line 106, ../sass/_mixins.scss */
+.icon-search:before {
+  content: "\f002";
+}
+
+/* line 107, ../sass/_mixins.scss */
+.icon-envelope:before {
+  content: "\f003";
+}
+
+/* line 108, ../sass/_mixins.scss */
+.icon-heart:before {
+  content: "\f004";
+}
+
+/* line 109, ../sass/_mixins.scss */
+.icon-star:before {
+  content: "\f005";
+}
+
+/* line 110, ../sass/_mixins.scss */
+.icon-star-empty:before {
+  content: "\f006";
+}
+
+/* line 111, ../sass/_mixins.scss */
+.icon-user:before {
+  content: "\f007";
+}
+
+/* line 112, ../sass/_mixins.scss */
+.icon-film:before {
+  content: "\f008";
+}
+
+/* line 113, ../sass/_mixins.scss */
+.icon-th-large:before {
+  content: "\f009";
+}
+
+/* line 114, ../sass/_mixins.scss */
+.icon-th:before {
+  content: "\f00a";
+}
+
+/* line 115, ../sass/_mixins.scss */
+.icon-th-list:before {
+  content: "\f00b";
+}
+
+/* line 116, ../sass/_mixins.scss */
+.icon-ok:before {
+  content: "\f00c";
+}
+
+/* line 117, ../sass/_mixins.scss */
+.icon-remove:before {
+  content: "\f00d";
+}
+
+/* line 118, ../sass/_mixins.scss */
+.icon-zoom-in:before {
+  content: "\f00e";
+}
+
+/* line 120, ../sass/_mixins.scss */
+.icon-zoom-out:before {
+  content: "\f010";
+}
+
+/* line 121, ../sass/_mixins.scss */
+.icon-off:before {
+  content: "\f011";
+}
+
+/* line 122, ../sass/_mixins.scss */
+.icon-signal:before {
+  content: "\f012";
+}
+
+/* line 123, ../sass/_mixins.scss */
+.icon-cog:before {
+  content: "\f013";
+}
+
+/* line 124, ../sass/_mixins.scss */
+.icon-trash:before {
+  content: "\f014";
+}
+
+/* line 125, ../sass/_mixins.scss */
+.icon-home:before {
+  content: "\f015";
+}
+
+/* line 126, ../sass/_mixins.scss */
+.icon-file:before {
+  content: "\f016";
+}
+
+/* line 127, ../sass/_mixins.scss */
+.icon-time:before {
+  content: "\f017";
+}
+
+/* line 128, ../sass/_mixins.scss */
+.icon-road:before {
+  content: "\f018";
+}
+
+/* line 129, ../sass/_mixins.scss */
+.icon-download-alt:before {
+  content: "\f019";
+}
+
+/* line 130, ../sass/_mixins.scss */
+.icon-download:before {
+  content: "\f01a";
+}
+
+/* line 131, ../sass/_mixins.scss */
+.icon-upload:before {
+  content: "\f01b";
+}
+
+/* line 132, ../sass/_mixins.scss */
+.icon-inbox:before {
+  content: "\f01c";
+}
+
+/* line 133, ../sass/_mixins.scss */
+.icon-play-circle:before {
+  content: "\f01d";
+}
+
+/* line 134, ../sass/_mixins.scss */
+.icon-repeat:before {
+  content: "\f01e";
+}
+
+/* \f020 doesn't work in Safari. all shifted one down */
+/* line 137, ../sass/_mixins.scss */
+.icon-refresh:before {
+  content: "\f021";
+}
+
+/* line 138, ../sass/_mixins.scss */
+.icon-list-alt:before {
+  content: "\f022";
+}
+
+/* line 139, ../sass/_mixins.scss */
+.icon-lock:before {
+  content: "\f023";
+}
+
+/* line 140, ../sass/_mixins.scss */
+.icon-flag:before {
+  content: "\f024";
+}
+
+/* line 141, ../sass/_mixins.scss */
+.icon-headphones:before {
+  content: "\f025";
+}
+
+/* line 142, ../sass/_mixins.scss */
+.icon-volume-off:before {
+  content: "\f026";
+}
+
+/* line 143, ../sass/_mixins.scss */
+.icon-volume-down:before {
+  content: "\f027";
+}
+
+/* line 144, ../sass/_mixins.scss */
+.icon-volume-up:before {
+  content: "\f028";
+}
+
+/* line 145, ../sass/_mixins.scss */
+.icon-qrcode:before {
+  content: "\f029";
+}
+
+/* line 146, ../sass/_mixins.scss */
+.icon-barcode:before {
+  content: "\f02a";
+}
+
+/* line 147, ../sass/_mixins.scss */
+.icon-tag:before {
+  content: "\f02b";
+}
+
+/* line 148, ../sass/_mixins.scss */
+.icon-tags:before {
+  content: "\f02c";
+}
+
+/* line 149, ../sass/_mixins.scss */
+.icon-book:before {
+  content: "\f02d";
+}
+
+/* line 150, ../sass/_mixins.scss */
+.icon-bookmark:before {
+  content: "\f02e";
+}
+
+/* line 151, ../sass/_mixins.scss */
+.icon-print:before {
+  content: "\f02f";
+}
+
+/* line 153, ../sass/_mixins.scss */
+.icon-camera:before {
+  content: "\f030";
+}
+
+/* line 154, ../sass/_mixins.scss */
+.icon-font:before {
+  content: "\f031";
+}
+
+/* line 155, ../sass/_mixins.scss */
+.icon-bold:before {
+  content: "\f032";
+}
+
+/* line 156, ../sass/_mixins.scss */
+.icon-italic:before {
+  content: "\f033";
+}
+
+/* line 157, ../sass/_mixins.scss */
+.icon-text-height:before {
+  content: "\f034";
+}
+
+/* line 158, ../sass/_mixins.scss */
+.icon-text-width:before {
+  content: "\f035";
+}
+
+/* line 159, ../sass/_mixins.scss */
+.icon-align-left:before {
+  content: "\f036";
+}
+
+/* line 160, ../sass/_mixins.scss */
+.icon-align-center:before {
+  content: "\f037";
+}
+
+/* line 161, ../sass/_mixins.scss */
+.icon-align-right:before {
+  content: "\f038";
+}
+
+/* line 162, ../sass/_mixins.scss */
+.icon-align-justify:before {
+  content: "\f039";
+}
+
+/* line 163, ../sass/_mixins.scss */
+.icon-list:before {
+  content: "\f03a";
+}
+
+/* line 164, ../sass/_mixins.scss */
+.icon-indent-left:before {
+  content: "\f03b";
+}
+
+/* line 165, ../sass/_mixins.scss */
+.icon-indent-right:before {
+  content: "\f03c";
+}
+
+/* line 166, ../sass/_mixins.scss */
+.icon-facetime-video:before {
+  content: "\f03d";
+}
+
+/* line 167, ../sass/_mixins.scss */
+.icon-picture:before {
+  content: "\f03e";
+}
+
+/* line 169, ../sass/_mixins.scss */
+.icon-pencil:before {
+  content: "\f040";
+}
+
+/* line 170, ../sass/_mixins.scss */
+.icon-map-marker:before {
+  content: "\f041";
+}
+
+/* line 171, ../sass/_mixins.scss */
+.icon-adjust:before {
+  content: "\f042";
+}
+
+/* line 172, ../sass/_mixins.scss */
+.icon-tint:before {
+  content: "\f043";
+}
+
+/* line 173, ../sass/_mixins.scss */
+.icon-edit:before {
+  content: "\f044";
+}
+
+/* line 174, ../sass/_mixins.scss */
+.icon-share:before {
+  content: "\f045";
+}
+
+/* line 175, ../sass/_mixins.scss */
+.icon-check:before {
+  content: "\f046";
+}
+
+/* line 176, ../sass/_mixins.scss */
+.icon-move:before {
+  content: "\f047";
+}
+
+/* line 177, ../sass/_mixins.scss */
+.icon-step-backward:before {
+  content: "\f048";
+}
+
+/* line 178, ../sass/_mixins.scss */
+.icon-fast-backward:before {
+  content: "\f049";
+}
+
+/* line 179, ../sass/_mixins.scss */
+.icon-backward:before {
+  content: "\f04a";
+}
+
+/* line 180, ../sass/_mixins.scss */
+.icon-play:before {
+  content: "\f04b";
+}
+
+/* line 181, ../sass/_mixins.scss */
+.icon-pause:before {
+  content: "\f04c";
+}
+
+/* line 182, ../sass/_mixins.scss */
+.icon-stop:before {
+  content: "\f04d";
+}
+
+/* line 183, ../sass/_mixins.scss */
+.icon-forward:before {
+  content: "\f04e";
+}
+
+/* line 185, ../sass/_mixins.scss */
+.icon-fast-forward:before {
+  content: "\f050";
+}
+
+/* line 186, ../sass/_mixins.scss */
+.icon-step-forward:before {
+  content: "\f051";
+}
+
+/* line 187, ../sass/_mixins.scss */
+.icon-eject:before {
+  content: "\f052";
+}
+
+/* line 188, ../sass/_mixins.scss */
+.icon-chevron-left:before {
+  content: "\f053";
+}
+
+/* line 189, ../sass/_mixins.scss */
+.icon-chevron-right:before {
+  content: "\f054";
+}
+
+/* line 190, ../sass/_mixins.scss */
+.icon-plus-sign:before {
+  content: "\f055";
+}
+
+/* line 191, ../sass/_mixins.scss */
+.icon-minus-sign:before {
+  content: "\f056";
+}
+
+/* line 192, ../sass/_mixins.scss */
+.icon-remove-sign:before {
+  content: "\f057";
+}
+
+/* line 193, ../sass/_mixins.scss */
+.icon-ok-sign:before {
+  content: "\f058";
+}
+
+/* line 194, ../sass/_mixins.scss */
+.icon-question-sign:before {
+  content: "\f059";
+}
+
+/* line 195, ../sass/_mixins.scss */
+.icon-info-sign:before {
+  content: "\f05a";
+}
+
+/* line 196, ../sass/_mixins.scss */
+.icon-screenshot:before {
+  content: "\f05b";
+}
+
+/* line 197, ../sass/_mixins.scss */
+.icon-remove-circle:before {
+  content: "\f05c";
+}
+
+/* line 198, ../sass/_mixins.scss */
+.icon-ok-circle:before {
+  content: "\f05d";
+}
+
+/* line 199, ../sass/_mixins.scss */
+.icon-ban-circle:before {
+  content: "\f05e";
+}
+
+/* line 201, ../sass/_mixins.scss */
+.icon-arrow-left:before {
+  content: "\f060";
+}
+
+/* line 202, ../sass/_mixins.scss */
+.icon-arrow-right:before {
+  content: "\f061";
+}
+
+/* line 203, ../sass/_mixins.scss */
+.icon-arrow-up:before {
+  content: "\f062";
+}
+
+/* line 204, ../sass/_mixins.scss */
+.icon-arrow-down:before {
+  content: "\f063";
+}
+
+/* line 205, ../sass/_mixins.scss */
+.icon-share-alt:before {
+  content: "\f064";
+}
+
+/* line 206, ../sass/_mixins.scss */
+.icon-resize-full:before {
+  content: "\f065";
+}
+
+/* line 207, ../sass/_mixins.scss */
+.icon-resize-small:before {
+  content: "\f066";
+}
+
+/* line 208, ../sass/_mixins.scss */
+.icon-plus:before {
+  content: "\f067";
+}
+
+/* line 209, ../sass/_mixins.scss */
+.icon-minus:before {
+  content: "\f068";
+}
+
+/* line 210, ../sass/_mixins.scss */
+.icon-asterisk:before {
+  content: "\f069";
+}
+
+/* line 211, ../sass/_mixins.scss */
+.icon-exclamation-sign:before {
+  content: "\f06a";
+}
+
+/* line 212, ../sass/_mixins.scss */
+.icon-gift:before {
+  content: "\f06b";
+}
+
+/* line 213, ../sass/_mixins.scss */
+.icon-leaf:before {
+  content: "\f06c";
+}
+
+/* line 214, ../sass/_mixins.scss */
+.icon-fire:before {
+  content: "\f06d";
+}
+
+/* line 215, ../sass/_mixins.scss */
+.icon-eye-open:before {
+  content: "\f06e";
+}
+
+/* line 217, ../sass/_mixins.scss */
+.icon-eye-close:before {
+  content: "\f070";
+}
+
+/* line 218, ../sass/_mixins.scss */
+.icon-warning-sign:before {
+  content: "\f071";
+}
+
+/* line 219, ../sass/_mixins.scss */
+.icon-plane:before {
+  content: "\f072";
+}
+
+/* line 220, ../sass/_mixins.scss */
+.icon-calendar:before {
+  content: "\f073";
+}
+
+/* line 221, ../sass/_mixins.scss */
+.icon-random:before {
+  content: "\f074";
+}
+
+/* line 222, ../sass/_mixins.scss */
+.icon-comment:before {
+  content: "\f075";
+}
+
+/* line 223, ../sass/_mixins.scss */
+.icon-magnet:before {
+  content: "\f076";
+}
+
+/* line 224, ../sass/_mixins.scss */
+.icon-chevron-up:before {
+  content: "\f077";
+}
+
+/* line 225, ../sass/_mixins.scss */
+.icon-chevron-down:before {
+  content: "\f078";
+}
+
+/* line 226, ../sass/_mixins.scss */
+.icon-retweet:before {
+  content: "\f079";
+}
+
+/* line 227, ../sass/_mixins.scss */
+.icon-shopping-cart:before {
+  content: "\f07a";
+}
+
+/* line 228, ../sass/_mixins.scss */
+.icon-folder-close:before {
+  content: "\f07b";
+}
+
+/* line 229, ../sass/_mixins.scss */
+.icon-folder-open:before {
+  content: "\f07c";
+}
+
+/* line 230, ../sass/_mixins.scss */
+.icon-resize-vertical:before {
+  content: "\f07d";
+}
+
+/* line 231, ../sass/_mixins.scss */
+.icon-resize-horizontal:before {
+  content: "\f07e";
+}
+
+/* line 233, ../sass/_mixins.scss */
+.icon-bar-chart:before {
+  content: "\f080";
+}
+
+/* line 234, ../sass/_mixins.scss */
+.icon-twitter-sign:before {
+  content: "\f081";
+}
+
+/* line 235, ../sass/_mixins.scss */
+.icon-facebook-sign:before {
+  content: "\f082";
+}
+
+/* line 236, ../sass/_mixins.scss */
+.icon-camera-retro:before {
+  content: "\f083";
+}
+
+/* line 237, ../sass/_mixins.scss */
+.icon-key:before {
+  content: "\f084";
+}
+
+/* line 238, ../sass/_mixins.scss */
+.icon-cogs:before {
+  content: "\f085";
+}
+
+/* line 239, ../sass/_mixins.scss */
+.icon-comments:before {
+  content: "\f086";
+}
+
+/* line 240, ../sass/_mixins.scss */
+.icon-thumbs-up:before {
+  content: "\f087";
+}
+
+/* line 241, ../sass/_mixins.scss */
+.icon-thumbs-down:before {
+  content: "\f088";
+}
+
+/* line 242, ../sass/_mixins.scss */
+.icon-star-half:before {
+  content: "\f089";
+}
+
+/* line 243, ../sass/_mixins.scss */
+.icon-heart-empty:before {
+  content: "\f08a";
+}
+
+/* line 244, ../sass/_mixins.scss */
+.icon-signout:before {
+  content: "\f08b";
+}
+
+/* line 245, ../sass/_mixins.scss */
+.icon-linkedin-sign:before {
+  content: "\f08c";
+}
+
+/* line 246, ../sass/_mixins.scss */
+.icon-pushpin:before {
+  content: "\f08d";
+}
+
+/* line 247, ../sass/_mixins.scss */
+.icon-external-link:before {
+  content: "\f08e";
+}
+
+/* line 249, ../sass/_mixins.scss */
+.icon-signin:before {
+  content: "\f090";
+}
+
+/* line 250, ../sass/_mixins.scss */
+.icon-trophy:before {
+  content: "\f091";
+}
+
+/* line 251, ../sass/_mixins.scss */
+.icon-github-sign:before {
+  content: "\f092";
+}
+
+/* line 252, ../sass/_mixins.scss */
+.icon-upload-alt:before {
+  content: "\f093";
+}
+
+/* line 253, ../sass/_mixins.scss */
+.icon-lemon:before {
+  content: "\f094";
+}
+
+/* line 254, ../sass/_mixins.scss */
+.icon-phone:before {
+  content: "\f095";
+}
+
+/* line 255, ../sass/_mixins.scss */
+.icon-check-empty:before {
+  content: "\f096";
+}
+
+/* line 256, ../sass/_mixins.scss */
+.icon-bookmark-empty:before {
+  content: "\f097";
+}
+
+/* line 257, ../sass/_mixins.scss */
+.icon-phone-sign:before {
+  content: "\f098";
+}
+
+/* line 258, ../sass/_mixins.scss */
+.icon-twitter:before {
+  content: "\f099";
+}
+
+/* line 259, ../sass/_mixins.scss */
+.icon-facebook:before {
+  content: "\f09a";
+}
+
+/* line 260, ../sass/_mixins.scss */
+.icon-github:before {
+  content: "\f09b";
+}
+
+/* line 261, ../sass/_mixins.scss */
+.icon-unlock:before {
+  content: "\f09c";
+}
+
+/* line 262, ../sass/_mixins.scss */
+.icon-credit-card:before {
+  content: "\f09d";
+}
+
+/* line 263, ../sass/_mixins.scss */
+.icon-rss:before {
+  content: "\f09e";
+}
+
+/* line 265, ../sass/_mixins.scss */
+.icon-hdd:before {
+  content: "\f0a0";
+}
+
+/* line 266, ../sass/_mixins.scss */
+.icon-bullhorn:before {
+  content: "\f0a1";
+}
+
+/* line 267, ../sass/_mixins.scss */
+.icon-bell:before {
+  content: "\f0a2";
+}
+
+/* line 268, ../sass/_mixins.scss */
+.icon-certificate:before {
+  content: "\f0a3";
+}
+
+/* line 269, ../sass/_mixins.scss */
+.icon-hand-right:before {
+  content: "\f0a4";
+}
+
+/* line 270, ../sass/_mixins.scss */
+.icon-hand-left:before {
+  content: "\f0a5";
+}
+
+/* line 271, ../sass/_mixins.scss */
+.icon-hand-up:before {
+  content: "\f0a6";
+}
+
+/* line 272, ../sass/_mixins.scss */
+.icon-hand-down:before {
+  content: "\f0a7";
+}
+
+/* line 273, ../sass/_mixins.scss */
+.icon-circle-arrow-left:before {
+  content: "\f0a8";
+}
+
+/* line 274, ../sass/_mixins.scss */
+.icon-circle-arrow-right:before {
+  content: "\f0a9";
+}
+
+/* line 275, ../sass/_mixins.scss */
+.icon-circle-arrow-up:before {
+  content: "\f0aa";
+}
+
+/* line 276, ../sass/_mixins.scss */
+.icon-circle-arrow-down:before {
+  content: "\f0ab";
+}
+
+/* line 277, ../sass/_mixins.scss */
+.icon-globe:before {
+  content: "\f0ac";
+}
+
+/* line 278, ../sass/_mixins.scss */
+.icon-wrench:before {
+  content: "\f0ad";
+}
+
+/* line 279, ../sass/_mixins.scss */
+.icon-tasks:before {
+  content: "\f0ae";
+}
+
+/* line 281, ../sass/_mixins.scss */
+.icon-filter:before {
+  content: "\f0b0";
+}
+
+/* line 282, ../sass/_mixins.scss */
+.icon-briefcase:before {
+  content: "\f0b1";
+}
+
+/* line 283, ../sass/_mixins.scss */
+.icon-fullscreen:before {
+  content: "\f0b2";
+}
+
+/* line 285, ../sass/_mixins.scss */
+.icon-group:before {
+  content: "\f0c0";
+}
+
+/* line 286, ../sass/_mixins.scss */
+.icon-link:before {
+  content: "\f0c1";
+}
+
+/* line 287, ../sass/_mixins.scss */
+.icon-cloud:before {
+  content: "\f0c2";
+}
+
+/* line 288, ../sass/_mixins.scss */
+.icon-beaker:before {
+  content: "\f0c3";
+}
+
+/* line 289, ../sass/_mixins.scss */
+.icon-cut:before {
+  content: "\f0c4";
+}
+
+/* line 290, ../sass/_mixins.scss */
+.icon-copy:before {
+  content: "\f0c5";
+}
+
+/* line 291, ../sass/_mixins.scss */
+.icon-paper-clip:before {
+  content: "\f0c6";
+}
+
+/* line 292, ../sass/_mixins.scss */
+.icon-save:before {
+  content: "\f0c7";
+}
+
+/* line 293, ../sass/_mixins.scss */
+.icon-sign-blank:before {
+  content: "\f0c8";
+}
+
+/* line 294, ../sass/_mixins.scss */
+.icon-reorder:before {
+  content: "\f0c9";
+}
+
+/* line 295, ../sass/_mixins.scss */
+.icon-list-ul:before {
+  content: "\f0ca";
+}
+
+/* line 296, ../sass/_mixins.scss */
+.icon-list-ol:before {
+  content: "\f0cb";
+}
+
+/* line 297, ../sass/_mixins.scss */
+.icon-strikethrough:before {
+  content: "\f0cc";
+}
+
+/* line 298, ../sass/_mixins.scss */
+.icon-underline:before {
+  content: "\f0cd";
+}
+
+/* line 299, ../sass/_mixins.scss */
+.icon-table:before {
+  content: "\f0ce";
+}
+
+/* line 301, ../sass/_mixins.scss */
+.icon-magic:before {
+  content: "\f0d0";
+}
+
+/* line 302, ../sass/_mixins.scss */
+.icon-truck:before {
+  content: "\f0d1";
+}
+
+/* line 303, ../sass/_mixins.scss */
+.icon-pinterest:before {
+  content: "\f0d2";
+}
+
+/* line 304, ../sass/_mixins.scss */
+.icon-pinterest-sign:before {
+  content: "\f0d3";
+}
+
+/* line 305, ../sass/_mixins.scss */
+.icon-google-plus-sign:before {
+  content: "\f0d4";
+}
+
+/* line 306, ../sass/_mixins.scss */
+.icon-google-plus:before {
+  content: "\f0d5";
+}
+
+/* line 307, ../sass/_mixins.scss */
+.icon-money:before {
+  content: "\f0d6";
+}
+
+/* line 308, ../sass/_mixins.scss */
+.icon-caret-down:before {
+  content: "\f0d7";
+}
+
+/* line 309, ../sass/_mixins.scss */
+.icon-caret-up:before {
+  content: "\f0d8";
+}
+
+/* line 310, ../sass/_mixins.scss */
+.icon-caret-left:before {
+  content: "\f0d9";
+}
+
+/* line 311, ../sass/_mixins.scss */
+.icon-caret-right:before {
+  content: "\f0da";
+}
+
+/* line 312, ../sass/_mixins.scss */
+.icon-columns:before {
+  content: "\f0db";
+}
+
+/* line 313, ../sass/_mixins.scss */
+.icon-sort:before {
+  content: "\f0dc";
+}
+
+/* line 314, ../sass/_mixins.scss */
+.icon-sort-down:before {
+  content: "\f0dd";
+}
+
+/* line 315, ../sass/_mixins.scss */
+.icon-sort-up:before {
+  content: "\f0de";
+}
+
+/* line 317, ../sass/_mixins.scss */
+.icon-envelope-alt:before {
+  content: "\f0e0";
+}
+
+/* line 318, ../sass/_mixins.scss */
+.icon-linkedin:before {
+  content: "\f0e1";
+}
+
+/* line 319, ../sass/_mixins.scss */
+.icon-undo:before {
+  content: "\f0e2";
+}
+
+/* line 320, ../sass/_mixins.scss */
+.icon-legal:before {
+  content: "\f0e3";
+}
+
+/* line 321, ../sass/_mixins.scss */
+.icon-dashboard:before {
+  content: "\f0e4";
+}
+
+/* line 322, ../sass/_mixins.scss */
+.icon-comment-alt:before {
+  content: "\f0e5";
+}
+
+/* line 323, ../sass/_mixins.scss */
+.icon-comments-alt:before {
+  content: "\f0e6";
+}
+
+/* line 324, ../sass/_mixins.scss */
+.icon-bolt:before {
+  content: "\f0e7";
+}
+
+/* line 325, ../sass/_mixins.scss */
+.icon-sitemap:before {
+  content: "\f0e8";
+}
+
+/* line 326, ../sass/_mixins.scss */
+.icon-umbrella:before {
+  content: "\f0e9";
+}
+
+/* line 327, ../sass/_mixins.scss */
+.icon-paste:before {
+  content: "\f0ea";
+}
+
+/* line 329, ../sass/_mixins.scss */
+.icon-user-md:before {
+  content: "\f200";
+}
+
+/* button styling
+******************************************************************/
+/* line 334, ../sass/_mixins.scss */
+.btn {
+  display: inline-block;
+  *display: inline;
+  /* IE7 inline-block hack */
+  *zoom: 1;
+  padding: 4px 14px;
+  margin-bottom: 0;
+  font-size: 14px;
+  line-height: 20px;
+  *line-height: 20px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  color: #333333;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  background-color: #f5f5f5;
+  background-image: -moz-linear-gradient(top, white, #e6e6e6);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#e6e6e6));
+  background-image: -webkit-linear-gradient(top, white, #e6e6e6);
+  background-image: -o-linear-gradient(top, white, #e6e6e6);
+  background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #e6e6e6;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  border: 1px solid #bbbbbb;
+  *border: 0;
+  border-bottom-color: #a2a2a2;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  *margin-left: .3em;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* line 379, ../sass/_mixins.scss */
+.btn:hover,
+.btn:active,
+.btn.active,
+.btn.disabled,
+.btn[disabled] {
+  color: #333333;
+  background-color: #e6e6e6;
+  *background-color: #d9d9d9;
+}
+
+/* line 385, ../sass/_mixins.scss */
+.btn:active,
+.btn.active {
+  background-color: #cccccc \9;
+}
+
+/* line 388, ../sass/_mixins.scss */
+.btn:first-child {
+  *margin-left: 0;
+}
+
+/* line 391, ../sass/_mixins.scss */
+.btn:hover {
+  color: #333333;
+  text-decoration: none;
+  background-color: #e6e6e6;
+  *background-color: #d9d9d9;
+  /* Buttons in IE7 don't get borders, so darken on hover */
+  background-position: 0 -15px;
+  -webkit-transition: background-position 0.1s linear;
+  -moz-transition: background-position 0.1s linear;
+  -o-transition: background-position 0.1s linear;
+  transition: background-position 0.1s linear;
+}
+
+/* line 404, ../sass/_mixins.scss */
+.btn:focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+/* line 410, ../sass/_mixins.scss */
+.btn.active,
+.btn:active {
+  background-color: #e6e6e6;
+  background-color: #d9d9d9 \9;
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* line 420, ../sass/_mixins.scss */
+.btn.disabled,
+.btn[disabled] {
+  cursor: default;
+  background-color: #e6e6e6;
+  background-image: none;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+/* line 430, ../sass/_mixins.scss */
+.btn-large {
+  padding: 9px 14px;
+  font-size: 16px;
+  line-height: normal;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* line 438, ../sass/_mixins.scss */
+.btn-large [class^="icon-"] {
+  margin-top: 2px;
+}
+
+/* line 441, ../sass/_mixins.scss */
+.btn-small {
+  padding: 3px 9px;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+/* line 446, ../sass/_mixins.scss */
+.btn-small [class^="icon-"] {
+  margin-top: 0;
+}
+
+/* line 449, ../sass/_mixins.scss */
+.btn-mini {
+  padding: 2px 6px;
+  font-size: 11px;
+  line-height: 16px;
+}
+
+/* line 454, ../sass/_mixins.scss */
+.btn-block {
+  display: block;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 463, ../sass/_mixins.scss */
+.btn-block + .btn-block {
+  margin-top: 5px;
+}
+
+/* line 471, ../sass/_mixins.scss */
+.btn-primary.active,
+.btn-warning.active,
+.btn-danger.active,
+.btn-success.active,
+.btn-info.active,
+.btn-inverse.active {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* line 474, ../sass/_mixins.scss */
+.btn {
+  border-color: #c5c5c5;
+  border-color: rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.25);
+}
+
+/* line 478, ../sass/_mixins.scss */
+.btn-primary {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #1d2436;
+  background-image: -moz-linear-gradient(top, #1d2736, #1d1f36);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#1d2736), to(#1d1f36));
+  background-image: -webkit-linear-gradient(top, #1d2736, #1d1f36);
+  background-image: -o-linear-gradient(top, #1d2736, #1d1f36);
+  background-image: linear-gradient(to bottom, #1d2736, #1d1f36);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff1d2736', endColorstr='#ff1d1f36', GradientType=0);
+  border-color: #1d1f36 #1d1f36 #020204;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #1d1f36;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+
+/* line 500, ../sass/_mixins.scss */
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary.active,
+.btn-primary.disabled,
+.btn-primary[disabled] {
+  color: #ffffff;
+  background-color: #1d1f36;
+  *background-color: #141525;
+}
+
+/* line 507, ../sass/_mixins.scss */
+.btn-primary:active,
+.btn-primary.active {
+  background-color: #0b0c15 \9;
+}
+
+/* line 510, ../sass/_mixins.scss */
+.btn-warning {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #faa732;
+  background-image: -moz-linear-gradient(top, #fbb450, #f89406);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fbb450), to(#f89406));
+  background-image: -webkit-linear-gradient(top, #fbb450, #f89406);
+  background-image: -o-linear-gradient(top, #fbb450, #f89406);
+  background-image: linear-gradient(to bottom, #fbb450, #f89406);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffbb450', endColorstr='#fff89406', GradientType=0);
+  border-color: #f89406 #f89406 #ad6704;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #f89406;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+
+/* line 532, ../sass/_mixins.scss */
+.btn-warning:hover,
+.btn-warning:active,
+.btn-warning.active,
+.btn-warning.disabled,
+.btn-warning[disabled] {
+  color: #ffffff;
+  background-color: #f89406;
+  *background-color: #df8505;
+}
+
+/* line 538, ../sass/_mixins.scss */
+.btn-warning:active,
+.btn-warning.active {
+  background-color: #c67605 \9;
+}
+
+/* line 541, ../sass/_mixins.scss */
+.btn-danger {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #da4f49;
+  background-image: -moz-linear-gradient(top, #ee5f5b, #bd362f);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ee5f5b), to(#bd362f));
+  background-image: -webkit-linear-gradient(top, #ee5f5b, #bd362f);
+  background-image: -o-linear-gradient(top, #ee5f5b, #bd362f);
+  background-image: linear-gradient(to bottom, #ee5f5b, #bd362f);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffee5f5b', endColorstr='#ffbd362f', GradientType=0);
+  border-color: #bd362f #bd362f #802420;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #bd362f;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+
+/* line 563, ../sass/_mixins.scss */
+.btn-danger:hover,
+.btn-danger:active,
+.btn-danger.active,
+.btn-danger.disabled,
+.btn-danger[disabled] {
+  color: #ffffff;
+  background-color: #bd362f;
+  *background-color: #a9302a;
+}
+
+/* line 569, ../sass/_mixins.scss */
+.btn-danger:active,
+.btn-danger.active {
+  background-color: #942a25 \9;
+}
+
+/* COMPRESS LINE */
+/* line 573, ../sass/_mixins.scss */
+.btn-success {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #5bb75b;
+  background-image: -moz-linear-gradient(top, #62c462, #51a351);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#62c462), to(#51a351));
+  background-image: -webkit-linear-gradient(top, #62c462, #51a351);
+  background-image: -o-linear-gradient(top, #62c462, #51a351);
+  background-image: linear-gradient(to bottom, #62c462, #51a351);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff62c462', endColorstr='#ff51a351', GradientType=0);
+  border-color: #51a351 #51a351 #387038;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #51a351;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+
+/* line 595, ../sass/_mixins.scss */
+.btn-success:hover,
+.btn-success:active,
+.btn-success.active,
+.btn-success.disabled,
+.btn-success[disabled] {
+  color: #ffffff;
+  background-color: #51a351;
+  *background-color: #499249;
+}
+
+/* line 601, ../sass/_mixins.scss */
+.btn-success:active,
+.btn-success.active {
+  background-color: #408140 \9;
+}
+
+/* line 604, ../sass/_mixins.scss */
+.btn-info {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #49afcd;
+  background-image: -moz-linear-gradient(top, #5bc0de, #2f96b4);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#5bc0de), to(#2f96b4));
+  background-image: -webkit-linear-gradient(top, #5bc0de, #2f96b4);
+  background-image: -o-linear-gradient(top, #5bc0de, #2f96b4);
+  background-image: linear-gradient(to bottom, #5bc0de, #2f96b4);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5bc0de', endColorstr='#ff2f96b4', GradientType=0);
+  border-color: #2f96b4 #2f96b4 #1f6377;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #2f96b4;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+
+/* line 626, ../sass/_mixins.scss */
+.btn-info:hover,
+.btn-info:active,
+.btn-info.active,
+.btn-info.disabled,
+.btn-info[disabled] {
+  color: #ffffff;
+  background-color: #2f96b4;
+  *background-color: #2a85a0;
+}
+
+/* line 632, ../sass/_mixins.scss */
+.btn-info:active,
+.btn-info.active {
+  background-color: #24748c \9;
+}
+
+/* line 635, ../sass/_mixins.scss */
+.btn-inverse {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #363636;
+  background-image: -moz-linear-gradient(top, #444444, #222222);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#444444), to(#222222));
+  background-image: -webkit-linear-gradient(top, #444444, #222222);
+  background-image: -o-linear-gradient(top, #444444, #222222);
+  background-image: linear-gradient(to bottom, #444444, #222222);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff444444', endColorstr='#ff222222', GradientType=0);
+  border-color: #222222 #222222 #000000;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #222222;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+
+/* line 657, ../sass/_mixins.scss */
+.btn-inverse:hover,
+.btn-inverse:active,
+.btn-inverse.active,
+.btn-inverse.disabled,
+.btn-inverse[disabled] {
+  color: #ffffff;
+  background-color: #222222;
+  *background-color: #151515;
+}
+
+/* line 663, ../sass/_mixins.scss */
+.btn-inverse:active,
+.btn-inverse.active {
+  background-color: #080808 \9;
+}
+
+/* line 667, ../sass/_mixins.scss */
+button.btn,
+input[type="submit"].btn {
+  *padding-top: 3px;
+  *padding-bottom: 3px;
+}
+
+/* line 672, ../sass/_mixins.scss */
+button.btn::-moz-focus-inner,
+input[type="submit"].btn::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+/* line 677, ../sass/_mixins.scss */
+button.btn.btn-large,
+input[type="submit"].btn.btn-large {
+  *padding-top: 7px;
+  *padding-bottom: 7px;
+}
+
+/* line 682, ../sass/_mixins.scss */
+button.btn.btn-small,
+input[type="submit"].btn.btn-small {
+  *padding-top: 3px;
+  *padding-bottom: 3px;
+}
+
+/* line 687, ../sass/_mixins.scss */
+button.btn.btn-mini,
+input[type="submit"].btn.btn-mini {
+  *padding-top: 1px;
+  *padding-bottom: 1px;
+}
+
+/* star rating for plugins
+******************************************************************/
+/* line 695, ../sass/_mixins.scss */
+div.star-block {
+  background-image: url(../../images/stars.png);
+  background-repeat: repeat-x;
+}
+
+/* line 700, ../sass/_mixins.scss */
+div.star-holder {
+  float: left;
+  background-position: left bottom;
+  height: 17px;
+  position: relative;
+  width: 92px;
+}
+
+/* line 708, ../sass/_mixins.scss */
+div.star-holder .star-rating {
+  background-position: left top;
+  float: left;
+  height: 17px;
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+}
+
+/* style code blocks
+******************************************************************/
+/* line 720, ../sass/_mixins.scss */
+pre {
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 20px;
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre;
+  white-space: pre-wrap;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+/* line 738, ../sass/_mixins.scss */
+pre.prettyprint {
+  margin-bottom: 20px;
+}
+
+/* line 742, ../sass/_mixins.scss */
+pre code {
+  padding: 0;
+  color: inherit;
+  background-color: transparent;
+  border: 0;
+}
+
+/* line 749, ../sass/_mixins.scss */
+.pre-scrollable {
+  max-height: 340px;
+  overflow-y: scroll;
+}
+
+/******************************************************************
+Stylesheet: Add Ons
+
+this will take care of the CSS required by things like
+colorbox and other jQuery plugins
+
+******************************************************************/
+/* line 8, ../sass/_addons.scss */
+#colorbox, #cboxOverlay, #cboxWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+/* line 9, ../sass/_addons.scss */
+#cboxOverlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 10, ../sass/_addons.scss */
+#cboxMiddleLeft, #cboxBottomLeft {
+  clear: left;
+}
+
+/* line 11, ../sass/_addons.scss */
+#cboxContent {
+  position: relative;
+}
+
+/* line 12, ../sass/_addons.scss */
+#cboxLoadedContent {
+  overflow: auto;
+}
+
+/* line 13, ../sass/_addons.scss */
+#cboxTitle {
+  margin: 0;
+}
+
+/* line 14, ../sass/_addons.scss */
+#cboxLoadingOverlay, #cboxLoadingGraphic {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 15, ../sass/_addons.scss */
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow {
+  cursor: pointer;
+}
+
+/* line 16, ../sass/_addons.scss */
+.cboxPhoto {
+  float: left;
+  margin: auto;
+  border: 0;
+  display: block;
+  max-width: none;
+}
+
+/* line 17, ../sass/_addons.scss */
+.cboxIframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+}
+
+/* line 18, ../sass/_addons.scss */
+#colorbox, #cboxContent, #cboxLoadedContent {
+  box-sizing: content-box;
+}
+
+/* 
+    User Style:
+    Change the following styles to modify the appearance of ColorBox.  They are
+    ordered & tabbed in a way that represents the nesting of the generated HTML.
+*/
+/* line 25, ../sass/_addons.scss */
+#cboxOverlay {
+  background: #000;
+}
+
+/* line 27, ../sass/_addons.scss */
+#cboxContent {
+  margin-top: 32px;
+  overflow: visible;
+}
+
+/* line 28, ../sass/_addons.scss */
+.cboxIframe {
+  background: #fff;
+}
+
+/* line 29, ../sass/_addons.scss */
+#cboxError {
+  padding: 50px;
+  border: 1px solid #ccc;
+}
+
+/* line 30, ../sass/_addons.scss */
+#cboxLoadedContent {
+  background: #000;
+  padding: 1px;
+}
+
+/* line 31, ../sass/_addons.scss */
+#cboxLoadingGraphic {
+  background: url(../img/loading-cb.gif) no-repeat center center;
+}
+
+/* line 32, ../sass/_addons.scss */
+#cboxLoadingOverlay {
+  background: #000;
+}
+
+/* line 33, ../sass/_addons.scss */
+#cboxTitle {
+  position: absolute;
+  top: -22px;
+  left: 0;
+  color: #fff;
+}
+
+/* line 34, ../sass/_addons.scss */
+#cboxCurrent {
+  position: absolute;
+  top: -22px;
+  right: 205px;
+  text-indent: -9999px;
+}
+
+/* line 35, ../sass/_addons.scss */
+#cboxSlideshow, #cboxPrevious, #cboxNext, #cboxClose {
+  text-indent: -9999px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: -20px;
+  background: url(../img/controls.png) no-repeat 0 0;
+}
+
+/* line 36, ../sass/_addons.scss */
+#cboxPrevious {
+  background-position: 0px 0px;
+  right: 44px;
+}
+
+/* line 37, ../sass/_addons.scss */
+#cboxPrevious:hover {
+  background-position: 0px -25px;
+}
+
+/* line 38, ../sass/_addons.scss */
+#cboxNext {
+  background-position: -25px 0px;
+  right: 22px;
+}
+
+/* line 39, ../sass/_addons.scss */
+#cboxNext:hover {
+  background-position: -25px -25px;
+}
+
+/* line 40, ../sass/_addons.scss */
+#cboxClose {
+  background-position: -50px 0px;
+  right: 0;
+}
+
+/* line 41, ../sass/_addons.scss */
+#cboxClose:hover {
+  background-position: -50px -25px;
+}
+
+/* line 42, ../sass/_addons.scss */
+.cboxSlideshow_on #cboxPrevious, .cboxSlideshow_off #cboxPrevious {
+  right: 66px;
+}
+
+/* line 43, ../sass/_addons.scss */
+.cboxSlideshow_on #cboxSlideshow {
+  background-position: -75px -25px;
+  right: 44px;
+}
+
+/* line 44, ../sass/_addons.scss */
+.cboxSlideshow_on #cboxSlideshow:hover {
+  background-position: -100px -25px;
+}
+
+/* line 45, ../sass/_addons.scss */
+.cboxSlideshow_off #cboxSlideshow {
+  background-position: -100px 0px;
+  right: 44px;
+}
+
+/* line 46, ../sass/_addons.scss */
+.cboxSlideshow_off #cboxSlideshow:hover {
+  background-position: -75px -25px;
+}
+
+/*
+base (and mobile) sheet
+******************************************************************/
+/******************************************************************
+Stylesheet: Base Mobile Stylesheet
+
+Be light and don't over style since everything here will be
+loaded by mobile devices. You want to keep it as minimal as
+possible. This is called by itself and is the only one called
+for devices that are smaller than 480px so that the mobile
+version pulls ONLY the css it needs. This means it's screamingly
+fast on mobile connections.
+
+For more info, check out this great link on the topic:
+http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
+
+******************************************************************/
+/* Globals
+******************************************************************/
+/* line 18, ../sass/_base.scss */
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/* line 24, ../sass/_base.scss */
+body {
+  margin: 0;
+  font-family: 'UniversLight',"Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  color: #111111;
+  background: url(../../images/bg/gplaypattern.png) repeat 0 0 white;
+}
+
+/* line 33, ../sass/_base.scss */
+a {
+  color: #1d2736;
+  text-decoration: none;
+}
+
+/* Typography
+******************************************************************/
+/* line 41, ../sass/_base.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'UniversBold',"Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  margin: 0 0 10px;
+  padding: 0 0 10px;
+  text-rendering: optimizelegibility;
+}
+
+/* line 49, ../sass/_base.scss */
+h1 {
+  font-size: 38px;
+  line-height: 42px;
+}
+
+/* line 50, ../sass/_base.scss */
+h2 {
+  font-size: 32px;
+  line-height: 38px;
+}
+
+/* line 51, ../sass/_base.scss */
+h3 {
+  font-size: 28px;
+  line-height: 32px;
+}
+
+/* line 52, ../sass/_base.scss */
+h4 {
+  font-size: 24px;
+  line-height: 28px;
+}
+
+/* line 53, ../sass/_base.scss */
+h5 {
+  font-size: 20px;
+  line-height: 24px;
+}
+
+/* line 54, ../sass/_base.scss */
+h6 {
+  font-size: 18px;
+  line-height: 20px;
+}
+
+/* line 56, ../sass/_base.scss */
+p {
+  margin: 0 0 10px;
+  padding: 0;
+}
+
+/* line 61, ../sass/_base.scss */
+ul, ol {
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0 0 10px 10px;
+  padding: 0;
+  list-style: none;
+}
+
+/* line 69, ../sass/_base.scss */
+ul li, ol li {
+  padding: 0 0 7px;
+  margin: 0;
+}
+
+/* image setup
+******************************************************************/
+/* line 76, ../sass/_base.scss */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* line 77, ../sass/_base.scss */
+img.alignleft, img.left {
+  float: left;
+}
+
+/* line 78, ../sass/_base.scss */
+img.alignright, img.right {
+  float: right;
+}
+
+/* line 79, ../sass/_base.scss */
+img.aligncenter, img.center {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  float: none;
+  clear: both;
+}
+
+/* line 80, ../sass/_base.scss */
+img.alignnone, img.block {
+  display: block;
+  clear: both;
+}
+
+/* line 81, ../sass/_base.scss */
+img[align="left"] {
+  float: left;
+  clear: left;
+}
+
+/* line 82, ../sass/_base.scss */
+img[align="right"] {
+  float: right;
+  clear: right;
+}
+
+/* line 83, ../sass/_base.scss */
+img[align="middle"] {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  float: none;
+  clear: both;
+}
+
+/* Wrapper
+******************************************************************/
+/* line 88, ../sass/_base.scss */
+#wrapper {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* Header
+******************************************************************/
+/* line 97, ../sass/_base.scss */
+#header {
+  overflow: hidden;
+  background-color: #dddddd;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#dddddd));
+  background-image: -webkit-linear-gradient(top, #cccccc, #dddddd);
+  background-image: -moz-linear-gradient(top, #cccccc, #dddddd);
+  background-image: -o-linear-gradient(top, #cccccc, #dddddd);
+  background-image: -ms-linear-gradient(top, #cccccc, #dddddd);
+  background-image: linear-gradient(top, #cccccc, #dddddd);
+  border-bottom: 1px solid #eeeeee;
+  /* top face and icon */
+  /* social icons in header */
+}
+/* line 104, ../sass/_base.scss */
+#header a.face-icon {
+  float: left;
+  display: block;
+  margin: 0 10px 0 0;
+}
+/* line 109, ../sass/_base.scss */
+#header a.face-icon img {
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+/* line 116, ../sass/_base.scss */
+#header span.text-title {
+  display: inline-block;
+  font-size: 18px;
+  letter-spacing: -1px;
+  line-height: 32px;
+  font-weight: normal;
+  text-rendering: optimizelegibility;
+  text-shadow: none;
+}
+/* line 127, ../sass/_base.scss */
+#header .social-header {
+  padding: 0;
+}
+/* line 130, ../sass/_base.scss */
+#header .social-header a {
+  margin-left: 7px;
+  font-size: 36px;
+  line-height: 36px;
+  text-decoration: none;
+  position: relative;
+  top: 0;
+}
+/* line 138, ../sass/_base.scss */
+#header .social-header a:hover {
+  text-decoration: none;
+  top: 1px;
+}
+
+/* Content Area
+******************************************************************/
+/* line 152, ../sass/_base.scss */
+#content {
+  margin: 0;
+  padding: 0;
+}
+
+/* Sidebar
+******************************************************************/
+/* Footer
+******************************************************************/
+/* Specific Areas / Overrides
+******************************************************************/
+/* line 170, ../sass/_base.scss */
+#home-content {
+  margin: 0 0 20px;
+}
+/* line 174, ../sass/_base.scss */
+#home-content h1.entry-title {
+  font-size: 60px;
+  line-height: 50px;
+  margin: 0;
+  padding: 0;
+  color: #1d2736;
+  text-align: center;
+}
+/* line 183, ../sass/_base.scss */
+#home-content h2 {
+  font-size: 32px;
+  margin: 0 0 10px;
+  padding: 0;
+  color: #1d2736;
+  text-align: center;
+}
+/* line 191, ../sass/_base.scss */
+#home-content p {
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+}
+/* line 198, ../sass/_base.scss */
+#home-content img {
+  -moz-box-shadow: 0 0 5px #000;
+  -webkit-box-shadow: 0 0 5px #000;
+  box-shadow: 0 0 5px #000;
+  float: none;
+  margin: 5px 0 10px 0;
+}
+
+/*
+standard viewing
+******************************************************************/
+@media only screen and (min-width: 481px) {
+  /* line 67, ../sass/style.scss */
+  .just-phone {
+    display: none;
+  }
+
+  /* line 68, ../sass/style.scss */
+  .hide-phone {
+    display: inline-block;
+  }
+
+  /* styles in 481up.scss */
+  /******************************************************************
+  Stylesheet: Tablet & Mid-Range Stylesheet
+  
+  This is a unique stylesheet in that it's a tweener size. This will
+  work with something like the Galaxy Tab, which is a bit smaller than
+  an iPad and a bit larger than an iPhone. Be light, this should still
+  retain the "mobile look".
+  
+  ******************************************************************/
+  /* Wrapper
+  ******************************************************************/
+  /* Content Area
+  ******************************************************************/
+  /* line 21, ../sass/_481up.scss */
+  #content {
+    width: 100%;
+  }
+
+  /* Sidebar
+  ******************************************************************/
+  /* line 28, ../sass/_481up.scss */
+  #sidebar {
+    clear: left;
+    overflow: hidden;
+  }
+  /* line 32, ../sass/_481up.scss */
+  #sidebar .widget {
+    float: left;
+    width: 31%;
+    margin: 0 0 0 10px;
+    padding: 0 15px;
+  }
+  /* line 38, ../sass/_481up.scss */
+  #sidebar .widget:first-child {
+    margin: 0;
+  }
+  /* line 42, ../sass/_481up.scss */
+  #sidebar .widget h4 {
+    font-size: 28px;
+  }
+  /* line 45, ../sass/_481up.scss */
+  #sidebar .widget h4 .icon {
+    font-size: 24px;
+  }
+
+  /* Footer
+  ******************************************************************/
+  /* Specific Areas / Overrides
+  ******************************************************************/
+  /* line 64, ../sass/_481up.scss */
+  #home-content {
+    margin: 0 0 20px;
+  }
+}
+/* end of media query */
+/*
+tablets and small desktops
+******************************************************************/
+@media only screen and (min-width: 768px) {
+  /* styles in 768up.scss */
+  /******************************************************************
+  Stylesheet: iPad Styles (768px - 1024px)
+  
+  These are your iPad1 & iPad2 styles. You can pull over most from
+  the 481up but you can start working with floats here as you have
+  some more room. I still don't reccomend bringing over the grid
+  styles since things can still get a bit cramped. Remember, people
+  are using fingers not mice, so you need larger targets for
+  interactions.
+  
+  ******************************************************************/
+  /* showing and hiding ALL THE THINGS
+  ******************************************************************/
+}
+/* end of media query */
+/*
+standard desktops
+******************************************************************/
+@media only screen and (min-width: 1030px) {
+  /* styles in 1030up.scss */
+  /******************************************************************
+  Stylesheet: Average Screens
+  
+  This is larger than a regular iPad (1 & 2) and most other tablets.
+  It's also where we'll start shaping the larger screen experience.
+  
+  ******************************************************************/
+}
+/* end of media query */
+/*
+bigger widescreen desktops
+******************************************************************/
+@media only screen and (min-width: 1240px) {
+  /* styles in 1240up.scss */
+  /******************************************************************
+  Stylesheet: Super Large Screens
+  
+  This is for super wide monitors for the l33t people. If you 
+  worked in a good base in the previous styles, this should work
+  pretty seamlessly.
+  
+  ******************************************************************/
+}
+/* end of media query */
+/******************************************************************
+PRINT STYLESHEET
+I'll need to do something with this for the 0.01% of people who
+still print shit
+******************************************************************/
+@media print {
+  /* line 114, ../sass/style.scss */
+  * {
+    background: transparent !important;
+    color: black !important;
+    text-shadow: none !important;
+    filter: none !important;
+    -ms-filter: none !important;
+  }
+
+  /* line 122, ../sass/style.scss */
+  a, a:visited {
+    color: #444 !important;
+    text-decoration: underline;
+    /* show links on printed pages */
+    /* show title too */
+  }
+  /* line 127, ../sass/style.scss */
+  a:after, a:visited:after {
+    content: " (" attr(href) ")";
+  }
+  /* line 132, ../sass/style.scss */
+  a abbr[title]:after, a:visited abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  /* line 139, ../sass/style.scss */
+  .ir a:after,
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: "";
+  }
+
+  /* line 143, ../sass/style.scss */
+  pre, blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  /* line 148, ../sass/style.scss */
+  thead {
+    display: table-header-group;
+  }
+
+  /* line 152, ../sass/style.scss */
+  tr, img {
+    page-break-inside: avoid;
+  }
+
+  /* line 156, ../sass/style.scss */
+  img {
+    max-width: 100% !important;
+  }
+
+  @page {
+    margin: 0.5cm;
+}
+
+  /* line 164, ../sass/style.scss */
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* line 170, ../sass/style.scss */
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+
+  /* hide content people who print don't need to see */
+  /* line 179, ../sass/style.scss */
+  .sidebar,
+  .page-navigation,
+  .wp-prev-next,
+  .respond-form,
+  nav {
+    display: none;
+  }
+}

@@ -1,0 +1,182 @@
+/******************************************************************
+Stylesheet: Main Stylesheet
+
+Here's where the magic happens. 
+******************************************************************/
+
+/*
+font declarations
+******************************************************************/
+
+@font-face {
+  font-family: 'FontAwesome';
+  src:  url('../fonts/fontawesome-webfont.eot');
+  src:  url('../fonts/fontawesome-webfont.eot?#iefix') format('eot'), 
+        url('../fonts/fontawesome-webfont.woff') format('woff'),
+        url('../fonts/fontawesome-webfont.ttf') format('truetype'),
+        url('../fonts/fontawesome-webfont.svg#FontAwesome') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'UniversBold';
+    src: url('../fonts/universltstd-bold-webfont.eot');
+    src: url('../fonts/universltstd-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/universltstd-bold-webfont.woff') format('woff'),
+         url('../fonts/universltstd-bold-webfont.ttf') format('truetype'),
+         url('../fonts/universltstd-bold-webfont.svg#UniversBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'UniversLight';
+    src: url('../fonts/universltstd-light-webfont.eot');
+    src: url('../fonts/universltstd-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/universltstd-light-webfont.woff') format('woff'),
+         url('../fonts/universltstd-light-webfont.ttf') format('truetype'),
+         url('../fonts/universltstd-light-webfont.svg#UniversLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/*
+imports and extras
+******************************************************************/
+
+@import "normalize";
+@import "mixins";
+@import "addons";
+
+
+/*
+base (and mobile) sheet
+******************************************************************/
+@import "base";
+
+
+/*
+standard viewing
+******************************************************************/
+@media only screen and (min-width: 481px) {
+
+	.just-phone {display:none;}
+	.hide-phone {display:inline-block;}
+	
+	/* styles in 481up.scss */
+	@import "481up";
+
+} /* end of media query */
+
+
+/*
+tablets and small desktops
+******************************************************************/
+@media only screen and (min-width: 768px) {
+	
+	/* styles in 768up.scss */
+	@import "768up";
+
+} /* end of media query */
+
+
+/*
+standard desktops
+******************************************************************/
+@media only screen and (min-width: 1030px) {
+	
+	/* styles in 1030up.scss */
+	@import "1030up";
+
+} /* end of media query */
+
+
+/*
+bigger widescreen desktops
+******************************************************************/
+@media only screen and (min-width: 1240px) {
+	
+	/* styles in 1240up.scss */
+	@import "1240up";
+
+} /* end of media query */
+
+/******************************************************************
+PRINT STYLESHEET
+I'll need to do something with this for the 0.01% of people who
+still print shit
+******************************************************************/
+@media print { 
+	* { 
+		background: transparent !important; 
+		color: black !important; 
+		text-shadow: none !important; 
+		filter:none !important; 
+		-ms-filter: none !important; 
+	} 
+	
+	a, a:visited { 
+		color: #444 !important; 
+		text-decoration: underline; 
+		
+		/* show links on printed pages */
+		&:after { 
+			content: " (" attr(href) ")"; 
+		}
+		
+		/* show title too */
+		abbr[title]:after { 
+			content: " (" attr(title) ")"; 
+		}
+	} 
+	
+	.ir a:after, 
+	a[href^="javascript:"]:after, 
+	a[href^="#"]:after { 
+		content: ""; 
+	} 
+	
+	pre, blockquote { 
+		border: 1px solid #999; 
+		page-break-inside: avoid; 
+	} 
+	
+	thead { 
+		display: table-header-group; 
+	} 
+	
+	tr, img { 
+		page-break-inside: avoid; 
+	} 
+	
+	img { 
+		max-width: 100% !important; 
+	}
+    
+    @page { 
+    	margin: 0.5cm;
+    } 
+    
+    p, h2, h3 { 
+    	orphans: 3; 
+    	widows: 3; 
+    } 
+    
+    h2, 
+    h3 { 
+    	page-break-after: avoid; 
+    }
+    
+    /* hide content people who print don't need to see */
+    .sidebar,
+    .page-navigation, 
+    .wp-prev-next,
+    .respond-form,
+    nav {
+    	display: none;
+    }
+}

@@ -1,0 +1,67 @@
+/******************************************************************
+Stylesheet: Tablet & Mid-Range Stylesheet
+
+This is a unique stylesheet in that it's a tweener size. This will
+work with something like the Galaxy Tab, which is a bit smaller than
+an iPad and a bit larger than an iPhone. Be light, this should still
+retain the "mobile look".
+
+******************************************************************/
+
+/* Wrapper
+******************************************************************/
+
+#wrapper {
+
+}
+
+/* Content Area
+******************************************************************/
+
+#content {
+	width:100%;
+}
+
+/* Sidebar
+******************************************************************/
+
+#sidebar {
+	clear:left;
+	overflow:hidden;
+
+	.widget {
+		float:left;
+		width:31%;
+		margin:0 0 0 10px;
+		padding:0 15px;
+
+		&:first-child {
+			margin:0;
+		}
+
+		h4 {
+			font-size:28px;
+
+			.icon {
+				font-size:24px;
+			}
+
+		}
+
+	}
+
+}
+
+
+/* Footer
+******************************************************************/
+
+#footer {}
+
+/* Specific Areas / Overrides
+******************************************************************/
+
+#home-content {
+	margin:0 0 20px;
+}
+

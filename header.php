@@ -28,41 +28,21 @@
 
 <body <?php body_class('norcross'); ?> itemtype="http://schema.org/Blog" itemscope="">
 
-	<div class="navbar navbar-fixed-top">
-		<div class="navbar-inner navbar-top-inner">
-			<div class="container-fluid">
+<div id="wrapper">
 
-			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-			<span class="icon-align-justify"></span>
-			</a>
+    <div id="header" class="inner-thin">
+            <div class="face-logo set-left">
+                <a class="face-icon" href="<?php bloginfo('url'); ?>/"><img class="nav-avatar" src="<?php bloginfo('stylesheet_directory'); ?>/images/norcrosshead-icon.png" alt="<?php bloginfo('name'); ?>" title="<?php bloginfo('name'); ?>"></a>
+                <span class="text-title hide-phone"><?php bloginfo('name'); ?></span>
+                
+            </div>
 
-			<a class="brand brand-icon" href="<?php bloginfo('url'); ?>/">
-				<img class="nav-avatar" src="<?php bloginfo('stylesheet_directory'); ?>/images/norcrosshead-icon.png" alt="<?php bloginfo('name'); ?>" title="<?php bloginfo('name'); ?>">
-				<span class="mobile-title"><?php bloginfo('name'); ?></span>
-			</a>
+            <div class="social-header set-right">
+                <a href="http://twitter.com/norcross/" title="Norcross on Twitter" target="_blank"><i class="icon icon-twitter"></i></a>
+                <a href="http://github.com/norcross" title="Norcross on Github" target="_blank"><i class="icon icon-github"></i></a>
+                <a href="https://plus.google.com/101309579396817654042/posts" title="Norcross on Google Plus" target="_blank"><i class="icon icon-google-plus"></i></a>
+                <a href="<?php bloginfo('rss2_url'); ?>" title="RSS Feed" target="_blank"><i class="icon icon-rss"></i></a>
+            </div> 
 
-			<div class="social-header pull-right hidden-phone">
-				<a href="http://twitter.com/norcross/" title="Norcross on Twitter" target="_blank"><i class="icon icon-twitter"></i></a>
-				<a href="http://github.com/norcross" title="Norcross on Github" target="_blank"><i class="icon icon-github"></i></a>
-				<a href="https://plus.google.com/101309579396817654042/posts" title="Norcross on Google Plus" target="_blank"><i class="icon icon-google-plus"></i></a>
-				<a href="<?php get_bloginfo('rss2_url'); ?>" title="RSS Feed" target="_blank"><i class="icon icon-rss"></i></a>
-			</div> 
+    </div>
 
-			<?php
-			// nav menu
-			wp_nav_menu( array (
-				'theme_location'	=> 'primary',
-				'container_class'	=> 'nav-collapse',
-				'container_id'		=> false,
-				'menu_class'		=> 'nav',
-				'menu_id'			=> false,
-				'depth'				=> '2', /* suppress lower levels for now */
-				'walker'			=> new description_walker()				
-			));	
-			?>
-         
-			</div>
-		</div>
-	</div>
-
-<div id="wrapper" class="container">

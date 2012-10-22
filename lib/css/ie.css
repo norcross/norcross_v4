@@ -1,0 +1,113 @@
+/******************************************************************
+Site Name: 
+Author: 
+
+Stylesheet: IE Stylesheet
+
+So instead of using the respond.js file to add media query support
+to IE, we're going to use SASS to create an easily readable css file.
+Here, we import all the styles the standard stylesheet gets, only
+without the media queries. No need to worry about editing anything!
+
+******************************************************************/
+/*
+Base.css contains the main mobile styles and is called in the 
+header. This way mobile devices get ONLY the styles that apply
+to them. No muss, no fuss.
+
+normalize.css is also called within that base file 
+*/
+/******************************************************************
+Stylesheet: Tablet & Mid-Range Stylesheet
+
+This is a unique stylesheet in that it's a tweener size. This will
+work with something like the Galaxy Tab, which is a bit smaller than
+an iPad and a bit larger than an iPhone. Be light, this should still
+retain the "mobile look".
+
+******************************************************************/
+/* Wrapper
+******************************************************************/
+/* Content Area
+******************************************************************/
+/* line 21, ../sass/_481up.scss */
+#content {
+  width: 100%;
+}
+
+/* Sidebar
+******************************************************************/
+/* line 28, ../sass/_481up.scss */
+#sidebar {
+  clear: left;
+  overflow: hidden;
+}
+/* line 32, ../sass/_481up.scss */
+#sidebar .widget {
+  float: left;
+  width: 31%;
+  margin: 0 0 0 10px;
+  padding: 0 15px;
+}
+/* line 38, ../sass/_481up.scss */
+#sidebar .widget:first-child {
+  margin: 0;
+}
+/* line 42, ../sass/_481up.scss */
+#sidebar .widget h4 {
+  font-size: 28px;
+}
+/* line 45, ../sass/_481up.scss */
+#sidebar .widget h4 .icon {
+  font-size: 24px;
+}
+
+/* Footer
+******************************************************************/
+/* Specific Areas / Overrides
+******************************************************************/
+/* line 64, ../sass/_481up.scss */
+#home-content {
+  margin: 0 0 20px;
+}
+
+/******************************************************************
+Stylesheet: iPad Styles (768px - 1024px)
+
+These are your iPad1 & iPad2 styles. You can pull over most from
+the 481up but you can start working with floats here as you have
+some more room. I still don't reccomend bringing over the grid
+styles since things can still get a bit cramped. Remember, people
+are using fingers not mice, so you need larger targets for
+interactions.
+
+******************************************************************/
+/* showing and hiding ALL THE THINGS
+******************************************************************/
+/******************************************************************
+Stylesheet: Average Screens
+
+This is larger than a regular iPad (1 & 2) and most other tablets.
+It's also where we'll start shaping the larger screen experience.
+
+******************************************************************/
+/* 
+you can call the larger styles if you want, but there's really no need 
+*/
+/******************************************************************
+ADDITIONAL IE FIXES
+These fixes are now ONLY seen by IE, so you don't have to worry
+about using prefixes, although it's best practice. For more info
+on using Modernizr classes, check out this link:
+http://www.modernizr.com/docs/
+******************************************************************/
+/*
+For example, you can use something like:
+
+.no-textshadow .class { ... }
+
+You can also target specific versions by using something like:
+
+.ie7 .class { ... }
+
+*/
