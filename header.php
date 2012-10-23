@@ -31,11 +31,25 @@
 <div id="wrapper">
 
     <div id="header" class="inner-thin">
+        <div class="header-wrap">
             <div class="face-logo set-left">
                 <a class="face-icon" href="<?php bloginfo('url'); ?>/"><img class="nav-avatar" src="<?php bloginfo('stylesheet_directory'); ?>/images/norcrosshead-icon.png" alt="<?php bloginfo('name'); ?>" title="<?php bloginfo('name'); ?>"></a>
-                <span class="text-title hide-phone"><?php bloginfo('name'); ?></span>
+                <span class="text-title"><?php bloginfo('name'); ?></span>
                 
             </div>
+
+            <?php
+            // nav menu
+            wp_nav_menu( array (
+                'theme_location'    => 'primary',
+                'container_class'   => 'main-navigation',
+                'container_id'      => false,
+                'menu_class'        => 'nav',
+                'menu_id'           => false,
+                'depth'             => '2', /* suppress lower levels for now */
+                'walker'            => new description_walker()             
+            )); 
+            ?>
 
             <div class="social-header set-right">
                 <a href="http://twitter.com/norcross/" title="Norcross on Twitter" target="_blank"><i class="icon icon-twitter"></i></a>
@@ -43,6 +57,6 @@
                 <a href="https://plus.google.com/101309579396817654042/posts" title="Norcross on Google Plus" target="_blank"><i class="icon icon-google-plus"></i></a>
                 <a href="<?php bloginfo('rss2_url'); ?>" title="RSS Feed" target="_blank"><i class="icon icon-rss"></i></a>
             </div> 
-
+        </div>
     </div>
 

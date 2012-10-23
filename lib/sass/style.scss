@@ -44,6 +44,7 @@ font declarations
 
 }
 
+
 /*
 imports and extras
 ******************************************************************/
@@ -64,14 +65,20 @@ standard viewing
 ******************************************************************/
 @media only screen and (min-width: 481px) {
 
-	.just-phone {display:none;}
-	.hide-phone {display:inline-block;}
-	
 	/* styles in 481up.scss */
 	@import "481up";
 
 } /* end of media query */
 
+/*
+small tablets
+******************************************************************/
+@media only screen and (min-width: 600px) {
+	
+	/* styles in 600up.scss */
+	@import "600up";
+
+} /* end of media query */
 
 /*
 tablets and small desktops

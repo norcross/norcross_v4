@@ -10,6 +10,149 @@ interactions.
 
 ******************************************************************/
 
-/* showing and hiding ALL THE THINGS
+html, body {height: 100%;}
+
+/* Wrapper
 ******************************************************************/
+
+#wrapper {
+	min-height: 100%;
+	overflow:auto;
+	padding-bottom: 40px;
+}
+
+/* Header
+******************************************************************/
+
+#header {
+
+}
+
+/* Content
+******************************************************************/
+
+#content-wrap {
+}
+
+
+#content {
+	padding:25px 0;
+}
+
+/* Sidebar
+******************************************************************/
+
+#sidebar {
+	overflow:hidden;
+
+}
+
+/* Sidebar
+******************************************************************/
+
+#sidebar {
+
+	.widget {
+		margin:0 0 10px;
+		padding:0 0 10px;
+		border-bottom:1px dotted;
+		border-color: #cccccc;
+
+		&:last-child {
+			border-bottom:none;
+		}
+
+		h4 {
+			font-size:28px;
+
+			.icon {
+				font-size:24px;
+			}
+
+		}
+
+	}
+
+}
+
+/* Footer
+******************************************************************/
+
+#footer {
+
+	position: relative;
+	margin-top: -40px; /* negative value of footer height */
+	height: 40px;
+	clear:both;
+
+	p.footer-text {
+		overflow:hidden;
+
+		span.foot-left {
+			float:left;
+			text-align:left;
+			width:49%;
+			padding:0 0 0 10px;
+		}
+		
+		span.foot-right {
+			float:right;
+			text-align:right;
+			width:49%;
+			padding:0 10px 0 0;
+		}		
+	}
+
+}
+
+/* Specific Areas / Overrides
+******************************************************************/
+
+#content {
+
+	#home-content {
+		border-bottom:none;
+		width:740px;
+		margin:0 auto;
+		
+		p {
+			margin:0 0 5px;
+		}
+
+		img {
+			margin:0 25px 15px 0;
+		}
+
+	}
+}
+
+.home-sidebar {
+	background:#eeeeee;
+	border-top:1px solid #cccccc;
+	border-bottom:1px solid #cccccc;
+	padding:20px 10px;
+
+	.sidebar-wrap {
+		width:740px;
+		margin:0 auto;
+	}
+
+}
+
+
+#sidebar .widget-home-block {
+	border-bottom:none;
+	padding:0 20px;
+
+	p {
+		height:130px;
+	}
+
+	p.widget-button {
+		height:auto;
+	}
+
+}
+
+
 

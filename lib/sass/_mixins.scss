@@ -5,6 +5,7 @@ this is for fancy shit. a lot of stuff borrowed from Boostrap
 
 ******************************************************************/
 
+
 /* Clears and floats
 ******************************************************************/
 
@@ -35,13 +36,12 @@ this is for fancy shit. a lot of stuff borrowed from Boostrap
 /* Color swatch
 ******************************************************************/
 
-$text:              #111111;
-$blue:              #242C43;
-$dk-blue:           #1D2736;
-$lt-blue:           #465682;
+$text:         #111111;
+$white:        #ffffff;
+$dark:         #1D2736;
 
 
-/* Some gradient setups
+/* Gradients
 ******************************************************************/
 
 @mixin filter-gradient($from: #dfdfdf, $to: #f8f8f8) {
@@ -54,6 +54,27 @@ $lt-blue:           #465682;
   background-image: linear-gradient(top, $from, $to);
 }
 
+/* Border radius
+   USAGE: @include border-radius(4px,4px,0,0);
+******************************************************************/
+
+@mixin border-radius($topright: 0, $bottomright: 0, $bottomleft: 0, $topleft: 0) {
+  -webkit-border-top-right-radius:    $topright;
+  -webkit-border-bottom-right-radius: $bottomright;
+  -webkit-border-bottom-left-radius:  $bottomleft;
+  -webkit-border-top-left-radius:     $topleft;
+  -moz-border-radius-topright:        $topright;
+  -moz-border-radius-bottomright:     $bottomright;
+  -moz-border-radius-bottomleft:      $bottomleft;
+  -moz-border-radius-topleft:         $topleft;
+  border-top-right-radius:            $topright;
+  border-bottom-right-radius:         $bottomright;
+  border-bottom-left-radius:          $bottomleft;
+  border-top-left-radius:             $topleft;
+  -webkit-background-clip:            padding-box;
+  -moz-background-clip:               padding;
+  background-clip:                    padding-box;
+}
 
 /* FontAwesome styling
 ******************************************************************/

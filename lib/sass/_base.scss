@@ -31,7 +31,7 @@ body {
 }
 
 a {
-	color: $dk-blue;
+	color: $dark;
 	text-decoration:none;
 }
 
@@ -54,7 +54,7 @@ h5 {font-size:20px;line-height:24px;}
 h6 {font-size:18px;line-height:20px;}
 
 p {
-	margin: 0 0 10px;
+	margin: 0 0 9px;
 	padding: 0;
 }
 
@@ -95,7 +95,8 @@ img[align="middle"] { display: block; margin-right: auto; margin-left: auto; flo
 ******************************************************************/
 
 #header {
-	overflow:hidden;
+	display:block;
+	height:50px;
 	@include filter-gradient(#cccccc,#dddddd);
 	border-bottom:1px solid #eeeeee;
 	
@@ -114,13 +115,7 @@ img[align="middle"] { display: block; margin-right: auto; margin-left: auto; flo
 	}
 
 	span.text-title {
-		display: inline-block;
-		font-size:18px;
-		letter-spacing:-1px;
-		line-height: 32px;
-		font-weight: normal;
-		text-rendering: optimizelegibility;
-		text-shadow: none;
+		display: none;
 	}	
 
 	/* social icons in header */
@@ -144,6 +139,75 @@ img[align="middle"] { display: block; margin-right: auto; margin-left: auto; flo
 
 	}
 
+	/* navigation */
+
+	.main-navigation {
+
+		position:relative;
+
+		.menu-icon {
+			color: $dark;
+			display:block;
+			float:right;
+			font-size: 24px;
+			line-height: 24px;
+			padding:4px 8px;
+			margin:0 0 0 30px;
+		}
+
+		ul.nav {
+			clear: both;
+			position: absolute;
+			right:4px;
+			top: 36px;
+			width: 290px;
+			z-index: 10000;
+			padding: 0;
+			margin:3px 0;
+			background: #eeeeee;
+			border: solid 1px #999;
+			@include border-radius(4px,4px,4px,4px);
+			display: none; /* visibility will be toggled with jquery */
+
+			li {
+				clear: both;
+				float: none;
+				margin: 0 3px 7px;
+				padding: 0;
+
+				a {
+					@include border-radius(4px,4px,4px,4px);
+					display:block;
+					padding: 5px;
+
+					&:hover {
+						text-decoration: none;
+						background:$dark;
+						color:$white;
+					}
+
+				}
+				/* secondary */
+				ul.dropdown-menu {
+
+				}
+			}
+
+			li.search-nav ::-webkit-input-placeholder {
+   				text-indent: 10px;
+   				font-style:italic;
+			}
+
+			li.search-nav :-moz-placeholder {  
+   				text-indent: 10px;
+   				font-style:italic;
+			}
+
+		}
+
+	}
+
+
 }
 
 /* Content Area
@@ -157,18 +221,61 @@ img[align="middle"] { display: block; margin-right: auto; margin-left: auto; flo
 /* Sidebar
 ******************************************************************/
 
-#sidebar {}
+#sidebar {
+
+	.widget {
+		margin:0 0 10px;
+		padding:0 0 10px;
+		border-bottom:1px dotted #cccccc;
+
+		&:last-child {
+			border-bottom:none;
+		}
+
+		h4 {
+			font-size:28px;
+
+			.icon {
+				font-size:24px;
+			}
+
+		}
+
+	}
+
+}
 
 /* Footer
 ******************************************************************/
 
-#footer {}
+#footer {
+	@include filter-gradient(#dddddd,#cccccc);
+	border-top:1px solid #666666;
+	clear:both;
+	padding:3px 0;
+
+	p.footer-text {
+		margin:0;
+		text-align:center;
+
+		span.foot-block {
+			width:100%;
+			display:block;
+			margin:0 0 3px;
+		}
+
+		span.jump-top {
+			display:none;
+		}
+	}
+}
 
 /* Specific Areas / Overrides
 ******************************************************************/
 
 #home-content {
 	margin:0 0 20px;
+	border-bottom:1px solid #cccccc;
 
 
 	h1.entry-title {
@@ -176,7 +283,7 @@ img[align="middle"] { display: block; margin-right: auto; margin-left: auto; flo
 		line-height:50px;
 		margin: 0;
 		padding:0;
-		color:$dk-blue;
+		color:$dark;
 		text-align: center;
 	}
 
@@ -184,7 +291,7 @@ img[align="middle"] { display: block; margin-right: auto; margin-left: auto; flo
 		font-size: 32px;
 		margin: 0 0 10px;
 		padding:0;
-		color:$dk-blue;
+		color:$dark;
 		text-align: center;
 	}
 
@@ -200,7 +307,22 @@ img[align="middle"] { display: block; margin-right: auto; margin-left: auto; flo
 		-webkit-box-shadow: 0 0 5px #000;
 		box-shadow: 0 0 5px #000;	
 	   	float: none;
-    	margin: 5px 0 10px 0;
+    	margin: 5px auto 15px auto;
+    	display:block;
+	}
+
+}
+
+.home-sidebar {
+
+	p.widget-button {
+		width:150px;
+		margin:0 auto 10px auto;
+
+		a {
+			display:block;
+		}
+
 	}
 
 }

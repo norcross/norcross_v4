@@ -1,5 +1,7 @@
 <?php get_header(); ?>
 
+    <div id="content-wrap" class="home-wrap">
+
     <div id="content">
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
     
@@ -19,7 +21,8 @@
         
     <?php // get_sidebar(); ?>
     
-    <div id="sidebar" class="inner">
+    <div id="sidebar" class="inner home-sidebar">
+        <div class="sidebar-wrap">
 
         <div class="widget widget-home-block" id="home-plugins">
             <h4 class="widget-header"><a href="<?php bloginfo('url'); ?>/plugins/">Plugins</a><i class="icon icon-bolt set-right"></i></h4>
@@ -29,17 +32,19 @@
 
         <div class="widget widget-home-block" id="home-tutorials">
             <h4 class="widget-header"><a href="<?php bloginfo('url'); ?>/tutorials/">Tutorials</a><i class="icon icon-beaker set-right"></i></h4>
-            <p>Almost everything I know about development I've learned from someone else. So maybe I can teach y'all something.</p>
+            <p>Almost everything I know about coding I've learned elsewhere. Maybe I can teach y'all something.</p>
             <p class="widget-button"><a class="btn btn-primary" href="<?php bloginfo('url'); ?>/tutorials/">Learn Something &raquo;</a></p>
         </div>
 
-            <div class="widget widget-home-block" id="home-snippets">
+        <div class="widget widget-home-block" id="home-snippets">
             <h4 class="widget-header"><a href="<?php bloginfo('url'); ?>/snippets/">Snippets</a><i class="icon icon-cut set-right"></i></h4>
             <p>I write a lot of code. A LOT. I've spent a good amount of time building a library of snippets for myself and others.</p>
             <p class="widget-button"><a class="btn btn-primary" href="<?php bloginfo('url'); ?>/snippets/">View Them &raquo;</a></p>
         </div>
 
+        </div>
     </div>
 
+    </div> <!-- end content wrap -->
 
 <?php get_footer(); ?>

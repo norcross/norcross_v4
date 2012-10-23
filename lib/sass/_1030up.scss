@@ -6,3 +6,130 @@ It's also where we'll start shaping the larger screen experience.
 
 ******************************************************************/
 
+
+/* Wrapper
+******************************************************************/
+
+#wrapper {
+
+}
+
+/* Header
+******************************************************************/
+
+#header {
+
+	.header-wrap {
+
+		width:960px;
+		margin:0 auto;
+	}
+
+	/* navigation */
+	.main-navigation {
+
+		.menu-icon {
+			display:none;
+		}
+
+		ul.nav {
+			display:block;
+			clear: none;
+			position: relative;
+			right:4px;
+			top: 36px;
+			width: auto;
+			z-index: 10;
+			padding: 0;
+			margin:3px 0;
+			background: none;
+			border: none;
+			@include border-radius(0px,0px,0px,0px);
+
+			li {
+				clear: none;
+				float: left;
+				margin: 0 3px 7px;
+				padding: 0;
+
+				a {
+					@include border-radius(4px,4px,4px,4px);
+					display:block;
+					padding: 5px;
+
+					&:hover {
+						text-decoration: none;
+						background:$dark;
+						color:$white;
+					}
+
+				}
+				/* secondary */
+				ul.dropdown-menu {
+
+				}
+			}
+
+			li.search-nav ::-webkit-input-placeholder {
+   				text-indent: 10px;
+   				font-style:italic;
+			}
+
+			li.search-nav :-moz-placeholder {  
+   				text-indent: 10px;
+   				font-style:italic;
+			}
+
+		}
+
+	}
+
+}
+
+
+/* Content
+******************************************************************/
+
+#content-wrap {
+	width:960px;
+	margin:0 auto;
+	overflow:hidden;
+}
+
+
+#content {
+	float:left;
+	width:600px;
+
+	#home-content {
+		width:100%;
+	}
+}
+
+/* Sidebar
+******************************************************************/
+
+#sidebar {
+	float:right;
+	width:300px;
+}
+
+
+/* Footer
+******************************************************************/
+
+#footer {
+
+	p.footer-text {
+
+		span.jump-top {
+			display:block;
+			cursor:pointer;
+		}
+	}
+
+}
+
+
+/* Specific Areas / Overrides
+******************************************************************/

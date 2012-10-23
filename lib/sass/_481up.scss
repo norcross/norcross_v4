@@ -15,6 +15,26 @@ retain the "mobile look".
 
 }
 
+/* Header
+******************************************************************/
+
+#header {
+
+	span.text-title {
+		display: inline-block;
+		font-size:18px;
+		letter-spacing:-1px;
+		line-height: 32px;
+		font-weight: normal;
+		text-rendering: optimizelegibility;
+		text-shadow: none;
+		text-transform:uppercase;
+	}	
+
+
+
+}
+
 /* Content Area
 ******************************************************************/
 
@@ -27,11 +47,11 @@ retain the "mobile look".
 
 #sidebar {
 	clear:left;
-	overflow:hidden;
+	
 
 	.widget {
 		float:left;
-		width:31%;
+		width:32%;
 		margin:0 0 0 10px;
 		padding:0 15px;
 
@@ -61,7 +81,49 @@ retain the "mobile look".
 /* Specific Areas / Overrides
 ******************************************************************/
 
+
 #home-content {
 	margin:0 0 20px;
+	border-bottom:1px solid;
+	border-color:#cccccc;
+
+
+	h1.entry-title {
+		font-size:60px;
+		line-height:50px;
+		margin: 0;
+		padding:0;
+		color: $dark;
+		text-align: left;
+	}
+
+	h2 {
+		font-size: 32px;
+		margin: 0 0 10px;
+		padding:0;
+		color:$dark;
+		text-align: left;
+	}
+
+	p {
+		font-size:18px;
+		line-height: 24px;
+		text-align: left;
+
+	}
+
+	img {
+		-moz-box-shadow: 0 0 5px #000;
+		-webkit-box-shadow: 0 0 5px #000;
+		box-shadow: 0 0 5px #000;	
+	   	float: left;
+    	margin: 0 30px 15px 0;
+    	display:block;
+	}
+
 }
 
+.home-sidebar {
+
+
+}
