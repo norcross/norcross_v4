@@ -1,0 +1,126 @@
+/******************************************************************
+Stylesheet: Base Mobile Stylesheet
+
+Be light and don't over style since everything here will be
+loaded by mobile devices. You want to keep it as minimal as
+possible. This is called by itself and is the only one called
+for devices that are smaller than 480px so that the mobile
+version pulls ONLY the css it needs. This means it's screamingly
+fast on mobile connections.
+
+For more info, check out this great link on the topic:
+http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
+
+******************************************************************/
+
+/* Globals
+******************************************************************/
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+	font-family: 'UniversLight',"Helvetica Neue", Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	line-height: 24px;
+	color: #111111;
+	background: url(../../images/bg/gplaypattern.png) repeat 0 0 #fff;
+}
+
+a {
+	color: #1D2736;
+	text-decoration:none;
+}
+
+/* Typography
+******************************************************************/
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'UniversBold',"Helvetica Neue", Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	margin: 0 0 10px;
+	padding: 0 0 10px;
+	text-rendering: optimizelegibility;
+}
+
+h1 {font-size:38px;line-height:42px;}
+h2 {font-size:32px;line-height:38px;}
+h3 {font-size:28px;line-height:32px;}
+h4 {font-size:24px;line-height:28px;}
+h5 {font-size:20px;line-height:24px;}
+h6 {font-size:18px;line-height:20px;}
+
+p {
+	margin: 0 0 9px;
+	padding: 0;
+}
+
+ul, ol {
+	font-size: 16px;
+	line-height: 24px;
+	margin: 0 0 10px 10px;
+	padding: 0;
+	list-style:none;
+}
+
+ul li, ol li {
+	padding: 0 0 7px;
+	margin:0;
+}
+
+/* image setup
+******************************************************************/
+img {max-width: 100%;height: auto;}
+img.alignleft, img.left { float: left; }
+img.alignright, img.right { float: right; }
+img.aligncenter, img.center { display: block; margin-right: auto; margin-left: auto; float: none; clear: both; }
+img.alignnone, img.block { display: block; clear: both; }
+img[align="left"] { float: left; clear: left; }
+img[align="right"] { float: right; clear: right; }
+img[align="middle"] { display: block; margin-right: auto; margin-left: auto; float: none; clear: both; }
+
+/* Wrapper
+******************************************************************/
+
+#wrapper {
+}
+
+/* Header
+******************************************************************/
+
+#header {
+}
+
+/* Content Area
+******************************************************************/
+
+#content {
+}
+
+/* Sidebar
+******************************************************************/
+
+#sidebar {
+
+}
+
+/* Footer
+******************************************************************/
+
+#footer {
+
+}
+
+/* Specific Areas / Overrides
+******************************************************************/
+
+#home-content {
+
+}
+
+.home-sidebar {
+
+}

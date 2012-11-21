@@ -10,13 +10,6 @@ include('lib/rkv-meta.php');
 include('lib/rkv-widgets.php');
 include('lib/rkv-shortcodes.php');
 
-
-if(!defined('RKV_BASE'))
-    define('RKV_BASE', get_bloginfo('stylesheet_directory') );
-
-if(!defined('RKV_VER'))
-    define('RKV_VER', '1.323');
-
  // Start up the engine 
 class NorcrossVersionFour {
 
@@ -110,31 +103,6 @@ class NorcrossVersionFour {
 
 
     /**
-     * Load CSS and JS files
-     *
-     * @return Norcrossv4
-     */
-
-    public function scripts_styles() {
-
-    // CSS first
-    wp_enqueue_style( 'norcross', RKV_BASE.'/lib/css/style.css', array(), null, 'all' );
-    
-    if (is_singular('plugins') || is_page_template('page-instagram.php')) :
-        wp_enqueue_script( 'colorbox', RKV_BASE.'/lib/js/jquery.colorbox.js', array('jquery'), null, true );
-    endif;    
-
-    if (is_singular(array( 'post', 'tutorials' ) ) ) :
-        wp_enqueue_script( 'expander', RKV_BASE.'/lib/js/expander.js', array('jquery'), null, true );
-        wp_enqueue_script( 'comment-reply');
-    endif; 
-
-    // now scripts
-    wp_enqueue_script( 'norcross-init', RKV_BASE.'/lib/js/norcross.init.js', array('jquery'), null, true );
-
-    }
-
-    /**
      * Add search to nav bar
      *
      * @return Norcrossv4
@@ -205,6 +173,38 @@ class NorcrossVersionFour {
         return 100;
     }
 
+    /**
+     * Load CSS and JS files
+     *
+     * @return Norcrossv4
+     */
+
+    public function scripts_styles() {
+
+    // CSS first
+//    wp_enqueue_style( 'bootstrap-custom', get_bloginfo('stylesheet_directory').'/lib/css/bootstrap.custom.min.css', array(), null, 'all' );
+    wp_enqueue_style( 'bootstrap-custom', get_bloginfo('stylesheet_directory').'/lib/css/bootstrap.custom.css', array(), null, 'all' );
+    wp_enqueue_style( 'bootstrap-core', get_bloginfo('stylesheet_directory').'/lib/css/bootstrap.responsive.min.css', array(), null, 'all' );
+//    wp_enqueue_style( 'typography', get_bloginfo('stylesheet_directory').'/lib/css/typography.css', array(), null, 'all' );
+    
+    if (is_singular('plugins') || is_page_template('page-instagram.php')) :
+        wp_enqueue_style( 'colorbox', get_bloginfo('stylesheet_directory').'/lib/css/colorbox.css', array(), null, 'all' );
+        wp_enqueue_script( 'colorbox', get_bloginfo('stylesheet_directory').'/lib/js/jquery.colorbox.js', array('jquery'), null, true );
+    
+    endif;    
+
+    if (is_singular(array( 'post', 'tutorials' ) ) ) :
+        wp_enqueue_script( 'expander', get_bloginfo('stylesheet_directory').'/lib/js/expander.js', array('jquery'), null, true );
+        wp_enqueue_script( 'comment-reply');
+    
+    endif; 
+
+    // now scripts
+    wp_enqueue_script( 'bootstrap', get_bloginfo('stylesheet_directory').'/lib/js/bootstrap.min.js', array('jquery'), null, true );
+//    wp_enqueue_script( 'bootstrap', get_bloginfo('stylesheet_directory').'/lib/js/bootstrap.min.js', array('jquery'), null, true );
+    wp_enqueue_script( 'rkv-init', get_bloginfo('stylesheet_directory').'/lib/js/rkv.init.js', array('jquery'), null, true );
+
+    }
 
     /**
      * sort and counts on plugin archive page 

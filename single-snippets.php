@@ -11,7 +11,7 @@
         <section <?php post_class() ?> id="post-<?php the_ID(); ?>">
     
             <div class="post-title-area single-snippet-title">
-                <h1>
+                <h1 class="entry-title">
                     <?php the_title(); ?>
                     <a class="ex-link" href="<?php echo esc_url($gist_url); ?>" target="_blank" title="View this on GitHub"><i class="icon icon-link"></i></a>
                 </h1>

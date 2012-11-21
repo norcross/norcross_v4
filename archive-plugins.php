@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<div class="row well">
+<div class="row well plugin-well">
   
 	
 

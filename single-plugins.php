@@ -42,14 +42,14 @@
 //	echo '<a target="_blank" href="'.$wordpress.'">';
 	echo '<img src="'.$banner.'" alt="'.$plugin_name.'" title="'.$plugin_name.'">';
 //	echo '</a>';
-	echo '<h3 itemprop="name">'.$plugin_name.'</h3>';
+	echo '<h3 class="entry-title" itemprop="name">'.$plugin_name.'</h3>';
 
 	echo '<div class="plugin-detail-nav">';
-		echo '<a id="description" class="btn"><i class="icon-book"></i> <span class="hidden-phone">Description</span></a>';
-		echo '<a id="installation" class="btn"><i class="icon-hdd"></i> <span class="hidden-phone">Installation</span></a>';
-		echo '<a id="screenshots" class="btn"><i class="icon-picture"></i> <span class="hidden-phone">Screenshots</span></a>';
-		echo '<a id="faqs" class="btn"><i class="icon-question-sign"></i> <span class="hidden-phone">FAQs</span></a>';
-		echo '<a id="changelog" class="btn"><i class="icon-bar-chart"></i> <span class="hidden-phone">Changelog</span></a>';
+		echo '<a id="description" class="btn"><i class="icon-book"></i> <span class="hidden-phone hidden-tablet">Description</span></a>';
+		echo '<a id="installation" class="btn"><i class="icon-hdd"></i> <span class="hidden-phone hidden-tablet">Installation</span></a>';
+		echo '<a id="screenshots" class="btn"><i class="icon-picture"></i> <span class="hidden-phone hidden-tablet">Screenshots</span></a>';
+		echo '<a id="faqs" class="btn"><i class="icon-question-sign"></i> <span class="hidden-phone hidden-tablet">FAQs</span></a>';
+		echo '<a id="changelog" class="btn"><i class="icon-bar-chart"></i> <span class="hidden-phone hidden-tablet">Changelog</span></a>';
 	echo '</div>';
 
 	echo '<div class="plugin-detail-block entry-content">';

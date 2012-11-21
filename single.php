@@ -8,7 +8,7 @@
         <section <?php post_class() ?> id="post-<?php the_ID(); ?>">
     
             <div class="post-title-area">
-                <h1><?php the_title(); ?></h1>
+                <h1 class="entry-title"><?php the_title(); ?></h1>
                 <?php echo rkv_post_details(); ?>
             </div>
             

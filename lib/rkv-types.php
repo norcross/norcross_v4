@@ -1,5 +1,4 @@
 <?php
-
 // Register Custom Taxonomy and Post Type 
 
 add_action( 'init', '_init_rkv_post_type' );
