@@ -182,10 +182,9 @@ class NorcrossVersionFour {
     public function scripts_styles() {
 
     // CSS first
-//    wp_enqueue_style( 'bootstrap-custom', get_bloginfo('stylesheet_directory').'/lib/css/bootstrap.custom.min.css', array(), null, 'all' );
+//  wp_enqueue_style( 'bootstrap-custom', get_bloginfo('stylesheet_directory').'/lib/css/bootstrap.custom.min.css', array(), null, 'all' );
     wp_enqueue_style( 'bootstrap-custom', get_bloginfo('stylesheet_directory').'/lib/css/bootstrap.custom.css', array(), null, 'all' );
     wp_enqueue_style( 'bootstrap-core', get_bloginfo('stylesheet_directory').'/lib/css/bootstrap.responsive.min.css', array(), null, 'all' );
-//    wp_enqueue_style( 'typography', get_bloginfo('stylesheet_directory').'/lib/css/typography.css', array(), null, 'all' );
     
     if (is_singular('plugins') || is_page_template('page-instagram.php')) :
         wp_enqueue_style( 'colorbox', get_bloginfo('stylesheet_directory').'/lib/css/colorbox.css', array(), null, 'all' );
@@ -201,7 +200,6 @@ class NorcrossVersionFour {
 
     // now scripts
     wp_enqueue_script( 'bootstrap', get_bloginfo('stylesheet_directory').'/lib/js/bootstrap.min.js', array('jquery'), null, true );
-//    wp_enqueue_script( 'bootstrap', get_bloginfo('stylesheet_directory').'/lib/js/bootstrap.min.js', array('jquery'), null, true );
     wp_enqueue_script( 'rkv-init', get_bloginfo('stylesheet_directory').'/lib/js/rkv.init.js', array('jquery'), null, true );
 
     }
