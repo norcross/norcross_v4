@@ -130,10 +130,6 @@ function rkv_github_repos() {
 
 	if( false == get_transient( 'rkv_github_repos' ) ) {	
 
-		$args 	= array (
-			'sslverify'		=> false,
-		);
-
 		// grab username and total gists to grab
 		$user	= 'norcross';
 

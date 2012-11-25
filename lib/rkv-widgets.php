@@ -24,10 +24,6 @@ class rkv_ListGistsWidget extends WP_Widget {
 		// check for stored transient. if none present, create one
 		if( false == get_transient( 'public_github_gists'.$user.'' ) ) {	
 	
-			$args 	= array (
-				'sslverify'		=> false,
-			);
-
 			// grab username and total gists to grab
 			$user	= $instance['github_user'];
 			$number	= $instance['gists_num'];
