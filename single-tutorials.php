@@ -2,6 +2,7 @@
 <div id="content-wrap" class="row">
   
     <div id="content" class="span8 blog-post">
+    <div class="well">
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
     
         <section <?php post_class() ?> id="post-<?php the_ID(); ?>">
@@ -26,7 +27,7 @@
     <?php endwhile; endif; ?>
   
     </div><!--/span-->
-        
+    </div>    
 	<?php get_sidebar(); ?>
 
 </div><!--/row-->

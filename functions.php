@@ -407,10 +407,6 @@ class NorcrossVersionFour {
 
     public function run_gists_cron() {
 
-        $args   = array (
-            'sslverify'     => false,
-        );
-
         // grab username and total gists to grab
         $user   = 'norcross';
         $number = 100;
@@ -509,22 +505,9 @@ class NorcrossVersionFour {
 
     public function run_insta_cron() {
 
-    /*
-    Client ID       7ff72e53f4af49d890df3ef3731e8234
-    Client Secret   c80efc2b883748a09e13e5a8465caae0
-    Website URL     http://andrewnorcross.com
-    Redirect URI    http://andrewnorcross.com
-    http://andrewnorcross.com/#access_token=30588932.7ff72e5.47a653791d604efd8c8cb7eaec695ed2
-    https://api.instagram.com/oauth/authorize/?client_id=7ff72e53f4af49d890df3ef3731e8234&redirect_uri=http://andrewnorcross.com&response_type=token
-    */
-
-        $args   = array (
-            'sslverify'     => false,
-        );
-
         // grab username and total photos to grab
-        $user   = '30588932';
-        $token  = '30588932.7ff72e5.47a653791d604efd8c8cb7eaec695ed2';
+        $user   = IG_USER;
+        $token  = IG_TOKEN;
         $count  = 60;
 
         // set number of items to return

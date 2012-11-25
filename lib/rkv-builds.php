@@ -80,10 +80,15 @@ function rkv_post_details() {
 
 	echo '<p class="post-details">';
 	echo '<span class="detail-item author vcard"><i class="icon icon-user"></i> <span class="fn"><a href="'.$auth_url.'" rel="author" title="View all posts by '.$auth_name.'">'.$auth_name.'</a></span></span>';
-	echo '<span title="'.$schm_date.'" class="detail-item date published updated time"><i class="icon icon-calendar"></i> '.$post_date.'</span>';
-	echo '<span class="detail-item detail-last detail-comment"><i class="icon icon-comments"></i> ';
-	echo comments_popup_link( 'Leave a Comment', '1 Comment', '% Comments', '', '' );
-	echo '</span>';
+	
+	if ( comments_open() ) :
+		echo '<span title="'.$schm_date.'" class="detail-item date published updated time"><i class="icon icon-calendar"></i> '.$post_date.'</span>';
+		echo '<span class="detail-item detail-last detail-comment"><i class="icon icon-comments"></i> ';
+		echo comments_popup_link( 'Leave a Comment', '1 Comment', '% Comments', '', '' );
+		echo '</span>';
+	else:
+		echo '<span title="'.$schm_date.'" class="detail-item date published updated time detail-last"><i class="icon icon-calendar"></i> '.$post_date.'</span>';
+	endif;	
 	echo '<span class="detail-item detail-category pull-right"><a class="label label-primary" title="View all posts in '.$cat_name.'" href="'.$cat_link.'">'.$cat_name.'</a></span>';
 	echo '</p>';
 }
@@ -108,10 +113,15 @@ function rkv_tutorial_details() {
 
 	echo '<p class="post-details">';
 	echo '<span class="detail-item"><i class="icon icon-user"></i> <a href="'.$auth_url.'" rel="author" title="View all posts by '.$auth_name.'">'.$auth_name.'</a></span>';
-	echo '<span class="detail-item"><i class="icon icon-calendar"></i> '.$post_date.'</span>';
-	echo '<span class="detail-item detail-last"><i class="icon icon-comment"></i> ';
-	echo comments_popup_link( 'Leave a Comment', '1 Comment', '% Comments', '', '' );
-	echo '</span>';
+	
+	if ( comments_open() ) :
+		echo '<span class="detail-item"><i class="icon icon-calendar"></i> '.$post_date.'</span>';
+		echo '<span class="detail-item detail-last"><i class="icon icon-comment"></i> ';
+		echo comments_popup_link( 'Leave a Comment', '1 Comment', '% Comments', '', '' );
+		echo '</span>';
+	else:
+		echo '<span class="detail-item detail-last"><i class="icon icon-calendar"></i> '.$post_date.'</span>';
+	endif;	
 	echo '<span class="detail-item detail-category pull-right"><a class="label label-primary" title="View all posts in '.$term_name.'" href="'.$term_link.'">'.$term_name.'</a></span>';
 	echo '</p>';
 }

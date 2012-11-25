@@ -64,7 +64,6 @@ class NorcrossAjax {
 	    $backs .= '<ul>';
 	    
 	    foreach ($dlist_query as $dload):
-//	        $dlist_file     = get_post_meta($dload, '_rkv_download_url', true);
 			$dlist_link     = get_permalink($dload);
 	        $dlist_title    = get_the_title($dload);
 	        
@@ -87,15 +86,11 @@ class NorcrossAjax {
 
 	public function music_signup() {
 
-		$apikey		= '111431c6629995d05fa7754114405298-us1';
-		$list_id	= 'e6f975acba';
+		$apikey		= MC_KEY;
+		$list_id	= MC_LIST;
 		$method		= 'listSubscribe';
 		$email		= $_POST['email'];
-/*
-		$args = array (
-			'sslverify'	=> false
-			);
-*/
+
 		$request	= new WP_Http;
 		$url		= 'http://us1.api.mailchimp.com/1.3/?method='.$method.'&apikey='.$apikey.'&id='.$list_id.'&email_address='.$email.'&double_optin=false&output=json';
 

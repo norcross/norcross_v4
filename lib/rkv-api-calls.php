@@ -107,10 +107,6 @@ function rkv_github_userdata() {
 
 	if( false == get_transient( 'rkv_github_user' ) ) {	
 
-		$args 	= array (
-			'sslverify'		=> false,
-		);
-
 		$request	= new WP_Http;
 		$url		= 'https://api.github.com/users/norcross';
 		$response	= wp_remote_get ( $url, $args );

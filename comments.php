@@ -120,6 +120,14 @@
 		//comment_form();
 		do_action('comment_form()', $post->ID); 
 	
+	if (is_singular('tutorials')) {
+		$disclaimer = '<p><em><strong>Please note:</strong> These tutorials are meant to be helpful, but please note that I cannot and will not be able to help with any implementations or modifications.</em></p>';
+		$disclaimer .= '<p class="comment-tldr">tl;dr <strong>If you do not understand it, hire someone who does.</strong></p>';
+
+		echo $disclaimer;
+
+	}
+
 	?>
 	
 	</form>
