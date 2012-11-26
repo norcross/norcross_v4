@@ -59,7 +59,7 @@ body {
 /*  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
   font-size: 16px;
   line-height: 24px;
-  color: #333333;
+  color: #333;
   background: url(images/bg/gplaypattern.png) repeat 0 0 #fff;
 }
 
@@ -123,7 +123,7 @@ div.navbar-top-inner {}
 div.navbar-bottom-inner {}
 
 div.navbar-inverse .social-header a {
-	color: #999999
+	color: #999
 }
 
 span.mobile-title {
@@ -263,24 +263,24 @@ li.search-nav :-moz-placeholder {
 .post-title-area a.ex-link {
 	font-size: 70%;
 	text-decoration: none;
-	color:#333333;
+	color: #333;
 	position: relative;
 }
 
 .post-title-area a.ex-link:hover {
-	color:#1D2736;
+	color: #1D2736;
 	left: 1px;
 	top: -1px;
 }
 
 .post-details {
 	padding: 0 0 0 10px;
-	color:#1D2736
+	color: #1D2736
 }
 
 .post-details a {
 	text-decoration: none;
-	color:#1D2736
+	color: #1D2736
 }
 
 .post-details a:hover {
@@ -340,8 +340,8 @@ li.search-nav :-moz-placeholder {
 	border-top:1px dotted #1D2736;
 	border-bottom:1px dotted #1D2736;
 */	
-	border-top:1px dotted #cccccc;
-	border-bottom:1px dotted #cccccc;
+	border-top: 1px dotted #ccc;
+	border-bottom: 1px dotted #ccc;
 	margin: 0 0 20px;
 }
 
@@ -455,7 +455,7 @@ li.search-nav :-moz-placeholder {
 }
 
 #plugin-archives p.plugin-link a:hover {
-	left:2px;
+	left: 2px;
 }
 
 /* Single Plugin */
@@ -480,12 +480,12 @@ div.plugin-detail-nav a span {
 div.plugin-detail-block {}
 
 div.description-data p.plugin-tags {
-	word-break:break-all;
+	word-break: break-all;
 	overflow: hidden;
 }
 
 div.description-data p.plugin-tags span {
-	margin:0 5px 5px 0;
+	margin: 0 5px 5px 0;
 	float: left;
 }
 
@@ -772,11 +772,11 @@ span.github-count:before {
 
 span.github-count {
     border-radius: 3px 3px 3px 3px;
-    color: #555555;
+    color: #555;
     cursor: pointer;
     padding: 2px 5px 2px 4px;
     text-decoration: none;
-    text-shadow: 0 1px 0 #FFFFFF;
+    text-shadow: 0 1px 0 #fff;
     white-space: nowrap;
     background-color: #FAFAFA;
     border: 1px solid #D4D4D4;
@@ -854,7 +854,7 @@ ol.commentlist ul.children{
 
 ol.commentlist time{
 	font-size: .8em;
-	color: #eeeeee;
+	color: #eee;
 }
 
 ol.commentlist div.comment-author{
@@ -862,7 +862,7 @@ ol.commentlist div.comment-author{
 }
 
 ol.commentlist a.comment-edit-link{
-	color: #ffffff;
+	color: #fff;
 	text-decoration: none;
 	padding-left: 5px;
 }
@@ -874,19 +874,19 @@ ol.commentlist span.edit-comment{
 }
 
 ol.commentlist li.bypostauthor{
-	background-color: #dddddd;
+	background-color: #ddd;
 }
 
 ol.commentlist ul.children li{
-	background-color: #cccccc;
+	background-color: #ccc;
 }
 
 ol.commentlist ul.children li ul.children li{
-	background-color: #bbbbbb;
+	background-color: #bbb;
 }
 
 ol.commentlist ul.children li ul.children li ul.children li{
-	background-color: #aaaaaa;
+	background-color: #aaa;
 }
 
 ol.commentlist article {
@@ -977,7 +977,7 @@ ol.pinglist{
     padding: 19px 10px 20px;
 }
 
-textarea#comment {
+#comment {
 	margin: 15px 0 0;
 	height: 110px;
 	width: 92%;
@@ -1018,7 +1018,7 @@ ol.commentlist #respond .form-actions {
     padding: 9px 20px 10px;
 }
 
-form#commentform p.comment-tldr {
+#commentform p.comment-tldr {
 	font-size: 110%;
 	text-align: center;
 }
@@ -1098,7 +1098,7 @@ p.footer-text span.foot-center {
 }
 
 p.footer-text span.foot-center:hover {
-	bottom:1px;
+	bottom: 1px;
 }
 
 p.footer-text span.foot-center .icon {
@@ -1701,7 +1701,7 @@ non-phone media query
 	}
 
 	#sidebar .plugin-details p.plugin-links a {
-		margin:0 0 10px 0;
+		margin: 0 0 10px 0;
 		width: auto;
 		display: block;
 	}
@@ -1709,7 +1709,7 @@ non-phone media query
 	#sidebar .plugin-details p.plugin-links a.pull-left, 
 	#sidebar .plugin-details p.plugin-links a.pull-right {
 		width: 150px;
-		margin:10px auto;
+		margin: 10px auto;
 	}
 
 	/* Footer */
@@ -1756,8 +1756,8 @@ non-phone media query
 		display: inline-block;
 	}
 
-	#sidebar .plugin-details p.plugin-links a.pull-left {float: left;width:auto;}
-	#sidebar .plugin-details p.plugin-links a.pull-right {float: right;width:auto;}
+	#sidebar .plugin-details p.plugin-links a.pull-left {float: left; width: auto;}
+	#sidebar .plugin-details p.plugin-links a.pull-right {float: right; width: auto;}
 	
 	textarea#comment {
 		margin: 15px 0 0;
