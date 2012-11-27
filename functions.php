@@ -29,6 +29,7 @@ class NorcrossVersionFour {
         add_action ( 'gists_cron',                      array( $this, 'run_gists_cron'          )               );
         add_action ( 'insta_cron',                      array( $this, 'run_insta_cron'          )               );
         
+        add_filter ( 'pre_get_posts',                   array( $this, 'rss_include'             )               );
         add_filter ( 'the_content',                     array( $this, 'snippet_display'         ),      25      );
         add_filter ( 'wp_nav_menu_items',               array( $this, 'nav_search'              ),      10, 2   );
         add_filter ( 'post_thumbnail_html',             array( $this, 'fix_thumbs'              ),      10      );
@@ -233,6 +234,22 @@ class NorcrossVersionFour {
             return;
         }
 
+    }
+
+    /**
+     * add tutorials to RSS
+     *
+     * @return Norcrossv4
+     */
+
+    public function rss_include( $query ) {
+    
+        if (!$query->is_feed) 
+            return $query;
+
+            $query->set( 'post_type' , array( 'post', 'tutorials' ) );
+    
+        return $query;
     }
 
     /**
