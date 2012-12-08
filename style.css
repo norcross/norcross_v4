@@ -1,4 +1,4 @@
-/*   
+/*
 Theme Name: Norcross v4
 Theme URI: http://andrewnorcross.com
 Description: My own theme based on Twitter bootstrap and coffee.
@@ -10,7 +10,7 @@ Version: 0.4
 @font-face {
   font-family: 'FontAwesome';
   src:  url('lib/fonts/fontawesome-webfont.eot');
-  src:  url('lib/fonts/fontawesome-webfont.eot?#iefix') format('eot'), 
+  src:  url('lib/fonts/fontawesome-webfont.eot?#iefix') format('eot'),
         url('lib/fonts/fontawesome-webfont.woff') format('woff'),
         url('lib/fonts/fontawesome-webfont.ttf') format('truetype'),
         url('lib/fonts/fontawesome-webfont.svg#FontAwesome') format('svg');
@@ -21,9 +21,9 @@ Version: 0.4
 @font-face {
   font-family: 'FontAwesome';
   src:	url('lib/fonts/fontawesome-webfont.eot');
-  src:	url('lib/fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'), 
-  		url('lib/fonts/fontawesome-webfont.woff') format('woff'), 
-  		url('lib/fonts/fontawesome-webfont.ttf') format('truetype'), 
+  src:	url('lib/fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+  		url('lib/fonts/fontawesome-webfont.woff') format('woff'),
+  		url('lib/fonts/fontawesome-webfont.ttf') format('truetype'),
   		url('lib/fonts/fontawesome-webfont.svg#FontAwesome') format('svg');
   font-weight: normal;
   font-style: normal;
@@ -77,11 +77,15 @@ img.alignright {
 	margin: 5px 5px 10px 10px;
 }
 
+img.aligncenter {
+	margin: 5px auto;
+}
+
 img.frame {
 	border: 1px solid #ccc;
 	-moz-box-shadow: 0 0 5px #888;
 	-webkit-box-shadow: 0 0 5px #888;
-	box-shadow: 0 0 5px #888;	
+	box-shadow: 0 0 5px #888;
 }
 
 img.opacity:hover {
@@ -142,7 +146,7 @@ li.search-nav ::-webkit-input-placeholder {
    text-indent: 10px;
 }
 
-li.search-nav :-moz-placeholder {  
+li.search-nav :-moz-placeholder {
    text-indent: 10px;
 }
 
@@ -198,7 +202,7 @@ li.search-nav :-moz-placeholder {
 	border: 1px solid #1D2436;
 	-moz-box-shadow: 0 0 5px #000;
 	-webkit-box-shadow: 0 0 5px #000;
-	box-shadow: 0 0 5px #000;	
+	box-shadow: 0 0 5px #000;
 }
 
 #home-content a img:hover {
@@ -336,10 +340,10 @@ li.search-nav :-moz-placeholder {
 .social-button-container {
 	overflow: hidden;
 	padding: 4px 10px;
-/*	
+/*
 	border-top:1px dotted #1D2736;
 	border-bottom:1px dotted #1D2736;
-*/	
+*/
 	border-top: 1px dotted #ccc;
 	border-bottom: 1px dotted #ccc;
 	margin: 0 0 20px;
@@ -466,7 +470,7 @@ div.plugin-detail-nav {
 
 div.plugin-detail-nav a {
 	margin: 0 0 10px 10px;
-	padding: 4px 10px;	
+	padding: 4px 10px;
 }
 
 div.plugin-detail-nav a:first-child {
@@ -510,7 +514,7 @@ div.screenshots-data ol li a.screenshot-image img {
 	border: 1px solid #ccc;
 	-moz-box-shadow: 0 0 5px #888;
 	-webkit-box-shadow: 0 0 5px #888;
-	box-shadow: 0 0 5px #888;	
+	box-shadow: 0 0 5px #888;
 }
 
 div.screenshots-data ol li p {
@@ -593,7 +597,7 @@ div.changelog-data ul li {
     border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
     color: #FFFFFF;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-} 
+}
 */
 
 /* Sidebar */
@@ -624,7 +628,7 @@ div.changelog-data ul li {
   font-weight: normal;
   color: #1D2436;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-  
+
 }
 
 #sidebar .widget h4 a {
@@ -649,7 +653,7 @@ div.changelog-data ul li {
 }
 
 #sidebar .widget ul li a:hover {
-	background:#232D43;	
+	background:#232D43;
 }
 /*
 #sidebar .plugin-details h4 .icon {
@@ -719,7 +723,7 @@ div.star-holder .star-rating {
 #sidebar .plugin-favorite .favorite-single {
     border-bottom: 1px dotted #fff;
     margin: 0 0 5px;
-    padding: 0 0 5px;	
+    padding: 0 0 5px;
 }
 
 #sidebar .plugin-favorite h5 {
@@ -741,7 +745,7 @@ span.github-count {
     vertical-align: top;
     margin: 0 0 0 15px;
 
-    
+
 }
 span.github-count:before {
 	background-color: #F2F2F2;
@@ -757,7 +761,7 @@ span.github-count:before {
         -webkit-transform: rotate( 29deg ) skew( -35deg );
     width:  10px;
     box-shadow: -2px 2px 2px 0 rgba( 178, 178, 178, .4 );
-    left: -2px;     
+    left: -2px;
 }
 */
 
@@ -765,7 +769,7 @@ span.github-count:before {
 	overflow: hidden;
 }
 
-.github-button a.github-link, 
+.github-button a.github-link,
 .github-button span.github-count {
 	float: left;
 }
@@ -785,7 +789,7 @@ span.github-count {
     position: relative;
     font-size: 13px;
     line-height: 14px;
-    text-rendering: optimizelegibility;    
+    text-rendering: optimizelegibility;
 
 }
 
@@ -951,7 +955,7 @@ img.avatar{
 	border-bottom: 1px solid #dedede;
 	border-right: 1px solid #dedede;
 	border-left: 1px solid #ddd;
-	
+
 }
 
 ol.commentlist li{
@@ -1031,7 +1035,7 @@ body.instagram {
 body.instagram #wrapper {
 	width: 100%;
 	padding-left: 0;
-	padding-right: 0;	
+	padding-right: 0;
 }
 
 #instagram-wrap {
@@ -1094,7 +1098,7 @@ p.footer-text span.foot-center {
 	-webkit-transition: margin 0.5s ease-out;
     -ms-transition: margin 0.5s ease-out;
     -moz-transition: margin 0.5s ease-out;
-    -o-transition: margin 0.5s ease-out;	
+    -o-transition: margin 0.5s ease-out;
 }
 
 p.footer-text span.foot-center:hover {
@@ -1121,7 +1125,7 @@ p.footer-text span.foot-center .icon {
 .social-footer ul li {
     display: inline-block;
     margin: 0 5px;
-    
+
 }
 
 .social-footer ul li.first {margin: 0 5px 0 0;}
@@ -1671,7 +1675,7 @@ non-phone media query
 ******************************************************************/
 @media only screen and (min-width: 321px) {
 
-	
+
 	#home-content img.alignleft{
     	float: left;
     	margin: 5px 20px 10px 5px;
@@ -1709,7 +1713,7 @@ non-phone media query
 		display: block;
 	}
 
-	#sidebar .plugin-details p.plugin-links a.pull-left, 
+	#sidebar .plugin-details p.plugin-links a.pull-left,
 	#sidebar .plugin-details p.plugin-links a.pull-right {
 		width: 150px;
 		margin: 10px auto;
@@ -1761,7 +1765,7 @@ non-phone media query
 
 	#sidebar .plugin-details p.plugin-links a.pull-left {float: left; width: auto;}
 	#sidebar .plugin-details p.plugin-links a.pull-right {float: right; width: auto;}
-	
+
 	textarea#comment {
 		margin: 15px 0 0;
 		width: 555px;
