@@ -10,7 +10,7 @@ include('lib/rkv-meta.php');
 include('lib/rkv-widgets.php');
 include('lib/rkv-shortcodes.php');
 
- // Start up the engine 
+ // Start up the engine
 class NorcrossVersionFour {
 
 
@@ -28,7 +28,7 @@ class NorcrossVersionFour {
         add_action ( 'template_redirect',               array( $this, 'redirects'               ),      1       );
         add_action ( 'gists_cron',                      array( $this, 'run_gists_cron'          )               );
         add_action ( 'insta_cron',                      array( $this, 'run_insta_cron'          )               );
-        
+
         add_filter ( 'pre_get_posts',                   array( $this, 'rss_include'             )               );
         add_filter ( 'the_content',                     array( $this, 'snippet_display'         ),      25      );
         add_filter ( 'wp_nav_menu_items',               array( $this, 'nav_search'              ),      10, 2   );
@@ -47,7 +47,7 @@ class NorcrossVersionFour {
      */
 
     public function after_setup_theme() {
- 
+
         // add main menu
         register_nav_menu( 'primary', 'Primary Menu' );
 
@@ -84,7 +84,7 @@ class NorcrossVersionFour {
         ));
 
         // set up thumbnails
-        add_theme_support   ( 'post-thumbnails' ); 
+        add_theme_support   ( 'post-thumbnails' );
         add_image_size      ( 'blog-page', 130, 130, true );
         add_image_size      ( 'speaking', 250, 250, true );
 
@@ -110,14 +110,14 @@ class NorcrossVersionFour {
      */
 
     public function nav_search($items, $args) {
- 
+
         ob_start();
             get_search_form();
             $searchform = ob_get_contents();
             ob_end_clean();
- 
+
         $items .= '<li id="menu-item-0" class="menu-item search-nav">' . $searchform . '</li>';
- 
+
         return $items;
     }
 
@@ -129,11 +129,11 @@ class NorcrossVersionFour {
 
 
     public function body_class($classes) {
-        
+
         if (is_page_template('page-instagram.php') ):
             $classes[] = 'instagram';
         endif;
-        
+
     return $classes;
 
     }
@@ -159,7 +159,7 @@ class NorcrossVersionFour {
         if($item->menu_item_parent == 0 && in_array('current-menu-item', $classes)) {
             $classes[] = "active";
         }
-    
+
         return $classes;
     }
 
@@ -170,7 +170,7 @@ class NorcrossVersionFour {
      */
 
     public function jpeg_quality($quality) {
-        
+
         return 100;
     }
 
@@ -186,18 +186,18 @@ class NorcrossVersionFour {
 //  wp_enqueue_style( 'bootstrap-custom', get_bloginfo('stylesheet_directory').'/lib/css/bootstrap.custom.min.css', array(), null, 'all' );
     wp_enqueue_style( 'bootstrap-custom', get_bloginfo('stylesheet_directory').'/lib/css/bootstrap.custom.css', array(), null, 'all' );
     wp_enqueue_style( 'bootstrap-core', get_bloginfo('stylesheet_directory').'/lib/css/bootstrap.responsive.min.css', array(), null, 'all' );
-    
+
     if (is_singular('plugins') || is_page_template('page-instagram.php')) :
         wp_enqueue_style( 'colorbox', get_bloginfo('stylesheet_directory').'/lib/css/colorbox.css', array(), null, 'all' );
         wp_enqueue_script( 'colorbox', get_bloginfo('stylesheet_directory').'/lib/js/jquery.colorbox.js', array('jquery'), null, true );
-    
-    endif;    
+
+    endif;
 
     if (is_singular(array( 'post', 'tutorials' ) ) ) :
         wp_enqueue_script( 'expander', get_bloginfo('stylesheet_directory').'/lib/js/expander.js', array('jquery'), null, true );
         wp_enqueue_script( 'comment-reply');
-    
-    endif; 
+
+    endif;
 
     // now scripts
     wp_enqueue_script( 'bootstrap', get_bloginfo('stylesheet_directory').'/lib/js/bootstrap.min.js', array('jquery'), null, true );
@@ -206,7 +206,7 @@ class NorcrossVersionFour {
     }
 
     /**
-     * sort and counts on plugin archive page 
+     * sort and counts on plugin archive page
      *
      * @return Norcrossv4
      */
@@ -243,12 +243,12 @@ class NorcrossVersionFour {
      */
 
     public function rss_include( $query ) {
-    
-        if (!$query->is_feed) 
+
+        if (!$query->is_feed)
             return $query;
 
             $query->set( 'post_type' , array( 'post', 'tutorials' ) );
-    
+
         return $query;
     }
 
@@ -264,14 +264,14 @@ class NorcrossVersionFour {
         // bail on non-snippets
         if ( !is_singular('snippets') )
             return $content;
-            
+
         global $post;
         $gist_id    = get_post_meta($post->ID, '_rkv_gist_id', true);
 
         // bail if we don't have a Gist ID
         if(empty($gist_id))
             return $content;
-                
+
         $gist = '<div class="github-gist-block">';
         $gist .= '<script src="https://gist.github.com/'.$gist_id.'.js"></script>';
         $gist .= '</div>';
@@ -293,7 +293,7 @@ class NorcrossVersionFour {
     ?>
 
         <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-        
+
 
         <script type="text/javascript">
         (function() {
@@ -370,7 +370,7 @@ class NorcrossVersionFour {
 
         // downloads redirect
         if ( is_singular('downloads') ) :
-        
+
             global $post;
             $dl_file    = get_post_meta($post->ID, '_rkv_download_url', true);
 
@@ -429,14 +429,24 @@ class NorcrossVersionFour {
         $number = 100;
 
         // set number of items to return
-        if (!empty ($number) ) { $max = $number; } else { $max = 100; } // 100 is the max return in the GitHub API
-    
+        $max = !empty($number) ? $max = $number : $max = 100; // 100 is the max return in the GitHub API
+
         $request    = new WP_Http;
         $url        = 'https://api.github.com/users/'.urlencode($user).'/gists?&per_page='.$max.'';
         $response   = wp_remote_get ( $url, $args );
 
+        if( is_wp_error( $response ) )
+           return;
+
+
         $data_raw   = $response['body'];
         $data_array = json_decode($data_raw);
+
+        if (!$data_raw)
+            return;
+
+        if (!is_array($data_array))
+            return;
 
         // loop through each gist and create a post
         foreach ($data_array as $data) {
@@ -445,7 +455,7 @@ class NorcrossVersionFour {
             $gist_check = $this->gist_check();
 
             if (!in_array($gist_id, $gist_check)) {
-                    
+
                 $gist_url   = $data->html_url;
                 $gist_title = $data->description;
 
@@ -455,7 +465,7 @@ class NorcrossVersionFour {
                 $pubdt  = date('Y-m-d H:i:s', $stamp);
 
                 // build new snippet array
-                    
+
                 $snippet = array(
                     'post_type'     => 'snippets',
                     'post_title'    => $gist_title,
@@ -523,20 +533,20 @@ class NorcrossVersionFour {
     public function run_insta_cron() {
 
         // grab username and total photos to grab
-        $user   = IG_USER;
-        $token  = IG_TOKEN;
+        $user   = akm_get_key('IG_USER');
+        $token  = akm_get_key('IG_TOKEN');
         $count  = 60;
 
         // set number of items to return
         if (!empty ($number) ) { $max = $number; } else { $max = 60; } // 60 is the max return in the Instagram API
-    
+
         $request    = new WP_Http;
         $url        = 'https://api.instagram.com/v1/users/self/media/recent?access_token='.$token.'&count='.$count.'';
         $response   = wp_remote_get ( $url, $args );
 
         $data_array = json_decode( $response['body'] );
         $photos     = $data_array->data;
-        
+
         // loop through each gist and create a post
         foreach ($photos as $photo) {
 
@@ -544,14 +554,14 @@ class NorcrossVersionFour {
             $photo_check = $this->insta_check();
 
             if (!in_array($photo_id, $photo_check)) {
-                
-                $stamp  = $photo_id - 18000;    
+
+                $stamp  = $photo_id - 18000;
                 $pubdt  = date('Y-m-d H:i:s', $stamp);
                 // make caption with fallback
                 $caption_base   = $photo->caption;
                 $image_caption  = empty($caption_base->text) ? '' : $caption_base->text;
                 $image_caption  = str_replace('@', '', $image_caption);
-                
+
                 // build new photo array
                 $snapshot = array(
                     'post_type'     => 'photos',
@@ -573,7 +583,7 @@ class NorcrossVersionFour {
                     // build thumbnail  150px
                     $thumb_base     = $photo->images->thumbnail;
                     $thumb_url      = $thumb_base->url;
-            
+
                     // build standard  306px
                     $standard_base  = $photo->images->low_resolution;
                     $standard_url   = $standard_base->url;

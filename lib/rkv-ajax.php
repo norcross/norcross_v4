@@ -1,6 +1,6 @@
 <?php
 
- // Start up the engine 
+ // Start up the engine
 class NorcrossAjax {
 
 
@@ -60,15 +60,15 @@ class NorcrossAjax {
 
 	    $backs .= '<div id="download-list" class="music-clear">';
 
-	    $backs .= '<h4>Back Issues</h4>';    
+	    $backs .= '<h4>Back Issues</h4>';
 	    $backs .= '<ul>';
-	    
+
 	    foreach ($dlist_query as $dload):
 			$dlist_link     = get_permalink($dload);
 	        $dlist_title    = get_the_title($dload);
-	        
+
 	        $backs .= '<li><a href="'.$dlist_link.'">'.$dlist_title.'</a></li>';
-	                
+
 	    endforeach;
 
 	    $backs .= '</ul>';
@@ -86,8 +86,11 @@ class NorcrossAjax {
 
 	public function music_signup() {
 
-		$apikey		= MC_KEY;
-		$list_id	= MC_LIST;
+		$MC_KEY		= akm_get_key('MC_KEY');
+		$MC_LIST	= akm_get_key('MC_LIST');
+
+		$apikey		= $MC_KEY;
+		$list_id	= $MC_LIST;
 		$method		= 'listSubscribe';
 		$email		= $_POST['email'];
 
@@ -101,26 +104,26 @@ class NorcrossAjax {
 		check_ajax_referer( 'rkv_nonce', 'nonce' );
 
 		if( is_wp_error( $response ) ) {
-			
+
 			$ret['success'] = false;
 			$ret['message'] = 'There was an error with your request. Please try again.';
 			echo json_encode($ret);
 			die();
 
 		} else {
-			$return	= $response['body'];		
+			$return	= $response['body'];
 			$data	= json_decode($return);
 		}
 
 		// now process the actual return
 		if( isset($data->error) ) {
-			
+
 			$ret['success'] = false;
 			$ret['message'] = $data->error;
 		}
 
 		if( isset($data->code) && $data->code === 214 ) {
-			
+
 			$ret['success'] = false;
 			$ret['errcode'] = 'EMAIL_EXISTS';
 			$ret['message'] = $data->error;
@@ -128,7 +131,7 @@ class NorcrossAjax {
 		}
 
 		if( $data === true ) {
-			
+
 			$ret['success'] = true;
 			$ret['message'] = 'Success! Welcome to the club. Care to peruse the back issues?';
 			$ret['display'] = $this->back_issues();
