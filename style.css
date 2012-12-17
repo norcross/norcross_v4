@@ -668,12 +668,13 @@ div.changelog-data ul li {
 
 #sidebar .widget {
 	margin: 0 0 10px;
-	padding: 0 0 10px;
+	padding: 5px 0 10px;
 	border-top: 1px dotted #999;
 }
 
 #sidebar .widget:first-child {
 	border-top: none;
+	padding: 0 0 10px;
 }
 
 #sidebar .widget h4 {

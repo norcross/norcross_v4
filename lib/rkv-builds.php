@@ -155,21 +155,21 @@ function custom_tax_links($tax_type) {
 // social buttons
 function rkv_social() {
 	global $post;
-//	$link = get_permalink($post->ID);
-	$link = wp_get_shortlink($post->ID);
-	$text = get_the_title($post->ID);
+	$link	= get_permalink($post->ID);
+	$short	= wp_get_shortlink($post->ID);
+	$text	= get_the_title($post->ID);
 	?>
 
 	<div class="social-button-container">
 
 	    <!-- Twitter -->
 	    <div class="social-twitter">
-	    	<a href="https://twitter.com/share" class="twitter-share-button" data-url="<?php echo $link; ?>" data-text="<?php echo $text; ?>" data-via="norcross" data-count="horizontal" data-size="medium" data-dnt="true">Tweet</a>
+	    	<a href="https://twitter.com/share" class="twitter-share-button" data-url="<?php echo $short; ?>" data-text="<?php echo $text; ?>" data-via="norcross" data-count="horizontal" data-size="medium" data-counturl="<?php echo $link; ?>" data-dnt="true">Tweet</a>
 	    </div>
 
 	    <!-- Google Plus -->
 	    <div class="social-gplus">
-	    	<div class="g-plusone" data-size="medium" data-annotation="bubble" data-width="200" data-href="<?php echo $link; ?>"></div>
+	    	<div class="g-plusone" data-size="medium" data-annotation="bubble" data-width="200" data-href="<?php echo $short; ?>"></div>
 	    </div>
 
 	    <!-- instapaper
