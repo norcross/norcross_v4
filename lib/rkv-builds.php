@@ -1,7 +1,7 @@
 <?php
 
 function rkv_menu_count() {
-	
+
 	$primary	= 'primary';
 	$locations	= get_nav_menu_locations();
 	$menu_obj	= get_term( $locations[$primary], 'nav_menu' );
@@ -17,7 +17,7 @@ function rkv_plugin_sidebar() {
 		$slug 		= get_post_meta($post->ID, '_rkv_plugin_slug', true);
 		$data 		= rkv_plugin_data($slug);
 		$data		= unserialize($data);
-		
+
 		$plugname	= $data->name;
 		$plugslug	= $data->slug;
 		$version	= $data->version;
@@ -35,9 +35,9 @@ function rkv_plugin_sidebar() {
 		$star_rate	= '<div class="star-holder star-block"><div class="star-rating star-block" style="width:'.$star_calc.'px">'.$ratings.'</div></div>';
 
 		$r_ratings	= ceil($ratings);
-		$w_ratings	= ($r_ratings / 100) * 5;		
+		$w_ratings	= ($r_ratings / 100) * 5;
 //		$star_calc	= round($w_ratings, 1, PHP_ROUND_HALF_EVEN);
-		
+
 
 		echo '<div class="widget plugin-details" itemtype="http://schema.org/AggregateRating" itemscope="" itemprop="aggregateRating">';
 		echo '<meta content="0" itemprop="worstRating">';
@@ -51,7 +51,7 @@ function rkv_plugin_sidebar() {
 		echo '<tr><td>Compatible</td><td>'.$tested.'</td></tr>';
 		echo '<tr><td>Last Updated</td><td>'.$updated.'</td></tr>';
 		echo '<tr><td>Downloads</td><td>'.$downloaded.'</td></tr>';
-		
+
 		echo '<tr><td>Rating</td><td>'.$star_rate.'</td></tr>';
 		echo '<tr><td class="noline"></td><td class="noline">'.$w_ratings.' <small>out of</small> 5 stars</td></tr>';
 
@@ -80,7 +80,7 @@ function rkv_post_details() {
 
 	echo '<p class="post-details">';
 	echo '<span class="detail-item author vcard"><i class="icon icon-user"></i> <span class="fn"><a href="'.$auth_url.'" rel="author" title="View all posts by '.$auth_name.'">'.$auth_name.'</a></span></span>';
-	
+
 	if ( comments_open() ) :
 		echo '<span title="'.$schm_date.'" class="detail-item date published updated time"><i class="icon icon-calendar"></i> '.$post_date.'</span>';
 		echo '<span class="detail-item detail-last detail-comment"><i class="icon icon-comments"></i> ';
@@ -88,7 +88,7 @@ function rkv_post_details() {
 		echo '</span>';
 	else:
 		echo '<span title="'.$schm_date.'" class="detail-item date published updated time detail-last"><i class="icon icon-calendar"></i> '.$post_date.'</span>';
-	endif;	
+	endif;
 	echo '<span class="detail-item detail-category pull-right"><a class="label label-primary" title="View all posts in '.$cat_name.'" href="'.$cat_link.'">'.$cat_name.'</a></span>';
 	echo '</p>';
 }
@@ -113,7 +113,7 @@ function rkv_tutorial_details() {
 
 	echo '<p class="post-details">';
 	echo '<span class="detail-item"><i class="icon icon-user"></i> <a href="'.$auth_url.'" rel="author" title="View all posts by '.$auth_name.'">'.$auth_name.'</a></span>';
-	
+
 	if ( comments_open() ) :
 		echo '<span class="detail-item"><i class="icon icon-calendar"></i> '.$post_date.'</span>';
 		echo '<span class="detail-item detail-last"><i class="icon icon-comment"></i> ';
@@ -121,7 +121,7 @@ function rkv_tutorial_details() {
 		echo '</span>';
 	else:
 		echo '<span class="detail-item detail-last"><i class="icon icon-calendar"></i> '.$post_date.'</span>';
-	endif;	
+	endif;
 	echo '<span class="detail-item detail-category pull-right"><a class="label label-primary" title="View all posts in '.$term_name.'" href="'.$term_link.'">'.$term_name.'</a></span>';
 	echo '</p>';
 }
@@ -137,14 +137,14 @@ function custom_tax_links($tax_type) {
 		return;
 
 	// got some? give'em back
-	if ( $terms && ! is_wp_error( $terms ) ) : 
+	if ( $terms && ! is_wp_error( $terms ) ) :
 
 		$term_links = array();
 
 		foreach ( $terms as $term ) {
 			$term_links[] = '<span class="label pull-right link-label"><a href="' .get_term_link($term->slug, $tax_type) .'">'.$term->name.'</a></span>';
 		}
-						
+
 	$term_labels = join( ' ', $term_links );
 
 	return $term_labels;
@@ -161,18 +161,24 @@ function rkv_social() {
 	?>
 
 	<div class="social-button-container">
- 
+
 	    <!-- Twitter -->
 	    <div class="social-twitter">
 	    	<a href="https://twitter.com/share" class="twitter-share-button" data-url="<?php echo $link; ?>" data-text="<?php echo $text; ?>" data-via="norcross" data-count="horizontal" data-size="medium" data-dnt="true">Tweet</a>
 	    </div>
-	 
+
 	    <!-- Google Plus -->
 	    <div class="social-gplus">
 	    	<div class="g-plusone" data-size="medium" data-annotation="bubble" data-width="200" data-href="<?php echo $link; ?>"></div>
 	    </div>
-	 
- 
+
+	    <!-- instapaper
+	    <div class="social-instapaper">
+	    	<a href="http://www.instapaper.com/hello2?url=<?php echo urlencode($link); ?>&title=<?php echo $text; ?>" class="instapaper-icon manual-button">Save to Instapaper</a>
+	    </div>
+	     -->
+
+
 	</div>
 
 <?php }

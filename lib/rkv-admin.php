@@ -5,7 +5,7 @@ function rkv_custom_menu_order($menu_ord) {
 	if (!$menu_ord) return true;
 		return array(
         'index.php',						// this represents the dashboard link
-		'edit.php',							// this is the default POST admin menu 
+		'edit.php',							// this is the default POST admin menu
 		'edit.php?post_type=tutorials',		// custom post type
 		'edit.php?post_type=page',			// pages
 		'edit.php?post_type=speaking',		// custom post type
@@ -29,13 +29,19 @@ function rkv_admin_scripts() {
 
 add_action ( 'admin_enqueue_scripts',  'rkv_admin_scripts', 10 );
 
+function rkv_admin_head(){
+
+	echo '<link rel="shortcut icon" type="image/png" href="'.get_bloginfo('stylesheet_directory').'/lib/img/favicon.png" />';
+
+}
+add_action('admin_head', 'rkv_admin_head');
 
 // my helper
 function preprint($s, $return = false) {
     $code = '<pre>';
     $code .= print_r($s, 1);
     $code .= '</pre>';
-    
+
     if ($return)
         return $code;
     else

@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Andrew Norcross">
 	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" />
-	
+
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
-	<?php if ( is_singular('post') ) wp_enqueue_script( 'comment-reply' ); ?>
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -17,13 +16,15 @@
 
 
     <link rel="shortcut icon" href="<?php bloginfo('stylesheet_directory'); ?>/lib/img/favicon.ico">
+	<link rel="shortcut icon" type="image/ico" href="<?php bloginfo('stylesheet_directory'); ?>/lib/img/favicon.ico" />
+	<link rel="shortcut icon" type="image/png" href="<?php bloginfo('stylesheet_directory'); ?>/lib/img/favicon.png" />
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php bloginfo('stylesheet_directory'); ?>/lib/img/apple-144.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php bloginfo('stylesheet_directory'); ?>/lib/img/apple-114.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php bloginfo('stylesheet_directory'); ?>/lib/img/apple-72.png">
     <link rel="apple-touch-icon-precomposed" href="<?php bloginfo('stylesheet_directory'); ?>/lib/img/apple-57.png">
 	<link rel="author" href="https://plus.google.com/101309579396817654042/posts">
 	<?php wp_head(); ?>
-	
+
 </head>
 
 <body <?php body_class('norcross'); ?> itemtype="http://schema.org/Blog" itemscope="">
@@ -47,7 +48,7 @@
 				<a href="http://github.com/norcross" title="Norcross on Github" target="_blank"><i class="icon icon-github"></i></a>
 				<a href="https://plus.google.com/101309579396817654042/posts" title="Norcross on Google Plus" target="_blank"><i class="icon icon-google-plus"></i></a>
 				<a href="<?php bloginfo('rss2_url'); ?>" title="RSS Feed" target="_blank"><i class="icon icon-rss"></i></a>
-			</div> 
+			</div>
 
 			<?php
 			// nav menu
@@ -58,10 +59,10 @@
 				'menu_class'		=> 'nav',
 				'menu_id'			=> false,
 				'depth'				=> '2', /* suppress lower levels for now */
-				'walker'			=> new description_walker()				
-			));	
+				'walker'			=> new description_walker()
+			));
 			?>
-         
+
 			</div>
 		</div>
 	</div>
