@@ -1,5 +1,5 @@
 <?php
-// Register Custom Taxonomy and Post Type 
+// Register Custom Taxonomy and Post Type
 
 add_action( 'init', '_init_rkv_post_type' );
 function _init_rkv_post_type() {
@@ -25,7 +25,7 @@ function _init_rkv_post_type() {
 			'exclude_from_search' => false,
 			'menu_position' => null,
 			'capability_type' => 'post',
-			'taxonomies' => array( 'tutorial-type' ),			
+			'taxonomies' => array( 'tutorial-type' ),
 			'menu_icon' => get_stylesheet_directory_uri() . '/lib/img/menu_tutorials.png',
 			'query_var' => true,
 			'rewrite'	=> array( 'slug' => 'tutorials', 'with_front' => false ),
@@ -61,7 +61,7 @@ function _init_rkv_post_type() {
 			'has_archive' => 'speaking',
 			'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'author'),
 		)
-	);	
+	);
 	register_post_type( 'plugins',
 		array(
 			'labels' => array(
@@ -211,7 +211,7 @@ function _init_rkv_post_type() {
 			'query_var'				=> true,
 			'rewrite'				=> false,
 			'has_archive'			=> false,
-			'supports'				=> array('title', 'editor'),
+			'supports'				=> array('title', 'editor', 'thumbnail'),
 		)
 	);
 	register_taxonomy(
@@ -282,7 +282,7 @@ function _init_rkv_post_type() {
 // change post title box text
 function rkv_change_post_text( $title ) {
      $screen = get_current_screen();
- 
+
      if  ( 'tutorials' == $screen->post_type ) :
           $title = 'Tutorial Name';
      endif;
@@ -296,7 +296,7 @@ add_filter('enter_title_here', 'rkv_change_post_text');
 /*
 function rkv_register_columns( $columns ) {
     $columns['featured'] = __( 'Featured');
-     
+
     return $columns;
 }
 
@@ -304,10 +304,10 @@ function rkv_display_columns( $column_name ) {
 
     if ( 'featured' != $column_name )
         return;
-   
+
     global $post;
     $featured = get_post_meta($post->ID, '_rkv_post_featured', true);
-        
+
     if ( !empty($featured) )
         echo '<span class="meta-item"><img src="'.get_bloginfo('stylesheet_directory').'/lib/img/meta-yes.png" alt="Featured" title="Featured"></span>';
 }
@@ -317,7 +317,7 @@ add_action ( 'manage_posts_custom_column', 'rkv_display_columns', 10, 2 );
 */
 
 // create sort pages
-add_action('admin_menu' , 'create_sort_pages'); 
+add_action('admin_menu' , 'create_sort_pages');
 
 function create_sort_pages() {
     add_submenu_page('edit.php?post_type=speaking', 'Sort Items', 'Sort Items', 'edit_posts', 'sort-speaking', 'speaking_sort_order');
@@ -327,7 +327,7 @@ function create_sort_pages() {
 
 function sortable_print_scripts() {
     global $pagenow;
- 
+
     $pages = array('edit.php');
     if (in_array($pagenow, $pages)) {
         wp_enqueue_script('jquery-ui-sortable');
@@ -338,10 +338,10 @@ add_action( 'admin_enqueue_scripts', 'sortable_print_scripts' );
 
 function save_sortable_order() {
     global $wpdb; // WordPress database class
- 
+
     $order = explode(',', $_POST['order']);
     $counter = 0;
- 
+
     foreach ($order as $item_id) {
         $wpdb->update($wpdb->posts, array( 'menu_order' => $counter ), array( 'ID' => $item_id) );
         $counter++;
@@ -359,7 +359,7 @@ function speaking_sort_order() {
     <?php
     while ( $svcs->have_posts() ) : $svcs->the_post();
     ?>
-        <li id="<?php the_id(); ?>"><?php the_title(); ?></li>          
+        <li id="<?php the_id(); ?>"><?php the_title(); ?></li>
     <?php endwhile; ?>
     </ul>
     </div>
@@ -375,7 +375,7 @@ function downloads_sort_order() {
     <?php
     while ( $svcs->have_posts() ) : $svcs->the_post();
     ?>
-        <li id="<?php the_id(); ?>"><?php the_title(); ?></li>          
+        <li id="<?php the_id(); ?>"><?php the_title(); ?></li>
     <?php endwhile; ?>
     </ul>
     </div>
@@ -392,7 +392,7 @@ function plugins_sort_order() {
     <?php
     while ( $svcs->have_posts() ) : $svcs->the_post();
     ?>
-        <li id="<?php the_id(); ?>"><?php the_title(); ?></li>          
+        <li id="<?php the_id(); ?>"><?php the_title(); ?></li>
     <?php endwhile; ?>
     </ul>
     </div>

@@ -35,7 +35,8 @@ class NorcrossVersionFour {
         add_filter ( 'post_thumbnail_html',             array( $this, 'fix_thumbs'              ),      10      );
         add_filter ( 'image_send_to_editor',            array( $this, 'fix_thumbs'              ),      10      );
         add_filter ( 'nav_menu_css_class',              array( $this, 'nav_active'              ),      10, 2   );
-        add_filter ( 'jpeg_quality',                    array( $this, 'jpeg_quality'            )               );
+//        add_filter ( 'jpeg_quality',                    array( $this, 'jpeg_quality'            )               );
+        add_filter ( 'wp_editor_set_quality',           array( $this, 'image_quality'           )               );
         add_filter ( 'get_avatar',                      array( $this, 'burt_avatar'             ),      10, 5   );
         add_filter ( 'body_class',                      array( $this, 'body_class'              )               );
     }
@@ -88,17 +89,16 @@ class NorcrossVersionFour {
         add_image_size      ( 'blog-page', 130, 130, true );
         add_image_size      ( 'speaking', 250, 250, true );
 
+        add_image_size      ( 'ig-thumb',   150, 150, true );
+        add_image_size      ( 'ig-regular', 306, 306, true );
+        add_image_size      ( 'ig-large',   612, 612, true );
+
         // add cron job for gists
         if ( !wp_next_scheduled( 'gists_cron' ) )
             wp_schedule_event(time(), 'twicedaily', 'gists_cron');
 
         if ( !wp_next_scheduled( 'insta_cron' ) )
             wp_schedule_event(time(), 'twicedaily', 'insta_cron');
-
-        /*
-        $timestamp = wp_next_scheduled( 'gists_cron' );
-        wp_unschedule_event($timestamp, 'gists_cron' );
-        */
 
     }
 
@@ -169,7 +169,7 @@ class NorcrossVersionFour {
      * @return Norcrossv4
      */
 
-    public function jpeg_quality($quality) {
+    public function image_quality($quality) {
 
         return 100;
     }

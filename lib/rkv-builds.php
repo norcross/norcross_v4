@@ -76,7 +76,7 @@ function rkv_post_details() {
 	$schm_date	= get_the_date('c');
 	$auth_id	= get_the_author_meta( 'ID' );
 	$auth_name	= get_the_author_meta( 'display_name' );
-	$auth_url	= get_author_posts_url($auth_id);
+	$auth_url	= $auth_id == 1 ? get_bloginfo('url').'/about/' : get_author_posts_url($auth_id);
 
 	echo '<p class="post-details">';
 	echo '<span class="detail-item author vcard"><i class="icon icon-user"></i> <span class="fn"><a href="'.$auth_url.'" rel="author" title="View all posts by '.$auth_name.'">'.$auth_name.'</a></span></span>';
@@ -109,7 +109,8 @@ function rkv_tutorial_details() {
 	$post_date	= get_the_date('M jS, Y');
 	$auth_id	= get_the_author_meta( 'ID' );
 	$auth_name	= get_the_author_meta( 'display_name' );
-	$auth_url	= get_author_posts_url($auth_id);
+//	$auth_url	= get_author_posts_url($auth_id);
+	$auth_url	= $auth_id == 1 ? get_bloginfo('url').'/about/' : get_author_posts_url($auth_id);
 
 	echo '<p class="post-details">';
 	echo '<span class="detail-item"><i class="icon icon-user"></i> <a href="'.$auth_url.'" rel="author" title="View all posts by '.$auth_name.'">'.$auth_name.'</a></span>';
@@ -200,8 +201,7 @@ function rkv_instagram_feed() {
 	$args = array (
 		'fields'        => 'ids',
 		'post_type'     => 'photos',
-		'numberposts'   => -1,
-		'meta_key'      => '_rkv_photo_id',
+		'numberposts'   => 10,
 	);
 
 	$photos = get_posts( $args );
@@ -209,12 +209,19 @@ function rkv_instagram_feed() {
 	foreach ( $photos as $photo ) :
 
 		$caption	= get_post_field('post_content', $photo);
-		$standard	= get_post_meta($photo, '_rkv_photo_stand', true);
-		$fullsize	= get_post_meta($photo, '_rkv_photo_full', true);
+
+		$thumb_id	= get_post_thumbnail_id($photo, 'ig-regular');	// Medium resolution
+		$standard	= wp_get_attachment_image_src($thumb_id, 'ig-regular');
+		$fullsize	= wp_get_attachment_image_src($thumb_id, 'ig-large');
+
+//		$standard	= get_post_meta($photo, '_rkv_photo_stand', true);
+//		$fullsize	= get_post_meta($photo, '_rkv_photo_full', true);
 
 		echo '<div class="instagram-photo">';
-		echo '<a class="instagram-link" href="'.$fullsize.'" title="'.$caption.'" rel="instagram-gallery">';
-		echo '<img class="instagram-pic" src="'.$standard.'" alt="'.$caption.'" title="'.$caption.'">';
+		echo '<a class="instagram-link" href="'.$fullsize[0].'" title="'.$caption.'" rel="instagram-gallery">';
+		echo '<img class="instagram-pic" src="'.$standard[0].'" alt="'.$caption.'" title="'.$caption.'">';
+//		echo '<a class="instagram-link" href="'.$fullsize.'" title="'.$caption.'" rel="instagram-gallery">';
+//		echo '<img class="instagram-pic" src="'.$standard.'" alt="'.$caption.'" title="'.$caption.'">';
 		echo '</a>';
 		echo '</div>';
 

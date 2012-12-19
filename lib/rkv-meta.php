@@ -103,7 +103,7 @@ function cmb_sample_metaboxes( array $meta_boxes ) {
 				'desc' => '',
 				'id'   => $prefix . 'photo_stand',
 				'type' => 'file',
-			),			
+			),
 			array(
 				'name' => 'Full Size URL',
 				'desc' => '',
