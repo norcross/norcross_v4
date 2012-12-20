@@ -4,7 +4,7 @@ function rkv_plugin_data($slug) {
 
 	$trans_slug = 'norcross-plugin-'.$slug;
 	// check for stored transient. if none present, create one
-	if( false == get_transient( $trans_slug ) ) {	
+	if( false == get_transient( $trans_slug ) ) {
 
 		$data_call = array(
 			'action'	=> 'plugin_information',
@@ -23,15 +23,15 @@ function rkv_plugin_data($slug) {
 
 		// Save a transient to the database
 		set_transient($trans_slug, $response, 60*60*1 );
-	
+
 	} // end transient check
 
 	// check for transient cache'd result
 	$response = get_transient( $trans_slug );
-	
+
 	if( is_wp_error( $response ) ) {
 		echo 'Something went wrong!';
-		
+
 	} else {
 		$plugin = $response;
 	}
@@ -71,7 +71,7 @@ function rkv_plugin_favorites() {
 
 		echo '<div class="widget plugin-details plugin-favorite">';
 		echo '<h4 class="nav-header">Other Favorites <i class="icon icon-tags pull-right"></i></h4>';
-		
+
 		// first one
 		echo '<div class="favorite-single">';
 		echo '<h5><a href="'.$plugin_link.'" target="_blank">'.$plugin_name.'</a></h5>';
@@ -105,7 +105,7 @@ function rkv_plugin_favorites() {
 
 function rkv_github_userdata() {
 
-	if( false == get_transient( 'rkv_github_user' ) ) {	
+	if( false == get_transient( 'rkv_github_user' ) ) {
 
 		$request	= new WP_Http;
 		$url		= 'https://api.github.com/users/norcross';
@@ -114,7 +114,7 @@ function rkv_github_userdata() {
 		// Save a transient to the database
 		set_transient('rkv_github_user', $response, 60*60*12 );
 
-	} // end transient check 
+	} // end transient check
 
 	$response = get_transient( 'rkv_github_user' );
 
@@ -128,7 +128,7 @@ function rkv_github_userdata() {
 
 function rkv_github_repos() {
 
-	if( false == get_transient( 'rkv_github_repos' ) ) {	
+	if( false == get_transient( 'rkv_github_repos' ) ) {
 
 		// grab username and total gists to grab
 		$user	= 'norcross';
@@ -140,9 +140,12 @@ function rkv_github_repos() {
 		// Save a transient to the database
 		set_transient('rkv_github_repos', $response, 60*60*12 );
 
-	} // end transient check 
+	} // end transient check
 
 	$response = get_transient( 'rkv_github_repos' );
+
+	if( is_wp_error( $response ) )
+		return;
 
 	$data_raw	= $response['body'];
 	$data_array	= json_decode($data_raw);

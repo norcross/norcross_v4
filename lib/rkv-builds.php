@@ -69,9 +69,7 @@ function rkv_plugin_sidebar() {
 function rkv_post_details() {
 	// get variables
 	global $post;
-	$category	= get_the_category($post->ID);
-	$cat_name	= $category[0]->cat_name;
-	$cat_link	= get_category_link( $category[0]->cat_ID );
+	$categories	= get_the_category($post->ID);
 	$post_date	= get_the_date('M jS, Y');
 	$schm_date	= get_the_date('c');
 	$auth_id	= get_the_author_meta( 'ID' );
@@ -89,23 +87,24 @@ function rkv_post_details() {
 	else:
 		echo '<span title="'.$schm_date.'" class="detail-item date published updated time detail-last"><i class="icon icon-calendar"></i> '.$post_date.'</span>';
 	endif;
-	echo '<span class="detail-item detail-category pull-right"><a class="label label-primary" title="View all posts in '.$cat_name.'" href="'.$cat_link.'">'.$cat_name.'</a></span>';
+
+	if ($categories):
+	echo '<span class="detail-item detail-category pull-right">';
+		foreach ($categories as $category) :
+			$cat_name	= $category->cat_name;
+			$cat_link	= get_category_link( $category->cat_ID );
+			echo '<a class="label label-primary" title="View all posts in '.$cat_name.'" href="'.$cat_link.'">'.$cat_name.'</a>';
+		endforeach;
+	echo '</span>';
+	endif;
+
 	echo '</p>';
 }
 
 function rkv_tutorial_details() {
 	// get variables
 	global $post;
-	$tax_term	= get_the_terms($post->ID, 'tutorial-type');
-
-	if( empty($tax_term) )
-		return;
-
-	$term_root = array_merge($tax_term);
-	$term_name	= $term_root[0]->name;
-	$term_slug	= $term_root[0]->slug;
-	$term_id	= $term_root[0]->term_id;
-	$term_link	= get_term_link( $term_slug, 'tutorial-type' );
+	$tax_terms	= get_the_terms($post->ID, 'tutorial-type');
 	$post_date	= get_the_date('M jS, Y');
 	$auth_id	= get_the_author_meta( 'ID' );
 	$auth_name	= get_the_author_meta( 'display_name' );
@@ -123,7 +122,19 @@ function rkv_tutorial_details() {
 	else:
 		echo '<span class="detail-item detail-last"><i class="icon icon-calendar"></i> '.$post_date.'</span>';
 	endif;
-	echo '<span class="detail-item detail-category pull-right"><a class="label label-primary" title="View all posts in '.$term_name.'" href="'.$term_link.'">'.$term_name.'</a></span>';
+	if ($tax_terms):
+	echo '<span class="detail-item detail-category pull-right">';
+		foreach ($tax_terms as $tax_term) :
+			$term_name	= $tax_term->name;
+			$term_slug	= $tax_term->slug;
+			$term_id	= $tax_term->term_id;
+			$term_link	= get_term_link( $term_slug, 'tutorial-type' );
+			echo '<a class="label label-primary" title="View all posts in '.$term_name.'" href="'.$term_link.'">'.$term_name.'</a>';
+		endforeach;
+	echo '</span>';
+	endif;
+
+
 	echo '</p>';
 }
 

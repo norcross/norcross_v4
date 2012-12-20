@@ -320,6 +320,11 @@ li.search-nav :-moz-placeholder {
 	font-family: 'UniversLight',"Helvetica Neue",Arial,Helvetica,sans-serif;
 	font-weight: normal;
 	font-size: 13px;
+	margin: 0 0 0 2px;
+}
+
+.post-details span.detail-category a:hover {
+	background: #777;
 }
 
 .entry-content {
