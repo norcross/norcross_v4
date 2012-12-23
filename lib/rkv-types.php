@@ -6,91 +6,94 @@ function _init_rkv_post_type() {
 	register_post_type( 'tutorials',
 		array(
 			'labels' => array(
-				'name' => __( 'Tutorials' ),
-				'singular_name' => __( 'Tutorial' ),
-				'add_new' => __( 'Add New' ),
-				'add_new_item' => __( 'Add New Tutorial' ),
-				'edit' => __( 'Edit' ),
-				'edit_item' => __( 'Edit Tutorial' ),
-				'new_item' => __( 'New Tutorial' ),
-				'view' => __( 'View Tutorial' ),
-				'view_item' => __( 'View Tutorial' ),
-				'search_items' => __( 'Search Tutorials' ),
-				'not_found' => __( 'No Tutorials found' ),
-				'not_found_in_trash' => __( 'No Tutorials found in Trash' ),
+				'name'					=> __( 'Tutorials' ),
+				'singular_name'			=> __( 'Tutorial' ),
+				'add_new'				=> __( 'Add New' ),
+				'add_new_item'			=> __( 'Add New Tutorial' ),
+				'edit'					=> __( 'Edit' ),
+				'edit_item'				=> __( 'Edit Tutorial' ),
+				'new_item'				=> __( 'New Tutorial' ),
+				'view'					=> __( 'View Tutorial' ),
+				'view_item'				=> __( 'View Tutorial' ),
+				'search_items'			=> __( 'Search Tutorials' ),
+				'not_found'				=> __( 'No Tutorials found' ),
+				'not_found_in_trash'	=> __( 'No Tutorials found in Trash' ),
 			),
-			'public' => true,
-			'show_ui' => true,
-			'publicly_queryable' => true,
-			'exclude_from_search' => false,
-			'menu_position' => null,
-			'capability_type' => 'post',
-			'taxonomies' => array( 'tutorial-type' ),
-			'menu_icon' => get_stylesheet_directory_uri() . '/lib/img/menu_tutorials.png',
-			'query_var' => true,
-			'rewrite'	=> array( 'slug' => 'tutorials', 'with_front' => false ),
-			'has_archive' => 'tutorials',
-			'supports' => array('title', 'editor', 'excerpt', 'author', 'comments'),
+			'public'				=> true,
+			'show_ui'				=> true,
+			'publicly_queryable'	=> true,
+			'exclude_from_search'	=> false,
+			'menu_position'			=> null,
+			'show_in_nav_menus'		=> false,
+			'capability_type'		=> 'post',
+			'taxonomies'			=> array( 'tutorial-type' ),
+			'menu_icon'				=> get_stylesheet_directory_uri() . '/lib/img/menu_tutorials.png',
+			'query_var'				=> true,
+			'rewrite'				=> array( 'slug' => 'tutorials', 'with_front' => false ),
+			'has_archive'			=> 'tutorials',
+			'supports'				=> array('title', 'editor', 'excerpt', 'author', 'comments'),
 		)
 	);
 	register_post_type( 'speaking',
 		array(
 			'labels' => array(
-				'name' => __( 'Speaking' ),
-				'singular_name' => __( 'Speaking Event' ),
-				'add_new' => __( 'Add New' ),
-				'add_new_item' => __( 'Add New Speaking Event' ),
-				'edit' => __( 'Edit' ),
-				'edit_item' => __( 'Edit Speaking Event' ),
-				'new_item' => __( 'New Speaking Event' ),
-				'view' => __( 'View Speaking Event' ),
-				'view_item' => __( 'View Speaking Event' ),
-				'search_items' => __( 'Search Speaking Events' ),
-				'not_found' => __( 'No Speaking Events found' ),
-				'not_found_in_trash' => __( 'No Speaking Events found in Trash' ),
+				'name'					=> __( 'Speaking' ),
+				'singular_name'			=> __( 'Speaking Event' ),
+				'add_new'				=> __( 'Add New' ),
+				'add_new_item'			=> __( 'Add New Speaking Event' ),
+				'edit'					=> __( 'Edit' ),
+				'edit_item'				=> __( 'Edit Speaking Event' ),
+				'new_item'				=> __( 'New Speaking Event' ),
+				'view'					=> __( 'View Speaking Event' ),
+				'view_item'				=> __( 'View Speaking Event' ),
+				'search_items'			=> __( 'Search Speaking Events' ),
+				'not_found'				=> __( 'No Speaking Events found' ),
+				'not_found_in_trash'	=> __( 'No Speaking Events found in Trash' ),
 			),
-			'public' => true,
-			'show_ui' => true,
-			'publicly_queryable' => true,
-			'exclude_from_search' => false,
-			'menu_position' => null,
-			'capability_type' => 'post',
-			'menu_icon' => get_stylesheet_directory_uri() . '/lib/img/menu_speaking.png',
-			'query_var' => true,
-			'rewrite' => array( 'slug' => 'speaking', 'with_front' => false ),
-			'has_archive' => 'speaking',
-			'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'author'),
+			'public'				=> true,
+			'show_ui'				=> true,
+			'publicly_queryable'	=> true,
+			'exclude_from_search'	=> false,
+			'show_in_nav_menus'		=> false,
+			'menu_position'			=> null,
+			'capability_type'		=> 'post',
+			'menu_icon'				=> get_stylesheet_directory_uri() . '/lib/img/menu_speaking.png',
+			'query_var'				=> true,
+			'rewrite'				=> array( 'slug' => 'speaking', 'with_front' => false ),
+			'has_archive'			=> 'speaking',
+			'supports'				=> array('title', 'editor', 'thumbnail', 'excerpt', 'author'),
 		)
 	);
 	register_post_type( 'plugins',
 		array(
 			'labels' => array(
-				'menu_name' => __( 'Plugins' ),
-				'name' => __( 'Plugins' ),
-				'singular_name' => __( 'Plugin' ),
-				'add_new' => __( 'Add New' ),
-				'add_new_item' => __( 'Add New Plugin' ),
-				'edit' => __( 'Edit' ),
-				'edit_item' => __( 'Edit Plugin' ),
-				'new_item' => __( 'New Plugin' ),
-				'view' => __( 'View Plugin' ),
-				'view_item' => __( 'View Plugin' ),
-				'search_items' => __( 'Search Plugins' ),
-				'not_found' => __( 'No Plugins found' ),
-				'not_found_in_trash' => __( 'No Plugins found in Trash' ),
+				'menu_name'				=> __( 'Plugins' ),
+				'name'					=> __( 'Plugins' ),
+				'singular_name'			=> __( 'Plugin' ),
+				'add_new'				=> __( 'Add New' ),
+				'add_new_item'			=> __( 'Add New Plugin' ),
+				'edit'					=> __( 'Edit' ),
+				'edit_item'				=> __( 'Edit Plugin' ),
+				'new_item'				=> __( 'New Plugin' ),
+				'view'					=> __( 'View Plugin' ),
+				'view_item'				=> __( 'View Plugin' ),
+				'search_items'			=> __( 'Search Plugins' ),
+				'not_found'				=> __( 'No Plugins found' ),
+				'not_found_in_trash'	=> __( 'No Plugins found in Trash' ),
 			),
-			'public' => true,
-			'show_ui' => true,
-			'publicly_queryable' => true,
-			'exclude_from_search' => false,
-			'menu_position' => null,
-			'capability_type' => 'post',
-			'taxonomies' => array( 'plugin-type' ),
-			'menu_icon' => get_stylesheet_directory_uri() . '/lib/img/menu_plugins.png',
-			'query_var' => true,
-			'rewrite'	=> array( 'slug' => 'plugins', 'with_front' => false ),
-			'has_archive' => 'plugins',
-			'supports' => array('title'),
+			'public'				=> true,
+			'show_ui'				=> true,
+			'publicly_queryable'	=> true,
+			'exclude_from_search'	=> false,
+			'show_in_nav_menus'		=> false,
+			'menu_position'			=> null,
+			'capability_type'		=> 'post',
+			'taxonomies'			=> array( 'plugin-type' ),
+			'menu_icon'				=> get_stylesheet_directory_uri() . '/lib/img/menu_plugins.png',
+			'query_var'				=> true,
+			'rewrite'				=> array( 'slug' => 'plugins', 'with_front' => false ),
+			'has_archive'			=> 'plugins',
+			'supports'				=> array('title'),
 		)
 	);
 	register_post_type( 'tools',
@@ -114,6 +117,7 @@ function _init_rkv_post_type() {
 			'show_ui'				=> true,
 			'publicly_queryable'	=> true,
 			'exclude_from_search'	=> false,
+			'show_in_nav_menus'		=> false,
 			'menu_position'			=> null,
 			'capability_type'		=> 'post',
 			'menu_icon'				=> get_stylesheet_directory_uri() . '/lib/img/menu_tools.png',
@@ -145,6 +149,7 @@ function _init_rkv_post_type() {
 			'show_ui'				=> true,
 			'publicly_queryable'	=> true,
 			'exclude_from_search'	=> false,
+			'show_in_nav_menus'		=> false,
 			'menu_position'			=> null,
 			'capability_type'		=> 'post',
 			'menu_icon'				=> get_stylesheet_directory_uri() . '/lib/img/menu_snippets.png',
@@ -174,6 +179,7 @@ function _init_rkv_post_type() {
 			'public'				=> true,
 			'show_ui'				=> true,
 			'publicly_queryable'	=> true,
+			'show_in_nav_menus'		=> false,
 			'exclude_from_search'	=> true,
 			'menu_position'			=> null,
 			'capability_type'		=> 'post',
@@ -204,13 +210,14 @@ function _init_rkv_post_type() {
 			'public'				=> true,
 			'show_ui'				=> true,
 			'publicly_queryable'	=> true,
+			'show_in_nav_menus'		=> false,
 			'exclude_from_search'	=> true,
 			'menu_position'			=> null,
 			'capability_type'		=> 'post',
 			'menu_icon'				=> get_stylesheet_directory_uri() . '/lib/img/menu_photos.png',
 			'query_var'				=> true,
-			'rewrite'				=> false,
-			'has_archive'			=> false,
+			'rewrite'				=> array( 'slug' => 'photos', 'with_front' => false ),
+			'has_archive'			=> 'photos',
 			'supports'				=> array('title', 'editor', 'thumbnail'),
 		)
 	);
@@ -218,14 +225,6 @@ function _init_rkv_post_type() {
 		'tutorial-type',
 		array( 'tutorials' ),
 		array(
-			'public' => true,
-			'show_in_nav_menus' => true,
-			'show_ui' => true,
-			'publicly_queryable' => true,
-			'exclude_from_search' => false,
-			'hierarchical' => false,
-			'query_var' => true,
-			'rewrite' => array ( 'slug' => 'tutorial-type', 'with_front' => false ),
 			'labels' => array(
 				'name'								=> __('Tutorial Type'),
 				'singular_name'						=> __('Tutorial Type'),
@@ -242,20 +241,20 @@ function _init_rkv_post_type() {
 				'choose_from_most_used'				=> __('Choose from the most used Tutorial types'),
 				'separate_items_with_commas'		=> __('Separate Tutorial types with commas'),
 			),
+			'public'				=> true,
+			'show_in_nav_menus'		=> false,
+			'show_ui'				=> true,
+			'publicly_queryable'	=> true,
+			'exclude_from_search'	=> false,
+			'hierarchical'			=> false,
+			'query_var'				=> true,
+			'rewrite'				=> array( 'slug' => 'tutorial-type', 'with_front' => false ),
 		)
 	);
 	register_taxonomy(
 		'tool-type',
 		array( 'tools' ),
 		array(
-			'public' => true,
-			'show_in_nav_menus' => true,
-			'show_ui' => true,
-			'publicly_queryable' => true,
-			'exclude_from_search' => false,
-			'hierarchical' => false,
-			'query_var' => true,
-			'rewrite' => array ( 'slug' => 'tool-type', 'with_front' => true ),
 			'labels' => array(
 				'name'								=> __('Tool Type'),
 				'singular_name'						=> __('Tool Type'),
@@ -272,6 +271,14 @@ function _init_rkv_post_type() {
 				'choose_from_most_used'				=> __('Choose from the most used Tool types'),
 				'separate_items_with_commas'		=> __('Separate Tool types with commas'),
 			),
+			'public'				=> true,
+			'show_in_nav_menus'		=> true,
+			'show_ui'				=> true,
+			'publicly_queryable'	=> true,
+			'exclude_from_search'	=> false,
+			'hierarchical'			=> false,
+			'query_var'				=> true,
+			'rewrite'				=> array( 'slug' => 'tool-type', 'with_front' => true ),
 		)
 	);
 // set taxonomy registration
@@ -293,7 +300,7 @@ function rkv_change_post_text( $title ) {
 add_filter('enter_title_here', 'rkv_change_post_text');
 
 // column setup
-/*
+
 function rkv_register_columns( $columns ) {
     $columns['featured'] = __( 'Featured');
 
@@ -306,15 +313,17 @@ function rkv_display_columns( $column_name ) {
         return;
 
     global $post;
-    $featured = get_post_meta($post->ID, '_rkv_post_featured', true);
+    $featured = get_post_thumbnail_id($post->ID);
 
-    if ( !empty($featured) )
-        echo '<span class="meta-item"><img src="'.get_bloginfo('stylesheet_directory').'/lib/img/meta-yes.png" alt="Featured" title="Featured"></span>';
+    $icon = !empty($featured) ? 'lib/img/meta-yes.png' : 'lib/img/meta-no.png';
+
+    echo '<span class="meta-item"><img src="'.get_bloginfo('stylesheet_directory').'/'.$icon.'" alt="Image" title="Image"></span>';
+
 }
 
-add_filter ( 'manage_edit-post_columns',   'rkv_register_columns' );
+add_filter ( 'manage_edit-photos_columns',   'rkv_register_columns' );
 add_action ( 'manage_posts_custom_column', 'rkv_display_columns', 10, 2 );
-*/
+
 
 // create sort pages
 add_action('admin_menu' , 'create_sort_pages');

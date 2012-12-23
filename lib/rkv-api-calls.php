@@ -154,11 +154,19 @@ function rkv_github_repos() {
 	echo '<div class="widget widget-github-repos" id="github-repos">';
 	echo '<h4 class="nav-header"><i class="icon icon-github-sign pull-right"></i>GitHub Repositories</h4>';
 	echo '<ul>';
-	foreach ($data_array as $data) {
-		echo '<li><a href="' . $data->html_url . '">' . str_replace('-', ' ', $data->name) . '</a></li>';
-	}
-	echo '</ul>';
 
+	if ($data_array) :
+
+		foreach ($data_array as $data) :
+			echo '<li><a href="' . $data->html_url . '">' . str_replace('-', ' ', $data->name) . '</a></li>';
+		endforeach;
+
+	else :
+
+		echo '<li><em>GitHub appears to be down at the moment...</em></li>';
+
+	endif;
+	echo '</ul>';
 	$userdata = rkv_github_userdata();
 
 	echo '<div class="github-button">';

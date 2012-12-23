@@ -348,6 +348,16 @@ li.search-nav :-moz-placeholder {
 	margin: 0 0 5px;
 }
 
+	/* single photos */
+.single-photo-title h1 {
+	text-align: center;
+}
+
+.entry-content img.single-photo {
+	margin: 0 auto;
+	display: block;
+}
+
 /* Social Buttons */
 
 .social-button-container {

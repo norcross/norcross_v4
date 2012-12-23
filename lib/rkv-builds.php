@@ -212,7 +212,7 @@ function rkv_instagram_feed() {
 	$args = array (
 		'fields'        => 'ids',
 		'post_type'     => 'photos',
-		'numberposts'   => 10,
+		'numberposts'   => -1,
 	);
 
 	$photos = get_posts( $args );
@@ -225,14 +225,9 @@ function rkv_instagram_feed() {
 		$standard	= wp_get_attachment_image_src($thumb_id, 'ig-regular');
 		$fullsize	= wp_get_attachment_image_src($thumb_id, 'ig-large');
 
-//		$standard	= get_post_meta($photo, '_rkv_photo_stand', true);
-//		$fullsize	= get_post_meta($photo, '_rkv_photo_full', true);
-
 		echo '<div class="instagram-photo">';
 		echo '<a class="instagram-link" href="'.$fullsize[0].'" title="'.$caption.'" rel="instagram-gallery">';
 		echo '<img class="instagram-pic" src="'.$standard[0].'" alt="'.$caption.'" title="'.$caption.'">';
-//		echo '<a class="instagram-link" href="'.$fullsize.'" title="'.$caption.'" rel="instagram-gallery">';
-//		echo '<img class="instagram-pic" src="'.$standard.'" alt="'.$caption.'" title="'.$caption.'">';
 		echo '</a>';
 		echo '</div>';
 

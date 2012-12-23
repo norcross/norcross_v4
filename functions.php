@@ -35,7 +35,6 @@ class NorcrossVersionFour {
         add_filter ( 'post_thumbnail_html',             array( $this, 'fix_thumbs'              ),      10      );
         add_filter ( 'image_send_to_editor',            array( $this, 'fix_thumbs'              ),      10      );
         add_filter ( 'nav_menu_css_class',              array( $this, 'nav_active'              ),      10, 2   );
-//        add_filter ( 'jpeg_quality',                    array( $this, 'jpeg_quality'            )               );
         add_filter ( 'wp_editor_set_quality',           array( $this, 'image_quality'           )               );
         add_filter ( 'get_avatar',                      array( $this, 'burt_avatar'             ),      10, 5   );
         add_filter ( 'body_class',                      array( $this, 'body_class'              )               );
@@ -130,7 +129,7 @@ class NorcrossVersionFour {
 
     public function body_class($classes) {
 
-        if (is_page_template('page-instagram.php') ):
+        if (is_post_type_archive('photos') ):
             $classes[] = 'instagram';
         endif;
 
@@ -187,7 +186,7 @@ class NorcrossVersionFour {
     wp_enqueue_style( 'bootstrap-custom', get_bloginfo('stylesheet_directory').'/lib/css/bootstrap.custom.css', array(), null, 'all' );
     wp_enqueue_style( 'bootstrap-core', get_bloginfo('stylesheet_directory').'/lib/css/bootstrap.responsive.min.css', array(), null, 'all' );
 
-    if (is_singular('plugins') || is_page_template('page-instagram.php')) :
+    if (is_singular('plugins') || is_post_type_archive('photos') ) :
         wp_enqueue_style( 'colorbox', get_bloginfo('stylesheet_directory').'/lib/css/colorbox.css', array(), null, 'all' );
         wp_enqueue_script( 'colorbox', get_bloginfo('stylesheet_directory').'/lib/js/jquery.colorbox.js', array('jquery'), null, true );
 
@@ -525,6 +524,44 @@ class NorcrossVersionFour {
     }
 
     /**
+     * helper function for making it a sideloaded image
+     *
+     * @return Norcrossv4
+     */
+
+    public function insta_helper($new_photo) {
+
+        // load media handlers
+        require_once(ABSPATH . 'wp-admin' . '/includes/image.php');
+        require_once(ABSPATH . 'wp-admin' . '/includes/file.php');
+        require_once(ABSPATH . 'wp-admin' . '/includes/media.php');
+
+            $pid    = $new_photo;
+            $image  = get_post_meta($new_photo, '_rkv_photo_full', true);
+            $title  = get_the_title($new_photo);
+
+            media_sideload_image($image, $pid, $title);
+
+            // now set as an attachment
+            $args = array(
+                'fields'        => 'ids',
+                'post_type'     => 'attachment',
+                'numberposts'   => -1,
+                'post_status'   => null,
+                'post_parent'   => $pid
+            );
+
+            $photo_attach = get_posts($args);
+
+            if ($photo_attach) :
+                foreach ( $photo_attach as $attach_id ) :
+                    update_post_meta($pid, '_thumbnail_id', $attach_id);
+                endforeach;
+            endif;
+
+    }
+
+    /**
      * run cron for instagram
      *
      * @return Norcrossv4
@@ -597,6 +634,8 @@ class NorcrossVersionFour {
                     add_post_meta($new_photo, '_rkv_photo_thumb', $thumb_url);
                     add_post_meta($new_photo, '_rkv_photo_stand', $standard_url);
                     add_post_meta($new_photo, '_rkv_photo_full', $fullsize_url);
+
+                    $this->insta_helper($new_photo);
 
                 }
 
