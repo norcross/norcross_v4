@@ -161,7 +161,7 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
-
+error_log
 _assets
 _old
 page-test.php
