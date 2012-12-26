@@ -466,19 +466,22 @@ class NorcrossVersionFour {
                 // get and convert timestamp
                 $date   = $data->created_at;
                 $stamp  = strtotime($date);
-                $pubdt  = date('Y-m-d H:i:s', $stamp);
+                $gmtdt  = date('Y-m-d H:i:s', $stamp );
+                $pubdt  = date('Y-m-d H:i:s', ($stamp - 18000 ));
+
 
                 // build new snippet array
 
                 $snippet = array(
                     'post_type'     => 'snippets',
                     'post_title'    => $snip_title,
-                    'post_name'     => $gist_id,
+                    'post_name'     => 'snippet-'.$gist_id,
                     'post_content'  => '',
                     'post_excerpt'  => '',
                     'post_status'   => 'publish',
                     'post_author'   => 1,
                     'post_date'     => $pubdt,
+                    'post_date_gmt' => $gmtdt
                 );
 
                 // add the post to the database
