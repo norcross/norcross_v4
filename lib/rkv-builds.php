@@ -36,8 +36,6 @@ function rkv_plugin_sidebar() {
 
 		$r_ratings	= ceil($ratings);
 		$w_ratings	= ($r_ratings / 100) * 5;
-//		$star_calc	= round($w_ratings, 1, PHP_ROUND_HALF_EVEN);
-
 
 		echo '<div class="widget plugin-details" itemtype="http://schema.org/AggregateRating" itemscope="" itemprop="aggregateRating">';
 		echo '<meta content="0" itemprop="worstRating">';
@@ -108,7 +106,6 @@ function rkv_tutorial_details() {
 	$post_date	= get_the_date('M jS, Y');
 	$auth_id	= get_the_author_meta( 'ID' );
 	$auth_name	= get_the_author_meta( 'display_name' );
-//	$auth_url	= get_author_posts_url($auth_id);
 	$auth_url	= $auth_id == 1 ? get_bloginfo('url').'/about/' : get_author_posts_url($auth_id);
 
 	echo '<p class="post-details">';

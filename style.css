@@ -259,6 +259,10 @@ li.search-nav :-moz-placeholder {
 
 /* Single Blog Post */
 
+.single-post {
+	margin-bottom:20px;
+}
+
 .post-title-area {
 	padding: 10px 0 20px;
 }
@@ -504,6 +508,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', end
 
 #plugin-archives div.plugin-single img.plugin-banner {
 	margin: 0 0 10px;
+	background: #fff;
 /*	border: 1px solid #1D2736; */
 }
 
