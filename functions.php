@@ -182,6 +182,7 @@ class NorcrossVersionFour {
     public function scripts_styles() {
 
     // CSS first
+    wp_enqueue_style( 'main', get_bloginfo('stylesheet_directory').'/main.css', array(), null, 'all' );
 //  wp_enqueue_style( 'bootstrap-custom', get_bloginfo('stylesheet_directory').'/lib/css/bootstrap.custom.min.css', array(), null, 'all' );
     wp_enqueue_style( 'bootstrap-custom', get_bloginfo('stylesheet_directory').'/lib/css/bootstrap.custom.css', array(), null, 'all' );
     wp_enqueue_style( 'bootstrap-core', get_bloginfo('stylesheet_directory').'/lib/css/bootstrap.responsive.min.css', array(), null, 'all' );
@@ -394,6 +395,7 @@ class NorcrossVersionFour {
         $args = array (
             'fields'        => 'ids',
             'post_type'     => 'snippets',
+            'post_status'   => 'publish',
             'numberposts'   => -1,
             'meta_key'      => '_rkv_gist_id',
         );
@@ -458,6 +460,9 @@ class NorcrossVersionFour {
                 $gist_url   = $data->html_url;
                 $gist_title = $data->description;
 
+                // run conversion for empty titles
+                $snip_title = empty($gist_title) ? 'Gist: '.$gist_id : $gist_title;
+
                 // get and convert timestamp
                 $date   = $data->created_at;
                 $stamp  = strtotime($date);
@@ -467,7 +472,7 @@ class NorcrossVersionFour {
 
                 $snippet = array(
                     'post_type'     => 'snippets',
-                    'post_title'    => $gist_title,
+                    'post_title'    => $snip_title,
                     'post_name'     => $gist_id,
                     'post_content'  => '',
                     'post_excerpt'  => '',
