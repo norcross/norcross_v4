@@ -10,6 +10,18 @@ function rkv_menu_count() {
 	return $menu_obj->count;
 }
 
+function rkv_ago( $tm, $rcs = 0 ) {
+   $cur_tm	= time();
+   $dif		= $cur_tm - $tm;
+   $pds		= array('second','minute','hour','day','week','month','year','decade');
+   $lngh	= array(1,60,3600,86400,604800,2630880,31570560,315705600);
+
+   for($v = sizeof($lngh)-1; ($v >= 0)&&(($no = $dif/$lngh[$v])<=1); $v--); if($v < 0) $v = 0; $_tm = $cur_tm-($dif%$lngh[$v]);
+
+   $no = floor($no); if($no <> 1) $pds[$v] .='s'; $x=sprintf("%d %s ",$no,$pds[$v]);
+   if(($rcs == 1)&&($v >= 1)&&(($cur_tm-$_tm) > 0)) $x .= time_ago($_tm);
+   return $x;
+}
 
 function rkv_plugin_sidebar() {
 			// get plugin data
@@ -49,7 +61,7 @@ function rkv_plugin_sidebar() {
 		echo '<tr><td>Requires</td><td>'.$requires.'</td></tr>';
 		echo '<tr><td>Compatible</td><td>'.$tested.'</td></tr>';
 		echo '<tr><td>Released</td><td>'. date('m/d/Y', strtotime( $added ) ).'</td></tr>';
-		echo '<tr><td>Last Updated</td><td>'. date('m/d/Y', strtotime( $updated ) ).'</td></tr>';
+		echo '<tr><td>Last Updated</td><td>'. date('m/d/Y', strtotime( $updated ) ).' <small><em>('.rkv_ago(strtotime( $updated )).' ago)</em></small></td></tr>';
 		echo '<tr><td>Downloads</td><td>'.$downloaded.'</td></tr>';
 
 		echo '<tr><td>Rating</td><td>'.$star_rate.'</td></tr>';
