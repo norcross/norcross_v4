@@ -23,6 +23,7 @@ function rkv_plugin_sidebar() {
 		$version	= $data->version;
 		$requires	= $data->requires;
 		$tested		= $data->tested;
+		$added		= $data->added;
 		$updated	= $data->last_updated;
 		$downloaded	= $data->downloaded;
 		$wordpress	= 'http://wordpress.org/extend/plugins/'.$plugslug.'/';
@@ -47,7 +48,8 @@ function rkv_plugin_sidebar() {
 		echo '<tr><td>Version</td><td>'.$version.'</td></tr>';
 		echo '<tr><td>Requires</td><td>'.$requires.'</td></tr>';
 		echo '<tr><td>Compatible</td><td>'.$tested.'</td></tr>';
-		echo '<tr><td>Last Updated</td><td>'.$updated.'</td></tr>';
+		echo '<tr><td>Released</td><td>'. date('m/d/Y', strtotime( $added ) ).'</td></tr>';
+		echo '<tr><td>Last Updated</td><td>'. date('m/d/Y', strtotime( $updated ) ).'</td></tr>';
 		echo '<tr><td>Downloads</td><td>'.$downloaded.'</td></tr>';
 
 		echo '<tr><td>Rating</td><td>'.$star_rate.'</td></tr>';

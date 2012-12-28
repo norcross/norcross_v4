@@ -346,6 +346,8 @@ li.search-nav :-moz-placeholder {
 	display: block;
 }
 
+	/* single photos */
+
 /* Social Buttons */
 
 .social-button-container {
@@ -432,6 +434,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', end
 	margin: 0 0 3px;
 	font-size: 32px;
 	line-height: 38px;
+}
+
+.snippet-code {
+	line-height: normal;
 }
 
 /* Speaking Archives */
