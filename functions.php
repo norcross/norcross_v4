@@ -25,6 +25,7 @@ class NorcrossVersionFour {
         add_action ( 'wp_enqueue_scripts',              array( $this, 'scripts_styles'          ),      10      );
         add_action ( 'pre_get_posts',                   array( $this, 'ordered_sort'            )               );
         add_action ( 'wp_footer',                       array( $this, 'social_scripts'          )               );
+        add_action ( 'wp_footer',                       array( $this, 'piwik_script'            )               );
         add_action ( 'template_redirect',               array( $this, 'redirects'               ),      1       );
         add_action ( 'gists_cron',                      array( $this, 'run_gists_cron'          )               );
         add_action ( 'insta_cron',                      array( $this, 'run_insta_cron'          )               );
@@ -282,11 +283,39 @@ class NorcrossVersionFour {
     }
 
     /**
-     * load social sharing scripts
+     * load Piwik analytics
      *
      * @return Norcrossv4
      */
 
+    public function piwik_script() {
+        if (!is_user_logged_in()) {
+        ?>
+
+        <!-- Piwik -->
+        <script type="text/javascript">
+            var pkBaseURL = (("https:" == document.location.protocol) ? "https://stats.andrewnorcross.com/" : "http://stats.andrewnorcross.com/");
+            document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script type="text/javascript">
+            try {
+            var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
+            piwikTracker.trackPageView();
+            piwikTracker.enableLinkTracking();
+            } catch( err ) {}
+        </script>
+        <noscript><p><img src="http://stats.andrewnorcross.com/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
+        <!-- End Piwik Tracking Code -->
+
+    <?php
+        }
+    }
+
+    /**
+     * load social sharing scripts
+     *
+     * @return Norcrossv4
+     */
 
     public function social_scripts() {
         if (is_singular(array('post', 'tutorials', 'plugins', 'snippets') ) ) {

@@ -11,13 +11,13 @@
 				<li><a href="https://plus.google.com/101309579396817654042/posts" title="Norcross on Google Plus" target="_blank"><i class="icon icon-google-plus"></i></a></li>
 				<li class="last"><a href="<?php bloginfo('rss2_url'); ?>" title="RSS Feed" target="_blank"><i class="icon icon-rss"></i></a></li>
 			</ul>
-			</div> 
+			</div>
 
 			<div class="container-fluid">
 			<p class="footer-text">
 			<span class="foot-left">&copy;<?php echo date('Y'); ?> <?php bloginfo('name'); ?></span>
 			<span class="foot-right">Built on <a href="http://wordpress.org" target="_blank" title="WordPress">WordPress</a> and coffee</span>
-			<span class="foot-center jump-top hidden-phone"><i class="icon icon-hand-up"></i></span>
+			<span class="foot-center jump-top hidden-phone"><i class="icon icon-hand-up" title="Return To Top"></i></span>
 			</p>
 			</div>
 

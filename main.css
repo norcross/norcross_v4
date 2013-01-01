@@ -319,11 +319,21 @@ li.search-nav :-moz-placeholder {
 	padding: 0 0 15px;
 }
 
+.entry-content .blog-block-group {
+	clear: both;
+	padding: 0 0 30px;
+}
+
+.entry-content h3.center-title {
+	text-align: center;
+	padding: 0 0 10px;
+}
+
 .entry-content p {
 	margin: 0 0 17px;
 }
 
-.entry-content p a {
+.entry-content a {
 	text-decoration: underline;
 }
 
