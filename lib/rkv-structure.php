@@ -1,5 +1,5 @@
 <?php
-		
+
 // Comment Layout
 function rkv_comment_callback($comment, $args, $depth) {
    $GLOBALS['comment'] = $comment;
@@ -15,20 +15,19 @@ function rkv_comment_callback($comment, $args, $depth) {
 					<?php echo get_avatar($comment, $size = '88', $default = '404', $alt = ''); ?>
 				</div>
 				<div class="comment-text span9">
-					<?php printf(__('<h4>%s</h4>'), get_comment_author_link()) ?>
-					<?php // edit_comment_link(__('Edit'),'<span class="edit-comment btn btn-small btn-info"><i class="icon-white icon-pencil"></i>','</span>') ?>
-                    
+					<?php printf(__('<h4><span class="fn">%s</span></h4>'), get_comment_author_link()) ?>
+
                     <?php if ($comment->comment_approved == '0') : ?>
        					<div class="alert-message success">
           				<p><?php _e('Your comment is awaiting moderation.') ?></p>
           				</div>
 					<?php endif; ?>
-                    
+
                     <?php comment_text() ?>
                 </div>
                 <div class="comment-extra span12">
                     <time datetime="<?php echo comment_time('Y-m-j'); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time('M jS, Y'); ?> </a></time>
-                    
+
 					<?php comment_reply_link(array_merge( $comm_args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
                 </div>
 			</div>
@@ -42,7 +41,7 @@ function list_pings($comment, $args, $depth) {
        $GLOBALS['comment'] = $comment;
 ?>
         <li id="comment-<?php comment_ID(); ?>"><i class="icon icon-share-alt"></i>&nbsp;<?php comment_author_link(); ?>
-<?php 
+<?php
 
 }
 
@@ -89,17 +88,17 @@ function rkv_page_navi($before = '', $after = '') {
 	if($start_page <= 0) {
 		$start_page = 1;
 	}
-		
+
 	echo $before.'<div class="pagination pagination-left"><ul class="clearfix">'."";
 	if ($paged > 1) {
 		$first_page_text = "&laquo";
 		echo '<li class="prev"><a href="'.get_pagenum_link().'" title="First">'.$first_page_text.'</a></li>';
 	}
-		
+
 	$prevposts = get_previous_posts_link('&larr; Prev');
 	if($prevposts) { echo '<li>' . $prevposts  . '</li>'; }
 	else { echo '<li class="disabled"><a href="#" title="Previous">&larr; Prev</a></li>'; }
-	
+
 	for($i = $start_page; $i  <= $end_page; $i++) {
 		if($i == $paged) {
 			echo '<li class="active"><a title="Page '.$i.'" href="#">'.$i.'</a></li>';
@@ -124,19 +123,19 @@ class description_walker extends Walker_Nav_Menu
       {
 			global $wp_query;
 			$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
-			
+
 			$class_names = $value = '';
-			
+
 			// If the item has children, add the dropdown class for bootstrap
 			if ( $args->has_children ) {
 				$class_names = "dropdown ";
 			}
-			
+
 			$classes = empty( $item->classes ) ? array() : (array) $item->classes;
-			
+
 			$class_names .= join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) );
 			$class_names = ' class="'. esc_attr( $class_names ) . '"';
-           
+
            	$output .= $indent . '<li id="menu-item-'. $item->ID . '"' . $value . $class_names .'>';
 
            	$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
@@ -163,12 +162,12 @@ class description_walker extends Walker_Nav_Menu
 
             $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
             }
-            
+
         function start_lvl(&$output, $depth) {
             $indent = str_repeat("\t", $depth);
             $output .= "\n$indent<ul class=\"dropdown-menu\">\n";
         }
-            
+
       	function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output )
       	    {
       	        $id_field = $this->db_fields['id'];
@@ -177,6 +176,6 @@ class description_walker extends Walker_Nav_Menu
       	        }
       	        return parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
       	    }
-      	
-            
+
+
 }

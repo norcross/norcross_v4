@@ -61,7 +61,7 @@ function rkv_plugin_sidebar() {
 		echo '<tr><td>Requires</td><td>'.$requires.'</td></tr>';
 		echo '<tr><td>Compatible</td><td>'.$tested.'</td></tr>';
 		echo '<tr><td>Released</td><td>'. date('m/d/Y', strtotime( $added ) ).'</td></tr>';
-		echo '<tr><td>Last Updated</td><td>'. date('m/d/Y', strtotime( $updated ) ).' <small><em>('.rkv_ago(strtotime( $updated )).' ago)</em></small></td></tr>';
+		echo '<tr><td>Last Updated</td><td><span class="updated">'. date('m/d/Y', strtotime( $updated ) ).'</span> <small><em>('.rkv_ago(strtotime( $updated )).' ago)</em></small></td></tr>';
 		echo '<tr><td>Downloads</td><td>'.$downloaded.'</td></tr>';
 
 		echo '<tr><td>Rating</td><td>'.$star_rate.'</td></tr>';
@@ -89,7 +89,7 @@ function rkv_post_details() {
 	$auth_url	= $auth_id == 1 ? get_bloginfo('url').'/about/' : get_author_posts_url($auth_id);
 
 	echo '<p class="post-details">';
-	echo '<span class="detail-item author vcard"><i class="icon icon-user"></i> <span class="fn"><a href="'.$auth_url.'" rel="author" title="View all posts by '.$auth_name.'">'.$auth_name.'</a></span></span>';
+	echo '<span class="detail-item"><span class="vcard author"><i class="icon icon-user"></i> <a class="url fn n" href="'.$auth_url.'" rel="author me" title="View all posts by '.$auth_name.'">'.$auth_name.'</a></span></span>';
 
 	if ( comments_open() ) :
 		echo '<span title="'.$schm_date.'" class="detail-item date published updated time"><i class="icon icon-calendar"></i> '.$post_date.'</span>';
@@ -123,7 +123,7 @@ function rkv_tutorial_details() {
 	$auth_url	= $auth_id == 1 ? get_bloginfo('url').'/about/' : get_author_posts_url($auth_id);
 
 	echo '<p class="post-details">';
-	echo '<span class="detail-item"><i class="icon icon-user"></i> <a href="'.$auth_url.'" rel="author" title="View all posts by '.$auth_name.'">'.$auth_name.'</a></span>';
+	echo '<span class="detail-item"><span class="vcard author"><i class="icon icon-user"></i> <a class="url fn n" href="'.$auth_url.'" rel="author me" title="View all tutorials by '.$auth_name.'">'.$auth_name.'</a></span></span>';
 
 	if ( comments_open() ) :
 		echo '<span class="detail-item"><i class="icon icon-calendar"></i> '.$post_date.'</span>';

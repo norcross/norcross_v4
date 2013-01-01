@@ -300,6 +300,9 @@ class NorcrossVersionFour {
         <script type="text/javascript">
             try {
             var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
+            <?php if (is_404() ) : ?>
+                piwikTracker.setDocumentTitle('404/URL = '+String(document.location.pathname+document.location.search).replace(/\//g,"%2f") + '/From = ' + String(document.referrer).replace(/\//g,"%2f"));
+            <?php endif; ?>
             piwikTracker.trackPageView();
             piwikTracker.enableLinkTracking();
             } catch( err ) {}
@@ -318,8 +321,7 @@ class NorcrossVersionFour {
      */
 
     public function social_scripts() {
-        if (is_singular(array('post', 'tutorials', 'plugins', 'snippets') ) ) {
-    ?>
+        ?>
 
         <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 
@@ -332,7 +334,8 @@ class NorcrossVersionFour {
           })();
         </script>
 
-    <?php } }
+        <?php
+    }
 
     /**
      * set missing gravatars to Burt Reynolds
