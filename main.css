@@ -44,7 +44,8 @@ body {
   font-size: 16px;
   line-height: 24px;
   color: #333;
-  background: url(images/bg/gplaypattern.png) repeat 0 0 #fff;
+/*  background: url(images/bg/gplaypattern.png) repeat 0 0 #fff; */
+	background: url(images/wp-bg.png) no-repeat 30px 50px #fff;
 }
 
 body.logged-in .navbar-fixed-top {
