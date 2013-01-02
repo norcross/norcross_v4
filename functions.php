@@ -289,7 +289,8 @@ class NorcrossVersionFour {
      */
 
     public function piwik_script() {
-        if (!is_user_logged_in()) {
+        if (is_user_logged_in())
+            return;
         ?>
 
         <!-- Piwik -->
@@ -301,7 +302,7 @@ class NorcrossVersionFour {
             try {
             var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
             <?php if (is_404() ) : ?>
-                piwikTracker.setDocumentTitle('404/URL = '+String(document.location.pathname+document.location.search).replace(/\//g,"%2f") + '/From = ' + String(document.referrer).replace(/\//g,"%2f"));
+                piwikTracker.setDocumentTitle('404/URL = ' + String(document.location.pathname + document.location.search).replace(/\//g,'%2f') + '/From = ' + String(document.referrer).replace(/\//g,'%2f'));
             <?php endif; ?>
             piwikTracker.trackPageView();
             piwikTracker.enableLinkTracking();
@@ -311,7 +312,6 @@ class NorcrossVersionFour {
         <!-- End Piwik Tracking Code -->
 
     <?php
-        }
     }
 
     /**
