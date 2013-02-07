@@ -93,6 +93,9 @@ class NorcrossVersionFour {
         add_image_size      ( 'ig-regular', 306, 306, true );
         add_image_size      ( 'ig-large',   612, 612, true );
 
+        remove_action       ( 'wp_head', 'feed_links_extra', 3 );
+        remove_action       ( 'wp_head', 'feed_links', 2 );
+
         // add cron job for gists
         if ( !wp_next_scheduled( 'gists_cron' ) )
             wp_schedule_event(time(), 'twicedaily', 'gists_cron');
@@ -457,15 +460,12 @@ class NorcrossVersionFour {
 
     public function run_gists_cron() {
 
-        // grab username and total gists to grab
-        $user   = 'norcross';
-        $number = 100;
-
-        // set number of items to return
-        $max = !empty($number) ? $max = $number : $max = 100; // 100 is the max return in the GitHub API
+        $args = array(
+            'sslverify' => false
+            );
 
         $request    = new WP_Http;
-        $url        = 'https://api.github.com/users/'.urlencode($user).'/gists?&per_page='.$max.'';
+        $url        = 'https://api.github.com/users/norcross/gists?&per_page=100';
         $response   = wp_remote_get ( $url, $args );
 
         if( is_wp_error( $response ) )
@@ -608,6 +608,10 @@ class NorcrossVersionFour {
      */
 
     public function run_insta_cron() {
+
+        $args = array(
+            'sslverify' => false
+            );
 
         // grab username and total photos to grab
         $user   = akm_get_key('IG_USER');
