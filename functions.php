@@ -24,13 +24,13 @@ class NorcrossVersionFour {
         add_action ( 'after_setup_theme',               array( $this, 'after_setup_theme'       )               );
         add_action ( 'wp_enqueue_scripts',              array( $this, 'scripts_styles'          ),      10      );
         add_action ( 'pre_get_posts',                   array( $this, 'ordered_sort'            )               );
+        add_action ( 'pre_get_posts',                   array( $this, 'rss_include'             )               );
         add_action ( 'wp_footer',                       array( $this, 'social_scripts'          )               );
         add_action ( 'wp_footer',                       array( $this, 'piwik_script'            )               );
         add_action ( 'template_redirect',               array( $this, 'redirects'               ),      1       );
         add_action ( 'gists_cron',                      array( $this, 'run_gists_cron'          )               );
         add_action ( 'insta_cron',                      array( $this, 'run_insta_cron'          )               );
 
-        add_filter ( 'pre_get_posts',                   array( $this, 'rss_include'             )               );
         add_filter ( 'the_content',                     array( $this, 'snippet_display'         ),      25      );
         add_filter ( 'wp_nav_menu_items',               array( $this, 'nav_search'              ),      10, 2   );
         add_filter ( 'post_thumbnail_html',             array( $this, 'fix_thumbs'              ),      10      );
@@ -277,7 +277,7 @@ class NorcrossVersionFour {
             return $content;
 
         $gist = '<div class="github-gist-block">';
-        $gist .= '<script src="https://gist.github.com/'.$gist_id.'.js"></script>';
+        $gist .= '<script src="https://gist.github.com/norcross/'.$gist_id.'.js"></script>';
         $gist .= '</div>';
 
         // Returns the content with the gist.
