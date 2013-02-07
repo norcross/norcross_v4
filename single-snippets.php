@@ -4,8 +4,12 @@
     <div id="content" class="span12 blog-post single-snippet">
     <?php if (have_posts()) : while (have_posts()) : the_post();
         global $post;
-        $gist_url   = get_post_meta($post->ID, '_rkv_gist_url', true);
         $gist_id    = get_post_meta($post->ID, '_rkv_gist_id', true);
+        $gist_url   = 'https://gist.github.com/norcross/'.$gist_id;
+/*
+        $gist_url   = get_post_meta($post->ID, '_rkv_gist_url', true);
+        $gist_url   = str_replace('https://gist.github.com/', 'https://gist.github.com/norcross/', $gist_url);
+*/
     ?>
 
         <section <?php post_class() ?> id="post-<?php the_ID(); ?>">
