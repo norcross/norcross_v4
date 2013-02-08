@@ -4,7 +4,7 @@ function music_shortcode($content = NULL) {
 
     $form = '<div id="music-signup-form" class="clear-well span3 offset1">';
     $form .= '<legend>Get On Board</legend>';
-	$form .= '<form>';    
+	$form .= '<form>';
 	$form .= '<input class="span3 required email" type="email" placeholder="email address" value="" name="music-email" id="music-email">';
     $form .= '<input type="button" class="btn btn-inverse" name="music-subscribe" id="music-subscribe" value="Subscribe">';
     $form .= '</form>';
@@ -23,19 +23,20 @@ add_shortcode ( 'music', 'music_shortcode');
 function gist_shortcode($atts, $content = NULL) {
         extract( shortcode_atts( array(
             'id'    => '',
+            'user'  => 'norcross',
             'title' => ''
-           
+
         ), $atts ) );
 
     if (empty ($id) )
         return;
 
     $gist = '<div class="github-gist-block">';
-    
+
     if(!empty($title))
         $gist .= '<h4>'.$title.'</h4>';
 
-    $gist .= '<script src="https://gist.github.com/'.$id.'.js"></script>';
+    $gist .= '<script src="https://gist.github.com/'.$user.'/'.$id.'.js"></script>';
     $gist .= '</div>';
 
 
