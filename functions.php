@@ -473,10 +473,11 @@ class NorcrossVersionFour {
 
 
         $data_raw   = $response['body'];
-        $data_array = json_decode($data_raw);
 
         if (!$data_raw)
             return;
+
+        $data_array = json_decode($data_raw);
 
         if (!is_array($data_array))
             return;
