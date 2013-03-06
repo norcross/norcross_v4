@@ -930,7 +930,7 @@ ol.commentlist ul.children{
 }
 
 .comment .vcard div{
-	margin-top: 8px;
+	margin: 8px 0 0 0;
 	padding: 0 10px;
 }
 
@@ -1029,11 +1029,13 @@ a.comment-reply-link{
 }
 
 img.avatar{
-	border-top: 1px solid #ddd;
-	border-bottom: 1px solid #dedede;
-	border-right: 1px solid #dedede;
-	border-left: 1px solid #ddd;
-
+	border-top: 1px solid #666666;
+	border-bottom: 1px solid #777777;
+	border-right: 1px solid #777777;
+	border-left: 1px solid #666666;
+	-moz-box-shadow: 0 0 5px #888;
+	-webkit-box-shadow: 0 0 5px #888;
+	box-shadow: 0 0 5px #888;
 }
 
 ol.commentlist li{
@@ -1103,6 +1105,16 @@ ol.commentlist #respond .form-actions {
 #commentform p.comment-tldr {
 	font-size: 110%;
 	text-align: center;
+}
+
+#respond p.gravatar-prompt {
+	font-size: 13px;
+	font-style: italic;
+}
+
+#respond p.gravatar-prompt a {
+	text-decoration: underline;
+	font-weight: 700;
 }
 
 /* Instagram Gallery */

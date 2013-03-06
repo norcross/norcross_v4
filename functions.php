@@ -371,7 +371,7 @@ class NorcrossVersionFour {
             $u_id       = get_current_user_id();
             $email      = get_the_author_meta( 'user_email', $u_id );
             $grav_img   = 'http://www.gravatar.com/avatar/'.md5(strtolower($email)) . '?d=' . urlencode($default) . '&s=' . $size;
-            $gravatar   = '<img src="'.$grav_img.'"/>';
+            $gravatar   = '<img class="avatar" src="'.$grav_img.'"/>';
             return $gravatar;
 
         } else {
@@ -383,11 +383,11 @@ class NorcrossVersionFour {
 
         if($exist == true ) {
             $grav_img   = 'http://www.gravatar.com/avatar/'.md5(strtolower($email)) . '?d=' . urlencode($default) . '&s=' . $size;
-            $gravatar   = '<img src="'.$grav_img.'"/>';
+            $gravatar   = '<img class="avatar" src="'.$grav_img.'"/>';
             return $gravatar;
         } else {
             $burt_img   = $this->gimme_burt();
-            $gravatar   = '<img src="'.get_stylesheet_directory_uri().'/images/burt/'.$burt_img.'" height="'.$size.'" width="'.$size.'"/>';
+            $gravatar   = '<img class="avatar" src="'.get_stylesheet_directory_uri().'/images/burt/'.$burt_img.'" height="'.$size.'" width="'.$size.'"/>';
             return $gravatar;
         }
 

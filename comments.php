@@ -119,6 +119,8 @@
 
 	}
 
+	echo '<p class="gravatar-prompt">Want your own picture showing up instead of Burt Reynolds? Not sure why, but if so, <a href="http://en.gravatar.com/" target="_blank" title="go set up Gravatar for yourself.">go set up Gravatar for yourself.</a></p>';
+
 	?>
 
 	</form>
