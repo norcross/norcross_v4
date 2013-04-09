@@ -733,6 +733,16 @@ div.changelog-data ul li {
 #sidebar .widget ul li a:hover {
 	background:#232D43;
 }
+
+#sidebar p.disclaimer {
+	font-size: 12px;
+	line-height: 16px;
+	font-weight: 300;
+	font-style: italic;
+	margin: 0;
+	text-align: center;
+}
+
 /*
 #sidebar .plugin-details h4 .icon {
 	position: relative;

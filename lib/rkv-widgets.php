@@ -10,9 +10,9 @@ class rkv_ListGistsWidget extends WP_Widget {
 		$this->WP_Widget( 'list_gists', 'Public GitHub Gists', $widget_ops );
 	}
 
-	
+
     /** @see WP_Widget::widget */
-    function widget($args, $instance) {		
+    function widget($args, $instance) {
         extract( $args, EXTR_SKIP );
 
 	// first check for a username. can't do much without it
@@ -22,33 +22,33 @@ class rkv_ListGistsWidget extends WP_Widget {
 	} else {
 
 		// check for stored transient. if none present, create one
-		if( false == get_transient( 'public_github_gists'.$user.'' ) ) {	
-	
+		if( false == get_transient( 'public_github_gists'.$user.'' ) ) {
+
 			// grab username and total gists to grab
 			$user	= $instance['github_user'];
 			$number	= $instance['gists_num'];
 
 			// set number of items to return
 			if (!empty ($number) ) { $max = $number; } else { $max = 100; } // 100 is the max return in the GitHub API
-	
+
 			$request	= new WP_Http;
 			$url		= 'https://api.github.com/users/'.urlencode($user).'/gists?&per_page='.$max.'';
 			$response	= wp_remote_get ( $url, $args );
-	
+
 			// Save a transient to the database
 			set_transient('public_github_gists'.$user.'', $response, 60*60*1 );
-	
+
 		} // end transient check
 
 
 		// set all variable options for plugin call
-	
+
 		$user	= $instance['github_user'];
 		$number	= $instance['gists_num'];
 		$date	= $instance['show_date'];
 		$link	= $instance['show_link'];
-		$text	= $instance['link_text'];		
-	
+		$text	= $instance['link_text'];
+
 		// check for transient cache'd result
 			$response = get_transient( 'public_github_gists'.$user.'' );
 
@@ -60,45 +60,45 @@ class rkv_ListGistsWidget extends WP_Widget {
 
 		// start output of actual widget
 		echo $before_widget;
-		
+
 		$title = empty($instance['title']) ? '' : apply_filters('widget_title', $instance['title']);
 		if ( !empty( $title ) ) { echo $before_title .'<i class="icon icon-github-sign pull-right"></i> '. $title . $after_title; };
 		echo '<ul>';
 
 		// list individual items
 		foreach ( $gist_list as $gist ) {
-	
+
 			// get gist values for display
 			$desc	= $gist->description;
 			$gistid	= $gist->id;
 			$url	= $gist->html_url;
-	
+
 			// grab date and convert it to a readable format
 			$create	= $gist->created_at;
 			$create	= strtotime($create);
 			$create	= date('n/j/Y', $create);
-	
+
 			// check for missing values and replace them if necessary
 			( $desc == null) ? $title = 'Gist ID: '.$gistid : $title = $desc;
 			( empty ($text) ) ? $text = 'Github Profile' : $text = $text;
-			
+
 			// display list of gists
 				echo '<li class="gist_item">';
 				echo '<a class="gist_title" href="'.$url.'" title="'.$title.'" target="_blank">'.$title.'</a>';
-				
+
 				// include optional date
 				if ($date == 1) : echo '<br /><span class="gist_date">Created: '.$create.'</span>'; endif;
 
 				echo '</li>';
 			} // end foreach
-		
+
 		echo '</ul>';
-		
+
 		// display optional github profile link
 		if ($link == 1) : echo '<p class="github_link"><a class="btn btn-primary" href="http://github.com/'.$user.'" title="'.$text.'" target="_blank">'.$text.'</a></p>'; endif;
 
 		} // end error check
-	
+
 	echo $after_widget;
 	} // end username check
 	?>
@@ -106,24 +106,24 @@ class rkv_ListGistsWidget extends WP_Widget {
         <?php }
 
     /** @see WP_Widget::update */
-    function update($new_instance, $old_instance) {				
+    function update($new_instance, $old_instance) {
 		$instance = $old_instance;
 		$instance['title']			= strip_tags($new_instance['title']);
 		$instance['github_user']	= strip_tags($new_instance['github_user']);
 		$instance['gists_num']		= strip_tags($new_instance['gists_num']);
 		$instance['link_text']		= strip_tags($new_instance['link_text']);
-		$instance['show_date']		= !empty($new_instance['show_date']) ? 1 : 0;	
-		$instance['show_link']		= !empty($new_instance['show_link']) ? 1 : 0;	
+		$instance['show_date']		= !empty($new_instance['show_date']) ? 1 : 0;
+		$instance['show_link']		= !empty($new_instance['show_link']) ? 1 : 0;
 
-		// Remove our saved transient (in case we changed something) 
+		// Remove our saved transient (in case we changed something)
 		delete_transient('public_github_gists');
 
 			return $instance;
 		}
 
     /** @see WP_Widget::form */
-    function form($instance) {				
-        $instance = wp_parse_args( (array) $instance, array( 
+    function form($instance) {
+        $instance = wp_parse_args( (array) $instance, array(
 			'title'			=> '',
 			'github_user'	=> '',
 			'gists_num'		=> '',
@@ -149,7 +149,7 @@ class rkv_ListGistsWidget extends WP_Widget {
         <input class="widefat" id="<?php echo $this->get_field_id('github_user'); ?>" name="<?php echo $this->get_field_name('github_user'); ?>" type="text" value="<?php echo esc_attr($github_user); ?>" />
         <?php if (empty ($github_user) ) :	echo '<span class="gist_error_message">Username is required!</span>'; endif; ?>
         </p>
-        
+
 		<p>
         <label for="<?php echo $this->get_field_id('gists_num'); ?>"><?php _e('Gists to display'); ?></label>
         <input class="widefat" id="<?php echo $this->get_field_id('gists_num'); ?>" name="<?php echo $this->get_field_name('gists_num'); ?>" type="text" value="<?php echo esc_attr($gists_num); ?>" />
@@ -168,10 +168,10 @@ class rkv_ListGistsWidget extends WP_Widget {
         <label for="<?php echo $this->get_field_id('link_text'); ?>"><?php _e('Profile link text'); ?></label>
         <input class="widefat" id="<?php echo $this->get_field_id('link_text'); ?>" name="<?php echo $this->get_field_name('link_text'); ?>" type="text" value="<?php echo esc_attr($link_text); ?>" />
         </p>
-        
+
 		<?php }
 
-} // class 
+} // class
 
 
 // tutorials
@@ -186,7 +186,7 @@ class rkv_recent_tutorials extends WP_Widget {
 		echo $before_widget;
 		$title = empty($instance['title']) ? '' : apply_filters('widget_title', $instance['title']);
 		if ( !empty( $title ) ) { echo $before_title .'<i class="icon icon-beaker pull-right"></i> '. $title . $after_title; };
-			
+
 			$public = new WP_Query( array (
 				'post_type'			=> 'tutorials',
 				'posts_per_page'	=> $instance['count'],
@@ -209,11 +209,11 @@ class rkv_recent_tutorials extends WP_Widget {
 			echo '<p class="all_news"><a class="btn btn-primary" href="'.get_bloginfo('url').'/tutorials/" title="View All Tutorials">View All Tutorials</a></p>';
 		echo $after_widget;
 		?>
-        
+
         <?php }
 
     /** @see WP_Widget::update */
-    function update($new_instance, $old_instance) {				
+    function update($new_instance, $old_instance) {
 	$instance = $old_instance;
 	$instance['title']	= strip_tags($new_instance['title']);
 	$instance['count']	= $new_instance['count'];
@@ -221,8 +221,8 @@ class rkv_recent_tutorials extends WP_Widget {
     }
 
     /** @see WP_Widget::form */
-    function form($instance) {				
-        $instance = wp_parse_args( (array) $instance, array( 
+    function form($instance) {
+        $instance = wp_parse_args( (array) $instance, array(
 			'title'	=> 'Recent Tutorials',
 			'count'	=> '5',
 			));
@@ -233,7 +233,7 @@ class rkv_recent_tutorials extends WP_Widget {
 		<p><label for="<?php echo $this->get_field_id('count'); ?>">Post Count:<input class="widefat" id="<?php echo $this->get_field_id('count'); ?>" name="<?php echo $this->get_field_name('count'); ?>" type="text" value="<?php echo esc_attr($count); ?>" /></label></p>
 		<?php }
 
-} // class 
+} // class
 
 // this is my jam - recent jam
 class rkv_recent_jams extends WP_Widget {
@@ -260,11 +260,11 @@ class rkv_recent_jams extends WP_Widget {
 
 		echo $after_widget;
 		?>
-        
+
         <?php }
 
     /** @see WP_Widget::update */
-    function update($new_instance, $old_instance) {				
+    function update($new_instance, $old_instance) {
 	$instance = $old_instance;
 	$instance['title']		= strip_tags($new_instance['title']);
 	$instance['username']	= strip_tags($new_instance['username']);
@@ -279,8 +279,8 @@ class rkv_recent_jams extends WP_Widget {
     }
 
     /** @see WP_Widget::form */
-    function form($instance) {				
-        $instance = wp_parse_args( (array) $instance, array( 
+    function form($instance) {
+        $instance = wp_parse_args( (array) $instance, array(
 			'title'			=> 'Recent Jam',
 			'username'		=> '',
 			'show_text'		=> 0,
@@ -290,7 +290,7 @@ class rkv_recent_jams extends WP_Widget {
 		foreach ( $instance as $field => $val ) {
 			if ( isset($new_instance[$field]) )
 				$instance[$field] = 1;
-		}        
+		}
 		$title		= esc_attr( $instance['title'] );
 		$username	= esc_attr( $instance['username'] );
         ?>
@@ -322,8 +322,10 @@ class rkv_recent_jams extends WP_Widget {
 
 		<?php }
 
-} // class 
+} // class
+
 
 add_action( 'widgets_init', create_function( '', "register_widget('rkv_ListGistsWidget');" ) );
 add_action( 'widgets_init', create_function( '', "register_widget('rkv_recent_tutorials');" ) );
 add_action( 'widgets_init', create_function( '', "register_widget('rkv_recent_jams');" ) );
+

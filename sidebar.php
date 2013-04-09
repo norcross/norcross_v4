@@ -1,21 +1,5 @@
 <?php
 
-if (is_singular('plugins')) :
-
-echo '<div id="sidebar" class="span4 slide-sidebar">';
-echo '<div class="well well-small sidebar-nav">';
-echo '<div class="nav nav-list">';
-
-	echo rkv_plugin_sidebar();
-
-	echo rkv_plugin_favorites();
-
-echo '</div>';
-echo '</div>'; // well
-echo '</div>'; //span
-
-else:
-
 echo '<div id="sidebar" class="span4 slide-sidebar">';
 echo '<div class="well well-small sidebar-nav">';
 echo '<div class="nav nav-list">';
@@ -35,15 +19,8 @@ echo '<div class="nav nav-list">';
 		echo rkv_github_repos();
 	endif;
 
-	if (!is_singular('plugins')) :
-		dynamic_sidebar( 'main-sidebar' );
-	endif;
-
-	
-
+	dynamic_sidebar( 'main-sidebar' );
 
 echo '</div>';
 echo '</div>'; // well
 echo '</div>'; //span
-
-endif;

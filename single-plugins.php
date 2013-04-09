@@ -1,12 +1,12 @@
 <?php get_header(); ?>
 <div id="content-wrap" class="row-fluid">
-  
+
   <div id="content" class="span8 plugin-post" itemtype="http://schema.org/Product" itemscope="">
   	<div class="well">
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-    
+
     <section <?php post_class() ?> id="post-<?php the_ID(); ?>">
-     
+
 	<?php
 
 	global $post;
@@ -15,13 +15,12 @@
 
 	$data	= rkv_plugin_data($slug);
 	$data	= unserialize($data);
-//	echo preprint( $data );
 
 	// plugin data
 	$plugin_name	= $data->name;
 	$plugin_slug	= $data->slug;
 	$tags			= $data->tags;
-	
+
 /*
 	$version		= $data->version;
 	$requires		= $data->requires;
@@ -30,7 +29,7 @@
 	$dl_link		= $data->download_link;
 	$wordpress		= 'http://wordpress.org/extend/plugins/'.$slug.'/';
 	$support		= 'http://wordpress.org/support/plugin/'.$slug.'/';
-*/	
+*/
 	// break out sections
 	$sections		= $data->sections;
 	$description	= $sections['description'];
@@ -61,7 +60,7 @@
 				echo '<span class="badge">'.$tag.'</span>';
 			}
 			echo '</p>';
-		}		
+		}
 		echo '</div>';
 
 		echo '<div class="plugin-detail-data installation-data container-fluid" rel="installation">';
@@ -79,7 +78,7 @@
 		echo '<div class="plugin-detail-data changelog-data container-fluid" rel="changelog">';
 		echo $changelog;
 		echo '</div>';
-	
+
 	echo '</div>';
 
     ?>
@@ -90,8 +89,8 @@
     <?php endwhile; endif; ?>
   </div><!--/well-->
   </div><!--/span-->
-        
-	<?php get_sidebar(); ?>
+
+	<?php get_sidebar('plugins'); ?>
 
 </div><!--/row-->
 <?php get_footer(); ?>

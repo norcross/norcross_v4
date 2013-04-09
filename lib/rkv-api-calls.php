@@ -96,6 +96,7 @@ function rkv_plugin_favorites() {
 		echo '<p class="more-link"><a class="btn" href="http://wordpress.org/extend/plugins/'.$plugin_slug.'/" target="_blank">Learn More &rarr;</a></p>';
 		echo '</div>';
 
+		echo '<p class="disclaimer"><strong>Note:</strong> these plugins are not developed by me.</p>';
 		// close it out
 		echo '</div>';
 
