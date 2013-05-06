@@ -431,7 +431,7 @@ class NorcrossVersionFour {
             'fields'        => 'ids',
             'post_type'     => 'snippets',
             'post_status'   => 'publish',
-            'numberposts'   => -1,
+            'nopaging'      => true,
             'meta_key'      => '_rkv_gist_id',
         );
 
@@ -543,7 +543,7 @@ class NorcrossVersionFour {
         $args = array (
             'fields'        => 'ids',
             'post_type'     => 'photos',
-            'numberposts'   => -1,
+            'nopaging'      => true,
             'meta_key'      => '_rkv_photo_id',
         );
 

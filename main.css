@@ -451,6 +451,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', end
 	line-height: normal;
 }
 
+p.disclaimer {
+	text-align: right;
+	font-size: 11px;
+	line-height: 14px;
+	font-style: italic;
+	font-weight: 300;
+}
+
 /* Speaking Archives */
 
 .speaking-archives {}

@@ -44,7 +44,7 @@
     endif;
     ?>
 
-
+    <p class="disclaimer">Unless otherwise specified, all code here is licensed GPLv2</p>
     </div><!--/span-->
 
 </div><!--/row-->
