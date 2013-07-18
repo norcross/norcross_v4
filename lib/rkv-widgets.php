@@ -325,7 +325,82 @@ class rkv_recent_jams extends WP_Widget {
 } // class
 
 
+/**
+ * display speaker badges
+ *
+ * @return Reaktiv_Widgets
+ *
+ * @since 1.0
+ */
+class rkv_speaking_Widget extends WP_Widget {
+
+	function __construct() {
+		$widget_ops = array('classname' => 'speaker-badge', 'description' => __( 'Display conference speaking badges') );
+		parent::__construct('speaker-badge', __('Conference Badges'), $widget_ops);
+		$this->alt_option_name = 'speaker-badge';
+	}
+
+	function widget( $args, $instance ) {
+
+		extract( $args, EXTR_SKIP );
+
+		echo $before_widget;
+
+		$title = empty( $instance['title'] ) ? '' : apply_filters( 'widget_title', $instance['title'] );
+		if ( !empty( $title ) ) { echo $before_title . $title . $after_title; };
+
+        echo '<a class="badge-link" href="'.$instance['clink'].'" title="'.$instance['alttx'].'" target="_blank">';
+        echo '<img class="badge-image" src="'.$instance['badge'].'" alt="'.$instance['alttx'].'">';
+        echo '</a>';
+
+		echo $after_widget;
+
+
+	}
+
+	function update( $new_instance, $old_instance ) {
+		$instance = $old_instance;
+		$instance['title']  = strip_tags( $new_instance['title'] );
+		$instance['clink']	= strip_tags( $new_instance['clink'] );
+		$instance['badge']  = strip_tags( $new_instance['badge'] );
+		$instance['alttx']  = strip_tags( $new_instance['alttx'] );
+
+		return $instance;
+	}
+
+	function form( $instance ) {
+		$title  = isset( $instance['title'] )   ? esc_attr( $instance['title'] )	: '';
+		$clink	= isset( $instance['clink'] )   ? esc_url( $instance['clink'] )		: '';
+		$badge  = isset( $instance['badge'] )   ? esc_url( $instance['badge'] )		: '';
+		$alttx  = isset( $instance['alttx'] )   ? esc_attr( $instance['alttx'] )	: '';
+	?>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title' ); ?></label>
+			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" />
+		</p>
+
+		<p>
+			<label for="<?php echo $this->get_field_id( 'clink' ); ?>"><?php _e( 'Badge URL' ); ?></label>
+			<input class="widefat" id="<?php echo $this->get_field_id( 'clink' ); ?>" name="<?php echo $this->get_field_name( 'clink' ); ?>" type="url" value="<?php echo $clink; ?>" />
+		</p>
+
+		<p>
+			<label for="<?php echo $this->get_field_id( 'badge' ); ?>"><?php _e( 'Badge Image URL' ); ?></label>
+			<input class="widefat" id="<?php echo $this->get_field_id( 'badge' ); ?>" name="<?php echo $this->get_field_name( 'badge' ); ?>" type="url" value="<?php echo $badge; ?>" />
+		</p>
+
+		<p>
+			<label for="<?php echo $this->get_field_id( 'alttx' ); ?>"><?php _e( 'Badge Alt Text' ); ?></label>
+			<textarea class="widefat" id="<?php echo $this->get_field_id( 'alttx' ); ?>" name="<?php echo $this->get_field_name( 'alttx' ); ?>"><?php echo $alttx; ?></textarea>
+		</p>
+
+	<?php }
+
+
+} // end widget class
+
+
 add_action( 'widgets_init', create_function( '', "register_widget('rkv_ListGistsWidget');" ) );
 add_action( 'widgets_init', create_function( '', "register_widget('rkv_recent_tutorials');" ) );
 add_action( 'widgets_init', create_function( '', "register_widget('rkv_recent_jams');" ) );
-
+add_action( 'widgets_init', create_function( '', "register_widget('rkv_speaking_Widget');" ) );

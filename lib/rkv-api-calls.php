@@ -108,6 +108,10 @@ function rkv_github_userdata() {
 
 	if( false == get_transient( 'rkv_github_user' ) ) {
 
+		$args = array (
+			'sslverify' => false
+		);
+
 		$request	= new WP_Http;
 		$url		= 'https://api.github.com/users/norcross';
 		$response	= wp_remote_get ( $url, $args );
@@ -130,6 +134,10 @@ function rkv_github_userdata() {
 function rkv_github_repos() {
 
 	if( false == get_transient( 'rkv_github_repos' ) ) {
+
+		$args = array (
+			'sslverify' => false
+		);
 
 		// grab username and total gists to grab
 		$user	= 'norcross';

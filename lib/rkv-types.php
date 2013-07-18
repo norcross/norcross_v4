@@ -301,7 +301,13 @@ add_filter('enter_title_here', 'rkv_change_post_text');
 
 // column setup
 
-function rkv_register_columns( $columns ) {
+function rkv_photo_columns( $columns ) {
+
+		unset($columns['wpseo-score']);
+		unset($columns['wpseo-title']);
+		unset($columns['wpseo-metadesc']);
+		unset($columns['wpseo-focuskw']);
+
     $columns['featured'] = __( 'Featured');
 
     return $columns;
@@ -321,7 +327,7 @@ function rkv_display_columns( $column_name ) {
 
 }
 
-add_filter ( 'manage_edit-photos_columns',   'rkv_register_columns' );
+add_filter ( 'manage_edit-photos_columns',   'rkv_photo_columns' );
 add_action ( 'manage_posts_custom_column', 'rkv_display_columns', 10, 2 );
 
 

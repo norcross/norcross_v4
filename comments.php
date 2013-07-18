@@ -113,7 +113,7 @@
 
 	if (is_singular('tutorials')) {
 		$disclaimer = '<p><em><strong>Please note:</strong> These tutorials are meant to be helpful, but please note that I cannot and will not be able to help with any implementations or modifications.</em></p>';
-		$disclaimer .= '<p class="comment-tldr">tl;dr <strong>If you do not understand it, hire someone who does.</strong></p>';
+		$disclaimer .= '<p class="comment-tldr">tl;dr <strong><a href="http://reaktivstudios.com" target="_blank" title="Premier WordPress Development">If you do not understand it, hire Reaktiv Studios to do it.</strong></a></p>';
 
 		echo $disclaimer;
 
