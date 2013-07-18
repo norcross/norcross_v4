@@ -924,6 +924,16 @@ span.github-count:after {
 	opacity: 0.8;
 }
 
+/* Reaktiv Widget / speaking badges */
+
+#sidebar .speaker-badge {}
+
+#sidebar .speaker-badge a.badge-link {
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+}
+
 
 /* Comments */
 
@@ -1215,6 +1225,13 @@ p.footer-text span.foot-center:hover {
 
 p.footer-text span.foot-center .icon {
 	margin: 3px 5px 0 5px;
+}
+
+p.footer-text a.reaktiv-link:before {
+	content: url(images/reaktiv-16.png);
+	position: relative;
+	top: 3px;
+	margin: 0 3px;
 }
 
 .social-footer {

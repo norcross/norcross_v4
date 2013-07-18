@@ -15,7 +15,7 @@
 
 			<div class="container-fluid">
 			<p class="footer-text">
-			<span class="foot-left">&copy;<?php echo date('Y'); ?> <?php bloginfo('name'); ?></span>
+			<span class="foot-left">&copy;<?php echo date('Y'); ?> <?php bloginfo('name'); ?> | <a class="reaktiv-link" href="http://reaktivstudios.com/" target="_blank" title="We build WordPress">Built by Reaktiv Studios</a></span>
 			<span class="foot-right">Built on <a href="http://wordpress.org" target="_blank" title="WordPress">WordPress</a> and coffee | <a href="<?php bloginfo('url'); ?>/terms-conditions/">T &amp; C</a></span>
 			<span class="foot-center jump-top hidden-phone"><i class="icon icon-hand-up" title="Return To Top"></i></span>
 			</p>
